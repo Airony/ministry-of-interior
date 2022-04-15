@@ -45,6 +45,7 @@
 
 .action {
     @include flex-center;
+    flex-direction: column;
     background: $clr-primary-50;
     padding: 1.25em 1em;
     font-size: var(--fs-300);
@@ -263,27 +264,36 @@
 
 // MARK: Ministry
 .ministry {
+    .content {
+
+        display: flex;
+        flex-direction: column;
+        row-gap: clamp(40px, 10vh, 80px);
+    }
+
     .container {
         @include flex-center;
         width: 100%;
         flex-wrap: wrap;
-        column-gap: clamp(30px, 4%, 60px);
-        row-gap: clamp(40px, 10vh, 80px);
+        gap: clamp(30px, 4%, 60px);
 
         &:last-child {
             flex-direction: row-reverse;
         }
 
         &__body {
-            width: 55%;
             display: inline-block;
-            flex-grow: 2;
+            flex-basis: 55%;
+            flex-grow: 1;
+            padding-inline: 1em;
         }
 
         &__img {
             object-fit: contain;
-            width: 40%;
             flex-grow: 1;
+            flex-basis: 40%;
+            min-width: 300px;
+            max-height: 300px;
         }
     }
 }
@@ -467,25 +477,6 @@
     }
 }
 
-@media screen and (max-width:700px) {
-    .ministry {
-
-        .container,
-        .container:last-child {
-            flex-direction: column-reverse;
-        }
-
-        .container {
-            &__body {
-                width: 90%;
-            }
-
-            &__img {
-                width: 100%;
-            }
-        }
-    }
-}
 
 @media screen and (max-width: 600px) {
     .actions-grid {

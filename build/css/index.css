@@ -80,6 +80,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background: #f8f3f1;
   padding: 1.25em 1em;
   font-size: var(--fs-300);
@@ -261,27 +262,34 @@
   z-index: 2;
 }
 
+.ministry .content {
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(40px, 10vh, 80px);
+}
 .ministry .container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-  column-gap: clamp(30px, 4%, 60px);
-  row-gap: clamp(40px, 10vh, 80px);
+  gap: clamp(30px, 4%, 60px);
 }
 .ministry .container:last-child {
   flex-direction: row-reverse;
 }
 .ministry .container__body {
-  width: 55%;
   display: inline-block;
-  flex-grow: 2;
+  flex-basis: 55%;
+  flex-grow: 1;
+  padding-inline: 1em;
 }
 .ministry .container__img {
   object-fit: contain;
-  width: 40%;
   flex-grow: 1;
+  flex-basis: 40%;
+  min-width: 300px;
+  max-height: 300px;
 }
 
 .newsletter-bg {
@@ -424,18 +432,6 @@
     grid-column: auto;
     grid-row: auto;
     min-height: 180px;
-  }
-}
-@media screen and (max-width: 700px) {
-  .ministry .container,
-.ministry .container:last-child {
-    flex-direction: column-reverse;
-  }
-  .ministry .container__body {
-    width: 90%;
-  }
-  .ministry .container__img {
-    width: 100%;
   }
 }
 @media screen and (max-width: 600px) {
