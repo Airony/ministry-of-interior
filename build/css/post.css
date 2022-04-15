@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/HKGrotesk-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/HKGrotesk-Regular.woff2") format("woff2");
+  font-weight: regular;
+  font-style: normal;
+}
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/HKGrotesk-Italic.woff2") format("woff2");
+  font-weight: regular;
+  font-style: italic;
+}
+.post-title {
+  width: 100%;
+  background: #d2bab1;
+  padding: 4em;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 5%;
+  padding-block: var(--section-spacing-large);
+}
+
+.post-content {
+  min-width: 0;
+  flex: 9 0 min-content;
+}
+.post-content h1 {
+  margin-top: 1em;
+}
+.post-content h2 {
+  margin-top: 1em;
+}
+.post-content h3 {
+  margin-top: 1em;
+}
+.post-content h4 {
+  margin-top: 1em;
+}
+.post-content h5 {
+  margin-top: 1em;
+}
+.post-content h6 {
+  margin-top: 0.75em;
+}
+.post-content > :first-child {
+  margin-top: 0;
+}
+
+.toc-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em 2em 0;
+  position: sticky;
+  left: 0;
+  top: 0;
+  min-height: 100vh;
+  border-right: 1px solid #d2bab1;
+  flex: 1 0 30%;
+}
+
+.toc {
+  font-size: var(--fs-300);
+}
+.toc li {
+  list-style: none;
+}
+.toc__item {
+  margin-bottom: 12px;
+  display: inline-block;
+  font-size: var(--fs-300);
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 200ms ease;
+}
+.toc__item:hover {
+  color: #c12f2f;
+}
+
+.toc-level-1 {
+  margin: 0;
+  margin-left: 0px;
+}
+
+.toc-level-2 {
+  margin: 0;
+  margin-left: 18px;
+}
+
+.toc-level-3 {
+  margin: 0;
+  margin-left: 36px;
+}
+
+.toc-level-4 {
+  margin: 0;
+  margin-left: 54px;
+}
+
+.toc-level-5 {
+  margin: 0;
+  margin-left: 72px;
+}
+
+.toc-level-6 {
+  margin: 0;
+  margin-left: 90px;
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .toc-container {
+    position: static;
+    min-height: auto;
+    margin-inline: 0;
+    border: none;
+    background-color: #e3d3ce;
+    padding: 2em 2em 4em 2em;
+    margin-bottom: clamp(40px, 10vh, 80px);
+  }
+}

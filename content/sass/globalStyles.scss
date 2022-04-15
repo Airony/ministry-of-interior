@@ -1,0 +1,188 @@
+@use "variables/colors"as *;
+@use "variables/spacing"as *;
+@use "variables/type"as *;
+@use "variables/type-vars"as *;
+@use "variables/misc"as *;
+@use "sass:map";
+@use "sass:list";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: 2px solid $clr-primary-900;
+    }
+}
+
+section {
+    padding: var(--section-spacing) var(--horizontal-padding);
+    max-width: 1800px;
+    margin-inline: auto;
+}
+
+a {
+    text-decoration: none;
+    color: $text-color-dark;
+
+}
+
+body {
+    background: $background-clr;
+    font-family: "Lora";
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+.btn-primary {
+    cursor: pointer;
+    background-color: $clr-secondary;
+    color: white;
+    border: none;
+    transition: background-color 200ms ease-out;
+
+    @include border-radius;
+
+    &:focus,
+    &:hover {
+        background-color: $clr-btn-hover;
+    }
+
+    &:focus {
+        outline: 1px solid blue;
+    }
+}
+
+.btn-large {
+    font-family: "HK Grotesk";
+    font-weight: bold;
+    @include uppercase;
+    font-size: var(--fs-400);
+    padding: 1.35em 0.75em;
+    display: inline-block;
+}
+
+.btn-small {
+    font-family: "HK Grotesk";
+    font-weight: bold;
+    padding: 15px 10px;
+    font-size: var(--fs-300);
+}
+
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        margin-bottom: list.nth(map.get($header-margins, h#{$i}), 2);
+        font-weight: bold;
+        color: $header-color;
+        font-family: 'HK Grotesk';
+    }
+
+}
+
+
+h1,
+h2,
+h3 {
+    display: block;
+}
+
+
+h1 {
+    font-size: var(--fs-900);
+}
+
+h2 {
+    font-size: var(--fs-800);
+}
+
+h3 {
+    color: $header-color;
+    font-size: var(--fs-700);
+
+}
+
+h4 {
+    font-size: var(--fs-600);
+}
+
+h5 {
+    font-size: var(--fs-500);
+}
+
+h6 {
+    font-size: var(--fs-400);
+}
+
+p,
+li {
+    font-size: var(--fs-400);
+    line-height: var(--body-line-height);
+    color: $text-color-dark;
+    margin-bottom: 1em;
+
+}
+
+.read-more {
+    @include uppercase;
+    font-weight: bold;
+    font-size: var(--fs-300);
+    color: $clr-secondary;
+
+
+}
+
+.text-input,
+.text-input::placeholder {
+    font-family: "Lora";
+    color: $text-color-dark;
+    font-size: var(--fs-400);
+}
+
+.text-input::placeholder {
+    opacity: 0.8;
+}
+
+.text-input {
+    padding: 1em 0.5em;
+    display: inline-block;
+    border: none;
+    @include border-radius
+}
+
+.textfield {
+    display: inline;
+
+    &-grow {
+        display: inline-flex;
+        flex-direction: column;
+
+        .text-input {
+            flex-grow: 1;
+            background-color: $clr-primary-50;
+        }
+    }
+}
+
+label {
+    display: block;
+    font-size: var(--fs-500);
+    color: $text-color-dark;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+button {
+    background: none;
+    border: none;
+    font-family: unset;
+}
+
+.card-title {
+    font-family: "Lora"
+}

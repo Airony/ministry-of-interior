@@ -1,0 +1,125 @@
+@use "./variables/colors"as *;
+@use "./variables/type"as *;
+
+.footer {
+    background: $clr-primary-900;
+    color: $clr-primary-100;
+    padding: var(--section-spacing) var(--horizontal-padding);
+
+    .logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2em;
+
+        &__img {
+            filter: brightness(0) invert(1);
+            width: clamp(70px, 12vw, 160px);
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 1;
+            opacity: 0.8;
+        }
+
+        &__title {
+            color: inherit;
+            font-style: italic;
+            font-weight: normal;
+            font-family: "Lora";
+            @include uppercase;
+            margin-left: 1em;
+            margin-bottom: 0;
+            font-size: var(--fs-700);
+        }
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        font-size: var(--fs-400);
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+
+        &__address,
+        &__phone {
+            color: inherit;
+        }
+
+        &__address {
+            margin-bottom: 0.75em;
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-grow: 1;
+        margin-left: 30px;
+
+        *:focus {
+            outline: 2px $clr-secondary solid;
+        }
+
+
+    }
+
+    .nav {
+        display: flex;
+        align-items: flex-end;
+        gap: 1em;
+        margin-bottom: 1.5em;
+
+        &__item {
+            text-decoration: underline;
+            font-family: "Hk Grotesk";
+            color: inherit;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            &:focus {
+                outline: 2px $clr-secondary solid;
+            }
+        }
+    }
+
+    .social {
+        display: flex;
+        gap: 0.5em;
+
+        &__link {
+            font-size: inherit;
+
+            svg {
+                height: 2.5em;
+                width: 2.5em;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .footer {
+        .nav {
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .footer {
+        .content {
+            flex-direction: column;
+            gap: clamp(40px, 10vh, 70px);
+        }
+    }
+}

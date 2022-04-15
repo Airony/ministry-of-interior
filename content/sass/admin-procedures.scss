@@ -1,0 +1,91 @@
+@use 'variables/spacing'as *;
+@use 'variables/type-vars'as *;
+@use 'variables/colors'as *;
+@use 'variables/misc'as *;
+
+.procedures {
+    padding: var(--section-spacing-large) var(--horizontal-padding);
+
+    &__text {
+        width: clamp(300px, 65%, 800px);
+
+    }
+
+    &__no-result {
+        display: none;
+        grid-column: 1 / -1;
+    }
+}
+
+.filter {
+    margin-top: 4em;
+    margin-bottom: 4em;
+    background-color: $clr-primary-200;
+
+    padding: 2em 4em 2em 2em;
+    margin-inline: -2em;
+
+
+    .text-input {
+        width: clamp(300px, 40%, 700px);
+    }
+}
+
+.procedures-list {
+    $hori-gap: 5vw;
+    $vert-gap: 5vh;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    column-gap: $hori-gap;
+    row-gap: $vert-gap;
+    grid-template-columns: repeat(auto-fill, minmax(max(calc((100% - 2 * $hori-gap) / 3), 250px), 1fr)); // Max column count of 3
+}
+
+.procedure-card {
+    background-color: $clr-primary-50;
+    display: flex;
+    @include border-radius;
+    padding: 1.25em 1em;
+    transition: transform 200ms ease-in;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__title {
+        font-size: var(--fs-400);
+    }
+
+    &__title,
+    &__desc {
+        transition: color 200ms ease-out;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 200px;
+
+    }
+
+    &__desc {
+        flex-grow: 1;
+        font-size: var(--fs-200);
+
+    }
+
+    &__icon {
+        width: clamp(60px, 35%, 110px);
+        aspect-ratio: 1;
+        flex-shrink: 0;
+        fill: $text-color-dark
+    }
+
+    &:hover {
+        transform: scale(1.1);
+
+        .procedure-card__title,
+        .procedure-card__desc {
+            color: $clr-secondary;
+        }
+    }
+}

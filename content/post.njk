@@ -1,0 +1,29 @@
+---
+layout: global-layout.njk
+title: 'its a post'
+pagination:
+  data: posts
+  alias: post
+  size: 1
+permalink: "/{{post.link}}/index.html"
+---
+
+<head>
+    <link rel="stylesheet" href="/css/post.css">
+    <script src="/scripts/post.js"></script>
+</head>
+
+<div class="post-title">
+    <h1>{{post.title}}</h1>
+</div>
+<section class="content">
+    <div class="toc-container">
+        <h3>Contents</h2>
+        <ul class='toc'>
+            {{post.headings | myfilter | safe}}
+        </ul>
+    </div>
+    <main class="post-content">
+        {{post.content | safe}}
+    </main>
+</section>

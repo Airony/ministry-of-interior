@@ -1,0 +1,120 @@
+<head>
+    <link rel="stylesheet" href="/css/header.css">
+    <script src="/scripts/header.js"></script>
+
+</head>
+
+<header class="upper-header">
+    <div class="upper-header__logo">
+        <img class="upper-header__logo-img" src="/assets/seal.svg"/>
+        Ministry of Interior
+      </div>
+    <span class='upper-header__call-us'>Call Us <strong>1100</strong>
+    </span>
+
+    <div class="secondary-nav">
+        <nav class="container">
+            <a href="#" class="secondary-nav__item"> Sitemap </a>
+            <a href="#" class="secondary-nav__item"> Useful Links </a>
+        </nav>
+        <div class="lang-select">
+            <button class="lang-select__btn" aria-expanded="false" aria-controls="lang-select-menu" data-expand-btn='true'> English
+                    <svg class="icon lang-select__icon">
+                    <use href="/assets/icons/sprite.svg#drop-down"></use>
+                </svg>
+            </button>
+
+            <div id="lang-select-menu" class="lang-select__drop-menu" data-collapse-outside='true'>
+                <a class="lang-select__item" href="#" >Arabic</a>
+                <a class="lang-select__item" href="#" >French</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="search-bar upper-header__search-bar">
+        <input
+          type="text"
+          name="Search Term"
+          class="text-input search-bar__input"
+          placeholder="Search"
+          size="1"
+/>
+        <button class="btn-primary search-bar__btn">
+            <svg class="icon" >
+                <use href="/assets/icons/sprite.svg#search"></use>
+            </svg>
+        </button>
+    </div>
+</header>
+<header class="main-header">
+    <button class="hamburger" aria-controls='main-nav' aria-expanded='false' data-modal-btn='true'>
+        <svg class="icon hamburger__icon" >
+            <use href="/assets/icons/sprite.svg#hamburger"></use>
+        </svg>
+    </button>
+    <div class="logo">
+        Ministry of Interior
+      </div>
+
+    <nav class="main-nav" id='main-nav' data-nav='true'>
+
+        <button class="main-nav__close-btn" aria-controls="main-nav" aria-expanded='false' data-modal-btn='true'>
+            <svg class="icon main-nav__close-icon" >
+                <use href="/assets/icons/sprite.svg#close"></use>
+            </svg>
+        </button>
+        {% set menuCount = 1%}
+        {%- for item in navigation %}
+            <div class='main-nav__item'>
+                {% if item.expandable %}
+                    <button class="main-nav__btn" aria-controls='nav-menu-{{menuCount}}' aria-expanded='false' data-expand-btn="true">
+                        {{item.label}}
+                        <svg class="main-nav__icon icon" >
+                            <use href="/assets/icons/sprite.svg#drop-down"></use>
+                        </svg>
+                    </button>
+
+                    <div class="nav-link-menu" id="nav-menu-{{menuCount}}" data-collapse-outside='true'>
+                        {%- for list in item.lists %}
+                            <div class="nav-link-menu__list">
+                                {% if list.title %}
+                                    <span class='nav-link-menu__title'>{{list.title}}
+                                    </span>
+                                {% endif %}
+                                {%- for name, item in list.links %}
+                                    <a href={{item}} class='nav-link-menu__link'>{{name}}</a>
+                                {% endfor -%}
+                            </div>
+                        {% endfor -%}
+                    </div>
+                    {% set menuCount = menuCount + 1%}
+
+                {% else %}
+                    <a href="{{item.link}}" class="main-nav__label">{{item.label}}</a>
+                {% endif %}
+            </div>
+        {% endfor -%}
+
+    </nav>
+    <div class="search-bar">
+        <input
+          type="text"
+          name="Search Term"
+          class="text-input search-bar__input"
+          placeholder="Search"
+          size="1"
+/>
+        <button class="btn-primary search-bar__btn">
+            <svg class="icon" >
+                <use href="/assets/icons/sprite.svg#search"></use>
+            </svg>
+        </button>
+    </div>
+    <button class="search-toggle">
+        <svg class="icon" >
+            <use class="search-toggle__search-icon" href="/assets/icons/sprite.svg#search"></use>
+            <use class="search-toggle__close-icon" href="/assets/icons/sprite.svg#close"></use>
+        </svg>
+    </button>
+</header>

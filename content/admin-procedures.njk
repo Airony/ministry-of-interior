@@ -1,0 +1,45 @@
+---
+layout: global-layout.njk
+title : 'Administrative Procedures'
+data : procedures
+---
+
+{% import "./_includes/components/forms.njk" as forms %}
+<head>
+    <link rel="stylesheet" href="../css/admin-procedures.css">
+    <script src="/scripts/filter.js"></script>
+
+</head>
+
+<main>
+    <section class="procedures">
+        <h2 class='section-title'>Administrative Procedures</h2>
+        <p class='procedures__text'>
+    Non sed id quisque amet pretium, purus volutpat. Euismod urna gravida aenean mauris pellentesque egestas. Enim, pulvinar laoreet vestibulum gravida.
+</p>
+        <form class="filter" name='procedures-filter' method='dialog'>
+            <label>Filter</label>
+            <input type="text" name="Filter" id="filter-input" class='text-input' data-filter-input='true' data-filter-target='procedure-card' 
+            data-filter-field='procedure-card__title' 
+            data-show-on-empty='procedures__no-result' placeholder='Search' autocomplete='off'
+            >
+        </form>
+
+        <div class="procedures-list">
+            {%- for procedure in procedures %}
+                <a class="procedure-card" href="#">
+                    <svg class='procedure-card__icon'>
+                        <use href="/assets/icons/sprite.svg#passport"></use>
+                    </svg>
+                    <div class="procedure-card__content">
+                        <h5 class="card-title procedure-card__title">{{procedure.title}}</h5>
+                        <p class="procedure-card__desc">{{procedure.desc}}</p>
+                    </div>
+                </a>
+            {% endfor -%}
+            <p class="procedures__no-result">
+                No Search Results
+            </p>
+        </div>
+    </main>
+</section>

@@ -1,0 +1,70 @@
+[
+  {
+    "label": "Home",
+    "expandable": false,
+    "link": "/"
+  },
+  {
+    "label": "Documents",
+    "expandable": true,
+    "lists": [
+      {
+        "title": "Online Request",
+        "links": {
+          "Passport": "#",
+          "S12": "#",
+          "Driving License": "#",
+          "I.D Card": "#"
+        }
+      },
+      {
+        "title": "Print Online",
+        "links": {
+          "Birth Certificate": "#",
+          "Marriage Certificate": "#",
+          "Death Certificate": "#"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Admin Procedures",
+    "expandable": false,
+    "link": "/admin-procedures"
+  },
+  {
+    "label": "Social & Political Life",
+    "expandable": true,
+    "lists": [
+      {
+        "title": "",
+        "links": {
+          "Local Charties": "/articles/association",
+          "Foreign Charities": "#",
+          "Political Parties": "#"
+        }
+      }
+    ]
+  },
+  {
+    "label": "About",
+    "expandable": true,
+    "lists": [
+      {
+        "title": "",
+        "links": {
+          "Duties": "#",
+          "Organization": "#",
+          "Legistlation": "#",
+          "Global Cooperation": "#",
+          "Apprentinceship": "#"
+        }
+      }
+    ]
+  },
+  {
+    "label": "File a Petition",
+    "expandable": false,
+    "link": "/"
+  }
+]

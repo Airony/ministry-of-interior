@@ -1,0 +1,37 @@
+@use "./colors.scss"as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("../assets/HKGrotesk-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("../assets/HKGrotesk-Regular.woff2") format("woff2");
+    font-weight: regular;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("../assets/HKGrotesk-Italic.woff2") format("woff2");
+    font-weight: regular;
+    font-style: italic;
+}
+
+@mixin uppercase {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+$header-margins: ("h1":(1em, 0.75em),
+    "h2":(1em, .75em),
+    "h3":(1em, 0.75em),
+    "h4":(1em, 0.75em),
+    "h5":(1em, 0.75em),
+    "h6":(0.75em, 0.5em),
+)

@@ -1,0 +1,89 @@
+{
+  "actions": [
+    {
+      "title": "Request Biometrique I.D Online",
+      "icon": "contact"
+    },
+    {
+      "title": "Request Biometrique I.D Online",
+      "icon": "contact"
+    },
+    {
+      "title": "Request Biometrique I.D Online",
+      "icon": "contact"
+    },
+    {
+      "title": "Request Biometrique I.D Online",
+      "icon": "contact"
+    },
+    {
+      "title": "Request Biometrique I.D Online",
+      "icon": "contact"
+    },
+    {
+      "title": "Request Biometrique I.D Online",
+      "icon": "contact"
+    }
+  ],
+  "news": [
+    {
+      "title": "Le Secrétaire Général préside la cérémonie de remise des décisions des agréments des bureaux d'étude en aménagement du Territoire",
+      "date": "22 / 02 / 2024",
+      "img": "article-img.png",
+      "body": "Vitae scelerisque aliquam vulputate quam at. Leo malesuada nibh purus orci, risus elit tincidunt. Cras turpis risus... Vitae scelerisque aliquam vulputate quam at. Leo malesuada nibh purus orci, risus elit tincidunt. Cras turpis risus... "
+    },
+    {
+      "title": "Le Secrétaire Général préside la cérémonie de remise des décisions des agréments des bureaux d'étude en aménagement du Territoire",
+      "date": "22 / 02 / 2024",
+      "img": "article-img.png",
+
+      "body": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+    },
+    {
+      "title": "Le Secrétaire Général préside la cérémonie de remise des décisions des agréments des bureaux d'étude en aménagement du Territoire",
+      "date": "22 / 02 / 2024",
+      "img": "article-img.png",
+
+      "body": "Neque porro quisquam est qui dolorem ipsum quia dolor sit "
+    },
+    {
+      "title": "Le Secrétaire Général préside la cérémonie de remise des décisions des agréments des bureaux d'étude en aménagement du Territoire",
+      "date": "22 / 02 / 2024",
+      "img": "article-img2.png",
+
+      "body": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+    }
+  ],
+  "guides": [
+    {
+      "title": "Social Housing",
+      "img": "guide-img-1.png"
+    },
+    {
+      "title": "Health & Safety",
+      "img": "guide-img-2.png"
+    },
+    {
+      "title": "Cybersecurity",
+      "img": "guide-img-3.png"
+    },
+    {
+      "title": "Green Spaces",
+      "img": "guide-img-4.png"
+    }
+  ],
+  "files": [
+    {
+      "title": "Rencontre Gouvernement-Walis \"Relance économique, équilibre territorial, justice sociale\""
+    },
+    {
+      "title": "Rencontre Gouvernement-Walis \"Relance économique, équilibre territorial, justice sociale\""
+    },
+    {
+      "title": "Rencontre Gouvernement-Walis \"Relance économique, équilibre territorial, justice sociale\""
+    },
+    {
+      "title": "Rencontre Gouvernement-Walis \"Relance économique, équilibre territorial, justice sociale\""
+    }
+  ]
+}
