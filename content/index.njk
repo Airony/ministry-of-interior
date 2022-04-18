@@ -40,10 +40,8 @@ pagination:
         <div class="grid articles-grid">
             {%- for article in homepage.news %}
                 <div class="card article {{'article--main' if loop.first}}" >
-
                     <img class="article__img"src='./assets/img/{{article.img}}'alt="" >
                     <div class="article__content">
-
                         <h4 class="card-title article__title">
                             {{article.title}}
                         </h4>
