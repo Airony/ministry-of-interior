@@ -1,5 +1,5 @@
-@use "./variables/colors"as *;
-@use "./variables/type"as *;
+@use "../variables/colors"as *;
+@use "../variables/type"as *;
 
 .footer {
     background: $clr-primary-900;

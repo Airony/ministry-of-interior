@@ -1,7 +1,7 @@
-@use "variables/colors"as *;
-@use "variables/type"as *;
-@use "variables/spacing"as *;
-@use 'variables/misc'as *;
+@use "../variables/colors"as *;
+@use "../variables/type"as *;
+@use "../variables/spacing"as *;
+@use '../variables/misc'as *;
 
 
 // MARK : Upperheader
@@ -93,7 +93,7 @@
         z-index: 4; // Might cause some problems later, idk & idc
         flex-direction: column;
         @include shadow-400;
-        @include border-radius;
+        border-radius: $border-radius;
 
         &.menu--expanded {
             display: flex;
@@ -134,6 +134,7 @@
         flex-grow: 1;
         padding: 0.75em 0.5em;
         border: none;
+        @include no-border-radius-right;
     }
 
     &__input,
@@ -143,6 +144,7 @@
 
     &__btn {
         padding: 1em;
+        @include no-border-radius-left;
 
         svg {
             fill: white;
@@ -268,7 +270,7 @@
     padding: 1em 3em 1em 1.25em;
     gap: 2.5em;
     z-index: 2;
-    @include border-radius;
+    border-radius: $border-radius;
     @include shadow-400;
 
     &__title {

@@ -1,7 +1,7 @@
-@use "variables/colors"as *;
-@use "variables/spacing"as *;
-@use "variables/type"as *;
-@use "variables/misc"as *;
+@use "../variables/colors"as *;
+@use "../variables/spacing"as *;
+@use "../variables/type"as *;
+@use "../variables/misc"as *;
 
 
 
@@ -38,17 +38,14 @@
 
 .actions-grid {
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(max(220px, 20%), 1fr));
-    flex-wrap: wrap;
-    gap: min(6vw, 30px);
+    @include grid-preferred-columns(4, 220px, $space-hori-xs, $space-hori-xs)
 }
 
 .action {
-    @include flex-center;
+    display: flex;
+    align-items: center;
     flex-direction: column;
-    background: $clr-primary-50;
     padding: 1.25em 1em;
-    font-size: var(--fs-300);
 
     &__icon {
         aspect-ratio: 1;
@@ -58,12 +55,10 @@
     }
 
     &__title {
-        font-weight: bold;
         text-align: center;
         margin-top: 0.75em;
-        color: $clr-primary-800;
-        padding: 4px;
         transition: $transition-clr;
+        outline-offset: 4px;
 
         &:focus,
         &:hover {
@@ -80,7 +75,8 @@
 
 .articles-grid {
     grid-template-columns: [main-start] repeat(3, minmax(1px, 1fr)) [main-end];
-    gap: max(30px, 4vw);
+    column-gap: $space-hori-s;
+    row-gap: $space-vert-s;
 }
 
 .read-more {
@@ -264,18 +260,20 @@
 
 // MARK: Ministry
 .ministry {
-    .content {
+    padding-bottom: var(--section-spacing-large);
 
+    .content {
         display: flex;
         flex-direction: column;
-        row-gap: clamp(40px, 10vh, 80px);
+        row-gap: 60px;
     }
 
     .container {
         @include flex-center;
         width: 100%;
         flex-wrap: wrap;
-        gap: clamp(30px, 4%, 60px);
+        column-gap: $space-hori-xs;
+        row-gap: 1em;
 
         &:last-child {
             flex-direction: row-reverse;
@@ -323,7 +321,7 @@
     }
 
     &__body {
-        font-size: var(--fs-500);
+        font-size: var(--fs-400);
     }
 
     .form {
@@ -354,7 +352,7 @@
 .files-grid {
     grid-template-columns: repeat(auto-fill,
             minmax(min(max(350px, 40%), 100%), 1fr));
-    gap: min(6vw, 60px);
+    gap: $space-hori-s;
 }
 
 .file {
@@ -382,9 +380,7 @@
         text-underline-offset: -2px;
         transition: text-decoration-color 300ms ease-in, text-underline-offset 200ms ease-in-out;
         padding-bottom: 6px;
-
     }
-
 
     &:focus,
     &:hover {
@@ -396,10 +392,8 @@
         }
     }
 
-
     &:focus {
         outline: 2px solid $clr-primary-700;
-
     }
 }
 
@@ -432,18 +426,17 @@
 @media screen and (max-width: 1000px) {
     .articles-grid {
         grid-template-columns: [main-start] 1fr [main-end];
-        gap: max(6vw, 60px);
     }
 
     .article {
+        max-height: none;
+
         .article__img {
             height: auto;
             width: 100%;
             aspect-ratio: 2;
             max-height: 250px;
         }
-
-        max-height: none;
 
         .article__content {
             margin: 1.5em 1em;

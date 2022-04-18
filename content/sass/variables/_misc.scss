@@ -1,7 +1,26 @@
 @use "./colors.scss"as *;
 
-@mixin border-radius {
-    border-radius: 2px;
+$border-radius: 2px;
+$transition-clr : color 200ms ease;
+
+@mixin no-border-radius-right {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+@mixin no-border-radius-left {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+@mixin no-border-radius-top {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+@mixin no-border-radius-bottom {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 @mixin shadow-400 {
@@ -17,4 +36,16 @@
     align-items: center;
 }
 
-$transition-clr : color 200ms ease;
+@mixin grid-center {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin grid-preferred-columns($preferred-count, $min-size, $column-gap:0px, $row-gap:0px) {
+    column-gap: $column-gap;
+    row-gap: $row-gap;
+    grid-template-columns: repeat(auto-fill,
+            minmax(max(calc((100% - $column-gap * ($preferred-count - 1)) / $preferred-count),
+                    $min-size), 1fr));
+}

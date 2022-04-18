@@ -6,7 +6,7 @@ data : procedures
 
 {% import "./_includes/components/forms.njk" as forms %}
 <head>
-    <link rel="stylesheet" href="../css/admin-procedures.css">
+    <link rel="stylesheet" href="/css/pages/admin-procedures.css">
     <script src="/scripts/filter.js"></script>
 
 </head>
@@ -27,7 +27,7 @@ data : procedures
 
         <div class="procedures-list">
             {%- for procedure in procedures %}
-                <a class="procedure-card" href="#">
+                <a class="card procedure-card" href="#">
                     <svg class='procedure-card__icon'>
                         <use href="/assets/icons/sprite.svg#passport"></use>
                     </svg>

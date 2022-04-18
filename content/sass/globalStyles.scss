@@ -46,7 +46,7 @@ a {
     border: none;
     transition: background-color 200ms ease-out;
 
-    @include border-radius;
+    border-radius: $border-radius;
 
     &:focus,
     &:hover {
@@ -62,7 +62,7 @@ a {
     font-family: "HK Grotesk";
     font-weight: bold;
     @include uppercase;
-    font-size: var(--fs-400);
+    font-size: var(--fs-300);
     padding: 1.35em 0.75em;
     display: inline-block;
 }
@@ -77,46 +77,14 @@ a {
 
 @for $i from 1 through 6 {
     h#{$i} {
-        margin-bottom: list.nth(map.get($header-margins, h#{$i}), 2);
+        margin-bottom: list.nth(map.get($heading-margins, h#{$i}), 2);
         font-weight: bold;
         color: $header-color;
         font-family: 'HK Grotesk';
+        display: block;
+        font-size: var(--fs-#{900 - (($i - 1) * 100)});
+
     }
-
-}
-
-
-h1,
-h2,
-h3 {
-    display: block;
-}
-
-
-h1 {
-    font-size: var(--fs-900);
-}
-
-h2 {
-    font-size: var(--fs-800);
-}
-
-h3 {
-    color: $header-color;
-    font-size: var(--fs-700);
-
-}
-
-h4 {
-    font-size: var(--fs-600);
-}
-
-h5 {
-    font-size: var(--fs-500);
-}
-
-h6 {
-    font-size: var(--fs-400);
 }
 
 p,
@@ -125,7 +93,10 @@ li {
     line-height: var(--body-line-height);
     color: $text-color-dark;
     margin-bottom: 1em;
+}
 
+li {
+    margin-left: 20px;
 }
 
 .read-more {
@@ -152,7 +123,7 @@ li {
     padding: 1em 0.5em;
     display: inline-block;
     border: none;
-    @include border-radius
+    border-radius: border-radius
 }
 
 .textfield {
@@ -183,6 +154,14 @@ button {
     font-family: unset;
 }
 
-.card-title {
-    font-family: "Lora"
+.card {
+    background: $clr-primary-50;
+    border-radius: $border-radius;
+    font-size: var(--fs-300);
+
+    .card-title {
+        font-family: "Lora";
+        font-weight: bold;
+        font-size: var(--fs-400);
+    }
 }

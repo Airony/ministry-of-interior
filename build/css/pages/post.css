@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 @font-face {
   font-family: "HK Grotesk";
-  src: url("../assets/HKGrotesk-Bold.woff2") format("woff2");
+  src: url("../../assets/HKGrotesk-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "HK Grotesk";
-  src: url("../assets/HKGrotesk-Regular.woff2") format("woff2");
+  src: url("../../assets/HKGrotesk-Regular.woff2") format("woff2");
   font-weight: regular;
   font-style: normal;
 }
 @font-face {
   font-family: "HK Grotesk";
-  src: url("../assets/HKGrotesk-Italic.woff2") format("woff2");
+  src: url("../../assets/HKGrotesk-Italic.woff2") format("woff2");
   font-weight: regular;
   font-style: italic;
 }
@@ -22,6 +22,12 @@
   background: #d2bab1;
   padding: 4em;
   text-align: center;
+  background: linear-gradient(324deg, #261d1c 4%, transparent 4%) -70px 43px, linear-gradient(36deg, #261d1c 4%, transparent 4%) 30px 43px, linear-gradient(72deg, #3e2a23 8.5%, transparent 8.5%) 30px 43px, linear-gradient(288deg, #3e2a23 8.5%, transparent 8.5%) -70px 43px, linear-gradient(216deg, #3e2a23 7.5%, transparent 7.5%) -70px 23px, linear-gradient(144deg, #3e2a23 7.5%, transparent 7.5%) 30px 23px, linear-gradient(324deg, #261d1c 4%, transparent 4%) -20px 93px, linear-gradient(36deg, #261d1c 4%, transparent 4%) 80px 93px, linear-gradient(72deg, #3e2a23 8.5%, transparent 8.5%) 80px 93px, linear-gradient(288deg, #3e2a23 8.5%, transparent 8.5%) -20px 93px, linear-gradient(216deg, #3e2a23 7.5%, transparent 7.5%) -20px 73px, linear-gradient(144deg, #3e2a23 7.5%, transparent 7.5%) 80px 73px;
+  background-color: #261d1c;
+  background-size: 100px 100px;
+}
+.post-title__heading {
+  color: white;
 }
 
 .content {

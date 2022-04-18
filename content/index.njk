@@ -8,7 +8,7 @@ pagination:
 {% import "./_includes/components/forms.njk" as forms %}
 
 <head>
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="/css/pages/index.css">
 </head>
 <body>
     <section class='hero'>
@@ -25,12 +25,10 @@ pagination:
         <h2 class='section-title actions__section-title'>Common Resources</h2>
         <div class="grid actions-grid">
             {%- for action in homepage.actions %}
-                <div class='action'>
-
+                <div class='card action'>
                     <svg class='action__icon'>
                         <use href="./assets/icons/sprite.svg#{{action.icon}}"></use>
                     </svg>
-
                     <a class="card-title action__title" href={{action.link}}>{{action.title}}</a>
                 </div>
             {% endfor -%}
@@ -41,14 +39,14 @@ pagination:
         <h2 class='section-title articles__section-title'>Latest News</h2>
         <div class="grid articles-grid">
             {%- for article in homepage.news %}
-                <div class="article {{'article--main' if loop.first}}" >
+                <div class="card article {{'article--main' if loop.first}}" >
 
                     <img class="article__img"src='./assets/img/{{article.img}}'alt="" >
                     <div class="article__content">
 
-                        <h6 class="card-title article__title">
+                        <h4 class="card-title article__title">
                             {{article.title}}
-                        </h6>
+                        </h4>
                         <p class="article__date">
                             {{article.date}}
                         </p>
@@ -69,7 +67,7 @@ pagination:
             <h2 class='section-title guides__section-title' >Useful Guides</h2>
             <div class="guides-list">
                 {%- for guide in homepage.guides %}
-                    <a  href="#" class="guide">
+                    <a  href="#" class="card guide">
                         <h5 class='guide__indicator'>Guide <span class="guide__number">{{loop.index}}
                             </span>
                         </h5>
@@ -112,7 +110,7 @@ pagination:
             <h2 class='section-title files__section-title'>Files</h2>
             <div class="grid files-grid">
                 {%- for file in homepage.files %}
-                    <a class="file" href='#'>
+                    <a class="card file" href='#'>
                         <img class="file__img" src='./assets/img/file-img.png' alt="" >
                         <div class="container">
                             <h6 class="card-title file__title">{{file.title}}</h6>

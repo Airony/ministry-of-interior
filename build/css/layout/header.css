@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 @font-face {
   font-family: "HK Grotesk";
-  src: url("../assets/HKGrotesk-Bold.woff2") format("woff2");
+  src: url("../../assets/HKGrotesk-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "HK Grotesk";
-  src: url("../assets/HKGrotesk-Regular.woff2") format("woff2");
+  src: url("../../assets/HKGrotesk-Regular.woff2") format("woff2");
   font-weight: regular;
   font-style: normal;
 }
 @font-face {
   font-family: "HK Grotesk";
-  src: url("../assets/HKGrotesk-Italic.woff2") format("woff2");
+  src: url("../../assets/HKGrotesk-Italic.woff2") format("woff2");
   font-weight: regular;
   font-style: italic;
 }
@@ -26,7 +26,7 @@
 
 @media screen and (max-width: 1500px) {
   :root {
-    --horizontal-padding: 4vw;
+    --horizontal-padding: max(16px, 4vw);
   }
 }
 @media screen and (max-width: 1100px) {
