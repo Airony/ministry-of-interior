@@ -2,6 +2,12 @@
 @use "../variables/type"as *;
 @use "../variables/spacing"as *;
 @use '../variables/misc'as *;
+@use '../components/langselect.scss';
+@use '../components/searchbar.scss';
+@use '../components/search-toggle.scss';
+@use '../components/hamburger.scss';
+@use '../components/nav-menu.scss'as nav;
+
 
 
 // MARK : Upperheader
@@ -13,8 +19,7 @@
     align-items: center;
     font-family: "HK Grotesk";
     font-size: var(--fs-200);
-    @include uppercase;
-    color: $clr-primary-900;
+    color: $text-color-dark;
     gap: 2em;
     font-weight: bold;
 
@@ -63,101 +68,14 @@
 
 }
 
-
-
-// MARK : Lang-select
-.lang-select {
-    position: relative;
-
-    &__btn {
-        vertical-align: middle;
-        font-size: inherit;
-        font-weight: bold;
-        letter-spacing: inherit;
-        text-transform: inherit;
-        color: inherit;
-        white-space: nowrap;
-
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-
-    &__drop-menu {
-        background-color: $clr-primary-50;
-        display: none;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transform: translateY(100%);
-        z-index: 4; // Might cause some problems later, idk & idc
-        flex-direction: column;
-        @include shadow-400;
-        border-radius: $border-radius;
-
-        &.menu--expanded {
-            display: flex;
-
-        }
-    }
-
-    &__item {
-        padding: 1em 2em 1em 1em;
-        font-weight: inherit;
-
-        &:hover {
-            background-color: $clr-primary-100;
-        }
-    }
-}
-
-
 .search-bar {
-    flex-shrink: 1;
-    flex-basis: 300px;
-}
-
-.icon {
-    vertical-align: middle;
-    fill: $text-color-dark;
-    height: 24px;
-    width: 24px;
-}
-
-// MARK : Searchbar
-
-.search-bar {
-    display: flex;
-    align-items: stretch;
-
-    &__input {
-        flex-grow: 1;
-        padding: 0.75em 0.5em;
-        border: none;
-        @include no-border-radius-right;
-    }
-
-    &__input,
-    &__input::placeholder {
-        font-size: var(--fs-300);
-    }
-
-    &__btn {
-        padding: 1em;
-        @include no-border-radius-left;
-
-        svg {
-            fill: white;
-        }
-    }
+    flex: 0 1 300px;
 }
 
 // MARK : Mainheader
-
 .main-header {
     width: 100%;
-    margin-top: -1px; // fixes annoying empty line bug(?)
-    background-color: $clr-primary-800;
+    background-color: $clr-primary-700;
     display: flex;
     align-items: baseline;
     gap: 40px;
@@ -167,95 +85,13 @@
     .logo,
     .hamburger,
     .search-bar,
-    .search-toggle {
+    .search-bar-toggle {
         display: none;
-    }
-
-    .search-toggle {
-        $animation-duration: 200ms;
-        position: relative;
-        padding: 0.5em;
-
-        svg {
-            fill: white;
-            width: 30px;
-            aspect-ratio: 1;
-            height: auto;
-        }
-
-        &__close-icon,
-        &__search-icon {
-            transition: opacity $animation-duration ease-in;
-        }
-
-        &__close-icon {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition-delay: 0ms;
-        }
-
-        &__search-icon {
-            transition-delay: $animation-duration - 100ms;
-        }
-
-        &--open {
-            .search-toggle__close-icon {
-                opacity: 1;
-                transition-delay: $animation-duration - 100ms;
-            }
-
-            .search-toggle__search-icon {
-                opacity: 0;
-                transition-delay: 0ms;
-            }
-        }
-
-        &:hover {
-            background: $clr-primary-700;
-        }
     }
 }
 
-// MARK : Mainnav
-
 .main-nav {
-    --hidden: false; // Way to monitor when nav bar is hidden in javascript
-    display: flex;
-    align-items: center;
-
-    &__item {
-        position: relative;
-    }
-
-    &__close-btn {
-        display: none;
-    }
-
-    &__label,
-    &__btn {
-        font-size: inherit;
-        line-height: 26px; //just dont
-        display: block;
-        color: white;
-        font-weight: 600;
-        padding: 1.5em 1em;
-
-        svg {
-            fill: white;
-            margin-left: -5px;
-        }
-
-        &:hover,
-        &:focus {
-            background-color: $clr-primary-700;
-        }
-
-        &:focus {
-            outline-offset: -2px;
-        }
-
-    }
+    font-size: var(--fs-300);
 }
 
 .nav-link-menu {
@@ -296,17 +132,16 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .upper-header__logo-img {
-        display: none;
+    .upper-header__logo {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 950px) {
     .upper-header {
-        &__logo {
-            display: none;
-        }
 
+        &__logo,
         .search-bar {
             display: none;
         }
@@ -319,18 +154,7 @@
         padding-block: 1em;
 
         .hamburger {
-            padding: .5em;
             display: initial;
-
-            &__icon {
-                height: 30px;
-                width: 30px;
-                fill: white;
-            }
-
-            &:hover {
-                background-color: $clr-primary-700;
-            }
         }
 
         .logo {
@@ -347,63 +171,8 @@
         }
     }
 
-    // MARK : main nav small
-
     .main-nav {
-        --hidden: true; // Way to monitor when nav bar is hidden in javascript
-
-        $animation-dur: 400ms;
-        position: fixed;
-        flex-direction: column;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        background-color: $clr-primary-800;
-        align-items: stretch;
-        width: 100%;
-        overflow-y: auto;
-        visibility: hidden;
-        transform: translateX(-100%);
-        padding: .75em;
-        z-index: 2;
-        transition: transform $animation-dur ease-in-out,
-            visibility $animation-dur linear;
-
-        &__item:not(:last-child) {
-            border-bottom: 1px solid $clr-primary-700;
-        }
-
-        &__btn {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        &__close-btn {
-            display: initial;
-            width: max-content;
-            padding: .75em;
-            margin-bottom: 2em;
-
-            &:hover {
-                background-color: $clr-primary-600;
-            }
-        }
-
-        &__close-icon {
-            fill: white;
-            height: 36px;
-            width: 36px;
-        }
-
-        &__icon {
-            transition: 200ms transform ease-in;
-        }
-
-        &.menu--expanded {
-            visibility: visible;
-            transform: none;
-        }
+        @include nav.collapsed-style
     }
 
     .nav-link-menu {
@@ -485,9 +254,9 @@
             }
         }
 
-        .search-toggle {
+        .search-bar-toggle {
             display: initial;
+            margin-left: auto;
         }
     }
-
 }

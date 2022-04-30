@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "watch:sass": "sass  --no-source-map --watch content/sass:build/css",
-    "watch:eleventy": "eleventy --serve",
-    "build:sass": "sass  --no-source-map content/sass:build/css",
+    "watch:eleventy": "eleventy --serve --quiet",
+    "build:sass": "sass  --no-source-map content/sass:build/css --quiet",
     "build:eleventy": "eleventy",
     "start": "npm-run-all build:sass --parallel watch:*",
     "build": "npm-run-all build:sass build:eleventy"

@@ -1,0 +1,88 @@
+@use '../variables/colors.scss'as *;
+@use '../variables/misc.scss'as *;
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    color: $text-color-light;
+    border-top: 1px solid $border-light-200;
+    font-family: 'Hk Grotesk';
+
+    &__btn,
+    &__label {
+        font-size: inherit;
+        color: $text-color-light;
+        padding: 1.5em 1em;
+        display: block;
+        width: 100%;
+        text-align: start;
+
+        &:hover {
+            background-color: $clr-primary-600;
+        }
+    }
+
+    &__item {
+        position: relative;
+    }
+
+    &__additional-item,
+    &__close-btn {
+        display: none;
+    }
+}
+
+@mixin collapsed-style {
+    $animation-dur: 400ms;
+    position: fixed;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: $clr-primary-800;
+    align-items: stretch;
+    width: 100%;
+    overflow-y: auto;
+    visibility: hidden;
+    transform: translateX(-100%);
+    padding: .75em;
+    z-index: 2;
+    transition: transform $animation-dur ease-in-out,
+        visibility $animation-dur linear;
+
+    &__item:not(:last-child) {
+        border-bottom: 1px solid $clr-primary-700;
+    }
+
+    &__btn {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &__close-btn {
+        display: initial;
+        width: max-content;
+        padding: .75em;
+        margin-bottom: 2em;
+
+        &:hover {
+            background-color: $clr-primary-600;
+        }
+    }
+
+    &__close-icon {
+        fill: white;
+        height: 36px;
+        width: 36px;
+    }
+
+    &__icon {
+        transition: 200ms transform ease-in;
+    }
+
+    &.menu--expanded {
+        visibility: visible;
+        transform: none;
+    }
+}

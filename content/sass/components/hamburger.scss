@@ -1,0 +1,15 @@
+@use '../variables/colors'as *;
+
+.hamburger {
+    padding: .6em;
+
+    &:hover {
+        background-color: $clr-primary-600;
+    }
+
+    .icon {
+        color: $text-color-light;
+        width: 30px;
+        height: 30px;
+    }
+}

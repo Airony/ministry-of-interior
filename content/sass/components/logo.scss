@@ -1,0 +1,30 @@
+@use '../variables/colors'as *;
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        color: $text-color-light;
+        align-items: flex-start;
+    }
+
+    &__title {
+        font-weight: bold;
+        ;
+        font-size: var(--fs-200);
+    }
+
+    &__tagline {
+        font-size: var(--fs-100);
+    }
+
+    &__img {
+        width: 70px;
+        height: 70px;
+    }
+}

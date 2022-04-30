@@ -1,0 +1,48 @@
+@use "../variables/colors"as *;
+@use "../variables/type"as *;
+@use "../variables/spacing"as *;
+@use '../variables/misc'as *;
+
+.lang-select {
+    position: relative;
+
+    &__btn {
+        vertical-align: middle;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        color: currentColor;
+        white-space: nowrap;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__drop-menu {
+        background-color: $clr-primary-50;
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateY(100%) translateX(-50%);
+        z-index: 4; // Might cause some problems later, idk & idc
+        flex-direction: column;
+        @include shadow-400;
+        border-radius: $border-radius;
+
+        &.menu--expanded {
+            display: flex;
+        }
+    }
+
+    &__item {
+        padding: 1em 2em 1em 1em;
+        font-weight: inherit;
+
+        &:hover {
+            background-color: $clr-primary-100;
+        }
+    }
+}

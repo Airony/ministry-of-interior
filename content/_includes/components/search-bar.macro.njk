@@ -1,0 +1,16 @@
+{% macro searchBar(placeholder = 'Search', class = '') %}
+    <div class="search-bar {{class}}" id='search-bar'>
+        <input
+          type="text"
+          name="Search Term"
+          class="text-input text-input-small search-bar__input"
+          placeholder="{{placeholder}}"
+          size="1"/>
+
+        <button class="btn-primary search-bar__btn">
+            <div class="icon icon-small">
+                {% include '../../assets/icons/search.svg' %}
+            </div>
+        </button>
+    </div>
+{% endmacro %}

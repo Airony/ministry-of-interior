@@ -1,0 +1,14 @@
+{%- macro langSelect() %}
+    <div class="lang-select">
+        <button class="lang-select__btn" aria-expanded="false" aria-controls="lang-select-menu" data-expand-btn='true'> English
+                    <svg class="icon icon-small lang-select__icon">
+                <use href="/assets/icons/sprite.svg#drop-down"></use>
+            </svg>
+        </button>
+
+        <div id="lang-select-menu" class="menu-collapse lang-select__drop-menu" data-collapse-outside='true'>
+            <a class="lang-select__item" href="#" >Arabic</a>
+            <a class="lang-select__item" href="#" >French</a>
+        </div>
+    </div>
+{% endmacro %}

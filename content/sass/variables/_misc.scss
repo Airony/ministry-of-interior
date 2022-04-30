@@ -1,4 +1,5 @@
 @use "./colors.scss"as *;
+@use "sass:string";
 
 $border-radius: 2px;
 $transition-clr : color 200ms ease;
@@ -49,3 +50,48 @@ $transition-clr : color 200ms ease;
             minmax(max(calc((100% - $column-gap * ($preferred-count - 1)) / $preferred-count),
                     $min-size), 1fr));
 }
+
+@function multiple-transitions($duration, $timing-func, $properties...) {
+    $result: null;
+
+    @for $i from 1 through length($properties) {
+        $result: $result + nth($properties, $i) $duration $timing-func;
+
+        @if($i !=length($properties)) {
+            $result: $result + string.unquote(',');
+        }
+    }
+
+    @return $result;
+}
+
+@mixin btn-expanded($new-selector : null) {
+    &[aria-expanded="true"] {
+        @if($new-selector) {
+            #{$new-selector} {
+                @content
+            }
+        }
+
+        @else {
+            @content;
+        }
+    }
+}
+
+@mixin menu-expanded() {
+    &.menu--expanded {
+        @content
+    }
+}
+
+@mixin hover-opacity() {
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+$border-light-200:rgba(255, 255, 255, 0.15);
+$border-light-100:rgba(255, 255, 255, 0.1);
+
+$border-dark-400:rgba(0, 0, 0, 0.2);

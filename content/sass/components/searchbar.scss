@@ -1,0 +1,21 @@
+@use '../variables/misc'as *;
+
+.search-bar {
+    display: flex;
+    align-items: stretch;
+
+    &__input {
+        flex-grow: 1;
+        border: none;
+        @include no-border-radius-right;
+    }
+
+    &__btn {
+        padding: 1em;
+        @include no-border-radius-left;
+
+        svg {
+            fill: white;
+        }
+    }
+}
