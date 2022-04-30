@@ -66,11 +66,11 @@
                     {% set menuCount = menuCount + 1%}
 
                 {% else %}
-                    <a href="{{item.link}}" class="main-nav__label">{{item.label}}</a>
+                    <a href="{{item.link}}" class="main-nav__link">{{item.label}}</a>
                 {% endif %}
             </div>
         {% endfor -%}
-        <div class='main-nav__label main-nav__item main-nav__additional-item'>
+        <div class='main-nav__link main-nav__item main-nav__additional-item'>
             <a href="#" class='main-nav__additional-link'>Back to interior ministry website</a>
         </div>
     </nav>

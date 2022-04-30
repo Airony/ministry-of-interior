@@ -9,7 +9,7 @@
     font-family: 'Hk Grotesk';
 
     &__btn,
-    &__label {
+    &__link {
         font-size: inherit;
         color: $text-color-light;
         padding: 1.5em 1em;
@@ -33,56 +33,76 @@
 }
 
 @mixin collapsed-style {
-    $animation-dur: 400ms;
+    $animation-dur: 250ms;
+    $fade-in-dur: 300ms;
+
     position: fixed;
-    flex-direction: column;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    background-color: $clr-primary-800;
-    align-items: stretch;
-    width: 100%;
-    overflow-y: auto;
-    visibility: hidden;
+    inset: 0;
     transform: translateX(-100%);
-    padding: .75em;
-    z-index: 2;
-    transition: transform $animation-dur ease-in-out,
-        visibility $animation-dur linear;
+    padding: 2em;
+    overflow-y: scroll;
 
-    &__item:not(:last-child) {
-        border-bottom: 1px solid $clr-primary-700;
-    }
+    flex-direction: column;
+    align-items: stretch;
 
-    &__btn {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
+    background-color: inherit;
+    transition: transform $animation-dur ease-in-out;
+
+    & > * {
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
+        transition-delay: $animation-dur + 50ms;
     }
 
     &__close-btn {
         display: initial;
-        width: max-content;
-        padding: .75em;
+
+        .icon {
+            width: 35px;
+            height: 35px;
+        }
+
+        color: $text-color-light;
         margin-bottom: 2em;
+        margin-left: auto;
 
         &:hover {
             background-color: $clr-primary-600;
         }
     }
 
-    &__close-icon {
-        fill: white;
-        height: 36px;
-        width: 36px;
+    &__item {
+        border-bottom: 2px solid $border-light-200;
     }
 
-    &__icon {
-        transition: 200ms transform ease-in;
+    &__btn,
+    &__link {
+        font-weight: bold;
+        padding-block: 1em;
     }
 
-    &.menu--expanded {
-        visibility: visible;
+    &__btn {
+        display: flex;
+        justify-content: space-between;
+
+        .icon {
+            transition: transform 150ms ease-out;
+        }
+
+        @include btn-expanded {
+            background: $clr-primary-800;
+
+            .icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    @include menu-expanded {
         transform: none;
+
+        & > * {
+            opacity: 1;
+        }
     }
 }

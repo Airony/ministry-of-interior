@@ -141,43 +141,7 @@
     }
 
     .main-nav {
-        $animation-dur: 250ms;
-        $fade-in-dur: 300ms;
-
-        position: fixed;
-        inset: 0;
-        transform: translateX(-100%);
-        padding: 2em;
-        overflow-y: scroll;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        background-color: inherit;
-        transition: transform $animation-dur ease-in-out;
-
-        & > * {
-            opacity: 0;
-            transition: opacity 200ms ease-in-out;
-            transition-delay: $animation-dur + 50ms;
-        }
-
-        &__close-btn {
-            display: initial;
-            width: 35px;
-            height: 35px;
-            color: $text-color-light;
-            margin-bottom: 2em;
-            margin-left: auto;
-
-            &:hover {
-                background-color: $clr-primary-600;
-            }
-        }
-
-        &__item {
-            border-bottom: 2px solid $border-light-100;
-        }
+        @include nav.collapsed-style;
 
         &__additional-item {
             display: block;
@@ -187,37 +151,6 @@
             color: $clr-accent-golden;
             text-decoration: underline;
             font-weight: normal
-        }
-
-        &__btn,
-        &__label {
-            font-weight: bold;
-            padding-block: 1em;
-        }
-
-        &__btn {
-            display: flex;
-            justify-content: space-between;
-
-            .icon {
-                transition: transform 150ms ease-out;
-            }
-
-            @include btn-expanded {
-                background: $clr-primary-800;
-
-                .icon {
-                    transform: rotate(180deg);
-                }
-            }
-        }
-
-        @include menu-expanded {
-            transform: none;
-
-            & > * {
-                opacity: 1;
-            }
         }
     }
 

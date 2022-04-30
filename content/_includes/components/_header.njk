@@ -31,7 +31,7 @@
         Ministry of Interior
       </div>
 
-    <nav class="main-nav" id='main-nav' data-nav='true'>
+    <nav class="main-nav" id='main-nav' data-modal='true'>
 
         <button class="main-nav__close-btn" aria-controls="main-nav" aria-expanded='false' data-modal-btn='true'>
             <svg class="icon icon-small main-nav__close-icon" >
@@ -65,7 +65,7 @@
                     {% set menuCount = menuCount + 1%}
 
                 {% else %}
-                    <a href="{{item.link}}" class="main-nav__label">{{item.label}}</a>
+                    <a href="{{item.link}}" class="main-nav__link">{{item.label}}</a>
                 {% endif %}
             </div>
         {% endfor -%}
