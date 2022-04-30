@@ -129,7 +129,6 @@
             transform: translateY(100%);
             opacity: 0;
             background-color: $clr-primary-700;
-            z-index: -1;
             transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
             border: 1px solid $border-dark-400;
 
@@ -142,6 +141,7 @@
 
     .main-nav {
         @include nav.collapsed-style;
+        z-index: 2;
 
         &__additional-item {
             display: block;

@@ -1,5 +1,5 @@
 {% macro searchBarToggle(id) %}
-    <button id="{{id}}"class="search-bar-toggle" aria-controls='main-header__search-bar-container' aria-expanded='false' data-expand-btn="true">
+    <button class="search-bar-toggle" aria-controls='{{id}}' aria-expanded='false' data-expand-btn="true">
         <div class="icon search-bar-toggle__open-icon">{% include '../../assets/icons/search.svg'%}</div>
         <div class="icon search-bar-toggle__close-icon">{% include '../../assets/icons/close.svg'%}</div>
     </button>
