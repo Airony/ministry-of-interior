@@ -71,8 +71,11 @@
         {% endfor -%}
 
     </nav>
-    {{searchBar()}}
-    {{searchBarToggle()}}
+    <div id='main-header__search-bar-container' class="main-header__search-bar-container">
+
+        {{searchBar()}}
+    </div>
+    {{searchBarToggle('main-header__search-bar-container')}}
     <button class="hamburger" aria-controls='main-nav' aria-expanded='false' data-modal-btn='true'>
         <svg class="icon hamburger__icon" >
             <use href="/assets/icons/sprite.svg#hamburger"></use>

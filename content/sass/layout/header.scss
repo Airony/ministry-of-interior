@@ -81,17 +81,39 @@
     gap: 40px;
     padding-inline: 5%;
     font-size: var(--fs-200);
+    position: relative;
+    z-index: 2;
+
 
     .logo,
     .hamburger,
-    .search-bar,
     .search-bar-toggle {
         display: none;
+    }
+
+    &__search-bar-container {
+        $animation-dur: 200ms;
+
+        visibility: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1em;
+        transform: translateY(100%);
+        opacity: 0;
+        background-color: $clr-primary-700;
+        transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
+        border: 1px solid $border-dark-400;
+
+        @include menu-expanded {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 }
 
 .main-nav {
-    z-index: 2;
     font-size: var(--fs-300);
 }
 
@@ -166,14 +188,12 @@
             white-space: nowrap;
         }
 
-        .search-bar {
-            display: flex;
-            margin-left: auto;
-        }
     }
 
     .main-nav {
-        @include nav.collapsed-style
+        @include nav.collapsed-style;
+        z-index: 2;
+
     }
 
     .nav-link-menu {
@@ -231,28 +251,6 @@
 
         .logo {
             font-size: var(--fs-400);
-        }
-
-        .search-bar {
-            $animation-dur: 300ms;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: $clr-primary-700;
-            opacity: 0;
-            transition:
-                opacity $animation-dur ease-in-out,
-                transform $animation-dur ease-in-out,
-                visibility $animation-dur linear;
-            padding: 1em 1em;
-            visibility: hidden;
-
-            &--open {
-                visibility: visible;
-                opacity: 1;
-                transform: translateY(100%);
-            }
         }
 
         .search-bar-toggle {
