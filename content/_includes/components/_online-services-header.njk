@@ -1,0 +1,78 @@
+{%- from "components/search-bar.macro.njk" import searchBar %}
+{%- from 'components/lang-select.macro.njk' import langSelect %}
+{%- from 'components/search-bar-toggle.macro.njk' import searchBarToggle %}
+
+<head>
+    <link rel="stylesheet" href="/css/layout/online-services-header.css">
+    <script src='/scripts/menu-control.js'></script>
+    <script src='/scripts/modal-control.js'></script>
+</head>
+
+<header class="upper-header">
+    <a href="#" class='upper-header__account-btn'>
+        <i class="icon icon-small">{% include '../../assets/icons/account.svg' %}</i>Account</a>
+    {{langSelect()}}
+    <nav class="upper-header__nav-list">
+        <a href="#" class='upper-header__link'>Back to interior ministry website</a>
+    </nav>
+</header>
+<header class="main-header">
+    <div class="content">
+        <div class="logo">
+            <img class="logo__img" src="/assets/seal.svg"/>
+            <div class="logo__content">
+                <span class='logo__title'>Ministry of Interior</span>
+                <span class='logo__tagline'>Online Services</span>
+            </div>
+        </div>
+        <div class="controls">
+            <a href="#" class='btn-primary btn-very-small main-header__login-btn'>Account Login</a>
+            {{searchBarToggle()}}
+            <button class="hamburger" aria-controls='main-nav' aria-expanded='false' data-modal-btn='true'>
+                <div class="icon hamburger__icon" >
+                    {% include "../../assets/icons/hamburger.svg" %}
+                </div>
+            </button>
+
+            <div class="main-header__search-bar-container" id="main-header__search-bar-container">
+                {{searchBar("Search","main-header__search-bar")}}
+            </div>
+        </div>
+    </div>
+    <nav class="main-nav" data-modal='true' data-prevent-scroll='true' id='main-nav'>
+        <button class="main-nav__close-btn" aria-controls='main-nav' aria-expanded='false' data-modal-btn='true'>
+            <div class="icon">
+                {% include "../../assets/icons/close.svg" %}
+            </div>
+        </button>
+        {% set menuCount = 1%}
+        {%- for item in svnavigation %}
+            <div class='main-nav__item'>
+                {% if item.expandable %}
+                    <button class="main-nav__btn" aria-controls='nav-menu-{{menuCount}}' aria-expanded='false' data-expand-btn="true">
+                        {{item.label}}
+                        <svg class="icon icon-small main-nav__icon" >
+                            <use href="/assets/icons/sprite.svg#drop-down"></use>
+                        </svg>
+                    </button>
+
+                    <div class="menu-collapse nav-link-menu" id="nav-menu-{{menuCount}}" data-collapse-outside='true'>
+                        {%- for list in item.lists %}
+                            {%- for name, item in list.links %}
+                                <a href={{item}} class='nav-link-menu__link'>{{name}}</a>
+                            {% endfor -%}
+                        {% endfor -%}
+                    </div>
+                    {% set menuCount = menuCount + 1%}
+
+                {% else %}
+                    <a href="{{item.link}}" class="main-nav__label">{{item.label}}</a>
+                {% endif %}
+            </div>
+        {% endfor -%}
+        <div class='main-nav__label main-nav__item main-nav__additional-item'>
+            <a href="#" class='main-nav__additional-link'>Back to interior ministry website</a>
+        </div>
+    </nav>
+
+</header>

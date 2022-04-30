@@ -1,0 +1,11 @@
+{
+  "overrides": [
+    {
+      "files": "*.njk",
+      "options": {
+        "parser": "nunjucks",
+        "plugins": ["./node_modules/prettier-plugin-nunjucks"]
+      }
+    }
+  ]
+}

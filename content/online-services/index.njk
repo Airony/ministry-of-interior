@@ -1,0 +1,62 @@
+---
+layout: services-layout
+title: Online Services
+---
+<head>
+    <link rel="stylesheet" href="/css/pages/online-services.css">
+</head>
+<main>
+    <section class='intro'>
+        <h1>Demarche Administrative Online</h1>
+        <p>Welcome to the administrative demarch page. Here you can request passport, i.d card, birth certificate, marriage certificat, and death certificate</p>
+    </section>
+    <section class="ongoing-requests">
+        <h2>Ongoing Requests</h2>
+        <div class="table-container">
+            <table class="requests-table">
+                <thead>
+                    <tr>
+                        <th>Document</th>
+                        <th>Request Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td class='has-label'>
+                        <span class='requests-table__row-label' aria-hidden="true">Document</span>National I.D Card</td>
+                    <td class='has-label'>
+                        <span class='requests-table__row-label' aria-hidden="true">Request Date</span>22/02/2022</td>
+                    <td class='has-label'>
+                        <span class='requests-table__row-label' aria-hidden="true">Status</span>Incomplete</td>
+                    <td>
+                        <div class="requests-table__actions">
+
+                            <button class='btn-primary btn-very-small'>Edit Form</button>
+                            <button class='btn-primary btn-very-small'>Reschedule</button>
+                            <button class='btn-underline btn-underline-small requests-table__print-btn'>
+                                <i class="requests-table__print-icon">{% include "../assets/icons/print.svg" %}</i>Print
+                                </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='has-label'>
+                        <span class='requests-table__row-label' aria-hidden="true">Document</span>Passport</td>
+                    <td class='has-label'>
+                        <span class='requests-table__row-label' aria-hidden="true">Request Date</span>22/02/2022</td>
+                    <td class='has-label'>
+                        <span class='requests-table__row-label' aria-hidden="true">Status</span>Ready Retrieval</td>
+                    <td>
+                        <div class="requests-table__actions">
+                            <button class='btn-underline btn-underline-small requests-table__print-btn'>
+                                <i class="icon requests-table__print-icon">{% include "../assets/icons/print.svg" %}</i>
+                            Print
+                        </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</main>

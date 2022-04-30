@@ -1,0 +1,154 @@
+@use '../variables/colors'as *;
+@use '../variables/misc'as *;
+
+
+.intro {
+    padding-block: var(--section-spacing-large) 0;
+}
+
+
+.table-container {
+    background-color: $clr-primary-50;
+    padding: 1em 1em;
+    width: 100%;
+    border: 1px solid $border-dark-400;
+}
+
+.requests-table {
+    width: 100%;
+    font-size: var(--fs-300);
+    color: $text-color-dark;
+    border-collapse: collapse;
+
+    th {
+        text-align: start;
+        font-size: var(--fs-400);
+        font-family: 'Hk Grotesk';
+        padding-bottom: 1em;
+    }
+
+    tr:not(:last-child):not(:first-child) {
+        border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
+    }
+
+    td:not(:last-child) {
+        white-space: nowrap;
+    }
+
+    td {
+        padding-block: 1em;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        button {
+            white-space: nowrap;
+        }
+    }
+
+    &__print-icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.35em;
+        width: 30px;
+        height: 30px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+    }
+
+    &__row-label {
+        display: none;
+    }
+}
+
+.ongoing-requests {
+    padding-bottom: var(--section-spacing-large);
+}
+
+@media screen and (max-width: 900px) {
+
+    .table-container {
+        padding: 0;
+    }
+
+    .requests-table__actions {
+        max-width: none;
+        display: flex;
+        gap: 40px
+    }
+
+    .requests-table {
+        font-size: var(--fs-200);
+        display: block;
+
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+
+        th {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        td {
+            border: none;
+            position: relative;
+            padding-inline: 1em;
+        }
+
+        .has-label {
+            &:before {
+                box-sizing: border-box;
+                position: absolute;
+                display: none;
+                top: 50%;
+                padding-block: inherit;
+                transform: translateY(-50%);
+                left: 0;
+                padding-left: 1em;
+                white-space: nowrap;
+            }
+        }
+
+        &__row-label {
+            font-weight: bold;
+            width: max(110px, 30%);
+            display: inline-block;
+        }
+
+        &__print-btn {
+            font-size: var(--fs-100);
+        }
+
+        &__print-icon {
+            width: 24px;
+        }
+
+        tr:nth-child(even) {
+            background: $clr-primary-75;
+        }
+
+        tbody tr {
+            padding-block: 2em;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .requests-table__actions {
+        justify-content: space-between;
+        gap: 0;
+    }
+}

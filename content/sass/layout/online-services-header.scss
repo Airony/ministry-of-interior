@@ -1,0 +1,290 @@
+@use '../variables/colors'as *;
+@use '../variables/misc'as *;
+@use 'sass:math';
+@use '../components/logo.scss'as *;
+@use '../components/langselect.scss';
+@use '../components/searchbar.scss';
+@use '../components/search-toggle.scss'as *;
+@use '../components/hamburger.scss'as *;
+@use '../components/nav-menu.scss'as nav;
+
+.upper-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-inline: var(--horizontal-padding);
+    padding-block: 1.5em;
+    gap: 1.5em;
+    font-family: 'Hk Grotesk';
+    font-size: var(--fs-300);
+    font-weight: bold;
+    color: $text-color-dark;
+
+    &__account-btn {
+        display: none;
+    }
+}
+
+.main-header {
+    display: flex;
+    flex-direction: column;
+    background-color: $clr-primary-700;
+    position: relative;
+    z-index: 2;
+
+    .content {
+        display: flex;
+        align-items: center;
+        padding: 1.5em var(--horizontal-padding);
+        justify-content: space-between;
+        gap: 2.5em;
+    }
+
+    .controls {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
+        gap: 1em;
+    }
+
+    &__search-bar-container {
+        flex: 0 1 300px;
+    }
+
+    &__search-bar {
+        width: 100%;
+    }
+
+    &__login-btn {
+        @include flex-center;
+        white-space: nowrap;
+    }
+
+    .search-bar-toggle,
+    .hamburger {
+        display: none;
+    }
+}
+
+
+.main-nav {
+    padding-inline: var(--horizontal-padding);
+    font-size: var(--fs-400);
+    border-top: 1px solid $border-light-200;
+
+    &__additional-item {
+        display: none;
+    }
+}
+
+
+.nav-link-menu {
+    flex-direction: column;
+    background-color: $clr-primary-100;
+    position: absolute;
+    padding: 0.5em .25em;
+    min-width: 100%;
+    @include shadow-400;
+    font-size: var(--fs-200);
+    color: $text-color-dark;
+
+    &__link {
+        padding: .75em 3em .75em 0.75em;
+        white-space: nowrap;
+        min-width: 100%;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $border-dark-400;
+        }
+
+        &:hover {
+            background-color: $clr-primary-200;
+        }
+    }
+
+    @include menu-expanded {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-header {
+        .controls {
+            align-items: center;
+        }
+
+        .hamburger,
+        .search-bar-toggle {
+            display: initial;
+        }
+
+        &__search-bar-container {
+            $animation-dur: 200ms;
+
+            visibility: hidden;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1em;
+            transform: translateY(100%);
+            opacity: 0;
+            background-color: $clr-primary-700;
+            z-index: -1;
+            transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
+            border: 1px solid $border-dark-400;
+
+            @include menu-expanded {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    .main-nav {
+        $animation-dur: 250ms;
+        $fade-in-dur: 300ms;
+
+        position: fixed;
+        inset: 0;
+        transform: translateX(-100%);
+        padding: 2em;
+        overflow-y: scroll;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        background-color: inherit;
+        transition: transform $animation-dur ease-in-out;
+
+        & > * {
+            opacity: 0;
+            transition: opacity 200ms ease-in-out;
+            transition-delay: $animation-dur + 50ms;
+        }
+
+        &__close-btn {
+            display: initial;
+            width: 35px;
+            height: 35px;
+            color: $text-color-light;
+            margin-bottom: 2em;
+            margin-left: auto;
+
+            &:hover {
+                background-color: $clr-primary-600;
+            }
+        }
+
+        &__item {
+            border-bottom: 2px solid $border-light-100;
+        }
+
+        &__additional-item {
+            display: block;
+        }
+
+        &__additional-link {
+            color: $clr-accent-golden;
+            text-decoration: underline;
+            font-weight: normal
+        }
+
+        &__btn,
+        &__label {
+            font-weight: bold;
+            padding-block: 1em;
+        }
+
+        &__btn {
+            display: flex;
+            justify-content: space-between;
+
+            .icon {
+                transition: transform 150ms ease-out;
+            }
+
+            @include btn-expanded {
+                background: $clr-primary-800;
+
+                .icon {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        @include menu-expanded {
+            transform: none;
+
+            & > * {
+                opacity: 1;
+            }
+        }
+    }
+
+    .nav-link-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background: none;
+        color: inherit;
+        padding-bottom: 1em;
+
+        &__link {
+            color: inherit;
+            padding: 1em 0 1em 1.5em;
+
+            &:not(:last-child) {
+                border-color: $border-light-100;
+            }
+
+            &:hover {
+                background-color: $clr-primary-600;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .upper-header {
+        &__nav-list {
+            display: none;
+        }
+
+        &__account-btn {
+            display: initial;
+            color: $clr-secondary;
+
+            @include hover-opacity;
+
+            .icon {
+                margin-right: 3px;
+            }
+        }
+    }
+
+    .main-header__login-btn {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .main-header {
+        .content {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .logo {
+            align-self: stretch;
+
+            &__img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .controls {
+            align-self: end;
+        }
+    }
+}
