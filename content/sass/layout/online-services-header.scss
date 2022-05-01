@@ -1,5 +1,6 @@
 @use '../variables/colors'as *;
 @use '../variables/misc'as *;
+@use '../variables/type-vars'as *;
 @use 'sass:math';
 @use '../components/logo.scss'as *;
 @use '../components/langselect.scss';
@@ -15,7 +16,7 @@
     padding-block: 1.5em;
     gap: 1.5em;
     font-family: 'Hk Grotesk';
-    font-size: var(--fs-300);
+    font-size: $fs-400;
     font-weight: bold;
     color: $text-color-dark;
 
@@ -30,6 +31,7 @@
     background-color: $clr-primary-700;
     position: relative;
     z-index: 2;
+    font-size: $fs-400;
 
     .content {
         display: flex;
@@ -68,7 +70,6 @@
 
 .main-nav {
     padding-inline: var(--horizontal-padding);
-    font-size: var(--fs-400);
     border-top: 1px solid $border-light-200;
 
     &__additional-item {
@@ -84,7 +85,7 @@
     padding: 0.5em .25em;
     min-width: 100%;
     @include shadow-400;
-    font-size: var(--fs-200);
+    font-size: $fs-400;
     color: $text-color-dark;
 
     &__link {
@@ -142,6 +143,7 @@
     .main-nav {
         @include nav.collapsed-style;
         z-index: 2;
+        font-size: $fs-500;
 
         &__additional-item {
             display: block;

@@ -1,6 +1,6 @@
 @use "../variables/colors"as *;
 @use "../variables/spacing"as *;
-@use "../variables/type"as *;
+@use "../variables/type-vars"as *;
 @use "../variables/misc"as *;
 
 
@@ -47,6 +47,8 @@
     flex-direction: column;
     padding: 1.25em 1em;
     color: $text-color-dark;
+    font-size: $fs-500;
+
 
     &__icon {
         aspect-ratio: 1;
@@ -82,9 +84,10 @@
 
 .read-more {
     $trans-dur: 300ms;
+
     margin-top: auto;
     align-self: flex-end;
-    font-size: var(--fs-400);
+    font-size: $fs-300;
     position: relative;
     isolation: isolate;
     transition: color $trans-dur ease;
@@ -111,7 +114,6 @@
         }
     }
 
-
     &:focus::before {
         content: "";
         position: absolute;
@@ -132,7 +134,10 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    font-size: var(--fs-400);
+
+    &__title {
+        font-size: var(--fs-responsive-body);
+    }
 
     &__img {
         width: 100%;
@@ -223,7 +228,6 @@
     }
 
 
-
     &__title {
         text-align: center;
         color: white;
@@ -231,6 +235,7 @@
         width: 100%;
         padding-block: 6em 2em;
         z-index: 2;
+        font-size: $fs-400;
     }
 
     &__indicator {
@@ -322,7 +327,7 @@
     }
 
     &__body {
-        font-size: var(--fs-400);
+        font-size: $fs-600;
     }
 
     .form {
@@ -372,15 +377,15 @@
 
     &__title {
         margin: 0;
-        font-size: var(--fs-300);
+        font-size: $fs-400;
         font-weight: bold;
-        line-height: 1.7;
-        display: inline;
-        transition: background 300s ease-in;
-        text-decoration: underline 2px rgba($text-color-dark, 0);
-        text-underline-offset: -2px;
-        transition: text-decoration-color 300ms ease-in, text-underline-offset 200ms ease-in-out;
-        padding-bottom: 6px;
+        // line-height: 1.7;
+        // display: inline;
+        // transition: background 300s ease-in;
+        // text-decoration: underline 2px rgba($text-color-dark, 0);
+        // text-underline-offset: -2px;
+        // transition: text-decoration-color 300ms ease-in, text-underline-offset 200ms ease-in-out;
+        // padding-bottom: 6px;
     }
 
     &:focus,
@@ -406,7 +411,7 @@
         .inputs {
             grid-template-columns: 2fr 3fr;
             grid-template-rows: repeat(2, max-content);
-            gap: min(8vw, 60px);
+            gap: $space-vert-s $space-hori-s;
 
             &__message-input {
                 grid-column: 2 / 3;
@@ -459,9 +464,14 @@
 }
 
 @media screen and (max-width: 800px) {
+    .newsletter {
+        &__body {
+            font-size: $fs-400;
+        }
+    }
+
     .send-message .form .inputs {
         grid-template-columns: 1fr;
-        gap: 20px;
 
         &__message-input {
             grid-column: auto;
@@ -475,6 +485,7 @@
 @media screen and (max-width: 600px) {
     .actions-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .action {
@@ -482,11 +493,13 @@
 
         &__icon {
             width: 45px;
+            height: 45px;
         }
 
         &__title {
             margin: 0 0 0 10px;
             text-align: left;
+            font-size: $fs-300;
         }
     }
 
@@ -510,7 +523,7 @@
         &__indicator {
             display: block;
             color: white;
-            font-size: var(--fs-400);
+            font-size: $fs-400;
             font-family: "HK Grotesk";
             font-weight: 400;
         }
@@ -529,6 +542,20 @@
 
         &:nth-child(4) {
             background-color: #129f8e;
+        }
+    }
+
+    .file {
+        &__title {
+            font-size: $fs-300;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .file {
+        &__title {
+            font-size: $fs-200;
         }
     }
 }

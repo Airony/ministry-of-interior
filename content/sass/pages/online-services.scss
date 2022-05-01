@@ -1,5 +1,6 @@
 @use '../variables/colors'as *;
 @use '../variables/misc'as *;
+@use '../variables/type-vars'as *;
 
 
 .intro {
@@ -16,23 +17,19 @@
 
 .requests-table {
     width: 100%;
-    font-size: var(--fs-300);
+    font-size: $fs-400;
     color: $text-color-dark;
     border-collapse: collapse;
 
     th {
         text-align: start;
-        font-size: var(--fs-400);
+        font-size: $fs-500;
         font-family: 'Hk Grotesk';
         padding-bottom: 1em;
     }
 
     tr:not(:last-child):not(:first-child) {
         border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
-    }
-
-    td:not(:last-child) {
-        white-space: nowrap;
     }
 
     td {
@@ -42,10 +39,11 @@
     &__actions {
         display: flex;
         align-items: center;
-        gap: 40px;
+        gap: 2em;
+        flex-wrap: wrap;
 
         button {
-            white-space: nowrap;
+            font-size: inherit;
         }
     }
 
@@ -72,6 +70,13 @@
     padding-bottom: var(--section-spacing-large);
 }
 
+@media screen and (max-width: 1100px) {
+    .requests-table {
+        font-size: $fs-300;
+
+    }
+}
+
 @media screen and (max-width: 900px) {
 
     .table-container {
@@ -81,11 +86,10 @@
     .requests-table__actions {
         max-width: none;
         display: flex;
-        gap: 40px
     }
 
     .requests-table {
-        font-size: var(--fs-200);
+        font-size: $fs-400;
         display: block;
 
         thead,
@@ -106,6 +110,7 @@
             border: none;
             position: relative;
             padding-inline: 1em;
+            display: flex;
         }
 
         .has-label {
@@ -124,12 +129,13 @@
 
         &__row-label {
             font-weight: bold;
-            width: max(110px, 30%);
-            display: inline-block;
+            width: max(140px, 30%);
+            display: block;
+            flex-shrink: 0;
         }
 
         &__print-btn {
-            font-size: var(--fs-100);
+            font-size: $fs-100;
         }
 
         &__print-icon {
@@ -140,15 +146,22 @@
             background: $clr-primary-75;
         }
 
+
         tbody tr {
             padding-block: 2em;
         }
     }
 }
 
+@media screen and (max-width: 600px) {
+    .requests-table {
+        font-size: $fs-300;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .requests-table__actions {
-        justify-content: space-between;
-        gap: 0;
+        // gap: 20px;
+
     }
 }

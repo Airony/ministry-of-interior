@@ -1,18 +1,22 @@
 @use '../variables/misc'as *;
+@use '../variables/type-vars'as *;
 
 .search-bar {
     display: flex;
     align-items: stretch;
+    font-size: $fs-300;
 
     &__input {
         flex-grow: 1;
         border: none;
+        font-size: inherit;
         @include no-border-radius-right;
     }
 
     &__btn {
-        padding: 1em;
+        padding: 0.75em;
         @include no-border-radius-left;
+        font-size: inherit;
 
         svg {
             fill: white;

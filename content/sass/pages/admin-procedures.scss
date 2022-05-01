@@ -1,16 +1,14 @@
 @use '../variables/spacing'as *;
 @use '../variables/type-vars'as *;
-@use '../variables/type'as *;
 @use '../variables/colors'as *;
 @use '../variables/misc'as *;
 
 .procedures {
     padding: var(--section-spacing-large) var(--horizontal-padding);
 
-    &__text {
-        width: clamp(300px, 65%, 800px);
-
-    }
+    // &__text {
+    //     width: clamp(300px, 65%, 800px);
+    // }
 
     &__no-result {
         display: none;
@@ -42,6 +40,7 @@
     flex-wrap: wrap;
     padding: 1.25em 1em;
     transition: transform 200ms ease-in;
+    font-size: $fs-400;
 
     &__content {
         display: flex;
@@ -51,12 +50,13 @@
 
     &__title {
         margin-bottom: .5em;
+        font-size: $fs-500;
     }
 
     &__desc {
         flex-grow: 1;
         margin: 0;
-        @include body-small;
+        font-size: inherit;
     }
 
     &__icon {
@@ -77,6 +77,14 @@
         .procedure-card__title,
         .procedure-card__desc {
             color: $clr-secondary;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .procedure-card {
+        &__title {
+            font-size: $fs-400;
         }
     }
 }
