@@ -1,5 +1,5 @@
 @use "../variables/colors"as *;
-@use "../variables/type"as *;
+@use "../variables/type-vars"as *;
 @use "../variables/spacing"as *;
 @use '../variables/misc'as *;
 @use '../components/langselect.scss';
@@ -18,7 +18,7 @@
     justify-content: space-between;
     align-items: center;
     font-family: "HK Grotesk";
-    font-size: var(--fs-200);
+    font-size: $fs-500;
     color: $text-color-dark;
     gap: 2em;
     font-weight: bold;
@@ -27,7 +27,6 @@
         display: flex;
         align-items: center;
         font-family: "Lora";
-        font-size: var(--fs-300);
         font-weight: bold;
         font-style: italic;
     }
@@ -65,7 +64,6 @@
     .container {
         display: flex;
     }
-
 }
 
 .search-bar {
@@ -80,41 +78,17 @@
     align-items: baseline;
     gap: 40px;
     padding-inline: 5%;
-    font-size: var(--fs-200);
+    font-size: $fs-400;
     position: relative;
     z-index: 2;
 
-
     .logo,
     .hamburger,
-    .search-bar-toggle {
+    .search-bar-toggle,
+    &__search-bar-container {
         display: none;
     }
 
-    &__search-bar-container {
-        $animation-dur: 200ms;
-
-        visibility: hidden;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 1em;
-        transform: translateY(100%);
-        opacity: 0;
-        background-color: $clr-primary-700;
-        transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
-        border: 1px solid $border-dark-400;
-
-        @include menu-expanded {
-            visibility: visible;
-            opacity: 1;
-        }
-    }
-}
-
-.main-nav {
-    font-size: var(--fs-300);
 }
 
 .nav-link-menu {
@@ -155,14 +129,22 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .upper-header__logo {
-        flex-direction: column;
-        align-items: flex-start;
+
+    .upper-header,
+    .main-header {
+        font-size: $fs-300
+    }
+
+    .action {
+        &__title {
+            font-size: $fs-400
+        }
     }
 }
 
 @media screen and (max-width: 950px) {
     .upper-header {
+        font-size: $fs-400;
 
         &__logo,
         .search-bar {
@@ -183,17 +165,28 @@
         .logo {
             display: block;
             color: $clr-primary-100;
+            font-size: $fs-400;
             font-weight: bold;
             font-style: italic;
             white-space: nowrap;
         }
 
+        .search-bar {
+            width: 100%;
+            font-size: $fs-200;
+        }
+
+        &__search-bar-container {
+            flex: 0 1 300px;
+            display: initial;
+            margin-left: auto
+        }
     }
 
     .main-nav {
         @include nav.collapsed-style;
+        font-size: $fs-500;
         z-index: 2;
-
     }
 
     .nav-link-menu {
@@ -201,7 +194,7 @@
         position: static;
         transform-origin: top;
         box-shadow: none;
-        font-size: var(--fs-100);
+        font-size: $fs-300;
         background-color: unset;
         transform: none;
         padding: 2em 0;
@@ -233,12 +226,8 @@
             display: flex;
             color: $text-color-light;
         }
-
-
     }
 }
-
-
 
 @media screen and (max-width: 600px) {
     .secondary-nav .container {
@@ -250,12 +239,33 @@
         gap: 0;
 
         .logo {
-            font-size: var(--fs-400);
+            font-size: $fs-400;
         }
 
         .search-bar-toggle {
             display: initial;
             margin-left: auto;
+        }
+
+        &__search-bar-container {
+            $animation-dur: 200ms;
+
+            visibility: hidden;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1em;
+            transform: translateY(100%);
+            opacity: 0;
+            background-color: $clr-primary-700;
+            transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
+            border: 1px solid $border-dark-400;
+
+            @include menu-expanded {
+                visibility: visible;
+                opacity: 1;
+            }
         }
     }
 }

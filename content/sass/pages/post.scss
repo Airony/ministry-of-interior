@@ -1,4 +1,4 @@
-@use '../variables/type'as *;
+@use '../variables/type-vars'as *;
 @use '../variables/colors'as *;
 @use '../variables/misc'as *;
 
@@ -51,6 +51,14 @@
     & > :first-child {
         margin-top: 0
     }
+
+    h2 {
+        font-size: $fs-900;
+    }
+
+    h3 {
+        font-size: $fs-800;
+    }
 }
 
 .toc-container {
@@ -66,7 +74,7 @@
 }
 
 .toc {
-    font-size: var(--fs-300);
+    font-size: $fs-300;
 
     li {
         list-style: none;
@@ -75,7 +83,7 @@
     &__item {
         margin-bottom: 12px;
         display: inline-block;
-        font-size: var(--fs-300);
+        font-size: $fs-300;
         font-size: 18px;
         font-weight: 600;
         transition: $transition-clr;
@@ -98,6 +106,14 @@
 
     .content {
         flex-direction: column;
+    }
+
+    .post-content {
+        @for $i from 1 through 6 {
+            h#{$i} {
+                font-size: var(--fs-responsive-h#{$i});
+            }
+        }
     }
 
     .toc-container {

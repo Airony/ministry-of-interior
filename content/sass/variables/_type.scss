@@ -1,6 +1,7 @@
-@use "./colors.scss"as *;
-@use 'sass:map';
-@use 'sass:list';
+@use './type-vars'as *;
+@use './colors'as *;
+@use "sass:list";
+@use "sass:map";
 
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
@@ -25,28 +26,62 @@
     font-style: italic;
 }
 
-@mixin uppercase {
-    text-transform: uppercase;
-    letter-spacing: 1px;
+:root {
+    --fs-responsive-body: #{$fs-500};
+
+    --fs-responsive-h1: #{$fs-1200};
+    --fs-responsive-h2: #{$fs-1100};
+    --fs-responsive-h3: #{$fs-1000};
+    --fs-responsive-h4: #{$fs-900};
+    --fs-responsive-h5: #{$fs-800};
+    --fs-responsive-h6: #{$fs-700};
 }
 
-$heading-margins: ("h1":(1em, 0.75em),
-    "h2":(1.25em, 1em),
-    "h3":(1em, 0.75em),
-    "h4":(1em, 0.75em),
-    "h5":(1em, 0.75em),
-    "h6":(0.75em, 0.5em),
-);
-
-@mixin body-small {
-    font-size: var(--fs-200);
-    line-height: var(--line-height-s);
-}
-
-@mixin apply-heading-top-margins {
-    @for $i from 1 through 6 {
-        h#{$i} {
-            margin-top: list.nth(map.get($heading-margins, h#{$i}), 1);
-        }
+@media screen and (max-width: 1200px) {
+    :root {
+        --fs-responsive-body: #{$fs-400};
+        --fs-responsive-h2: #{$fs-1100};
+        --fs-responsive-h3: #{$fs-900};
     }
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --fs-responsive-h1: #{$fs-900};
+        --fs-responsive-h2: #{$fs-800};
+        --fs-responsive-h3: #{$fs-700};
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --fs-responsive-body: #{$fs-300};
+        --fs-responsive-h1: #{$fs-800};
+        --fs-responsive-h2: #{$fs-700};
+        --fs-responsive-h3: #{$fs-600};
+    }
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        margin-bottom: list.nth(map.get($heading-margins, h#{$i}), 2);
+        font-weight: bold;
+        color: $header-color;
+        font-family: 'HK Grotesk';
+        display: block;
+        font-size: var(--fs-responsive-h#{$i});
+    }
+}
+
+p,
+li {
+    font-size: var(--fs-responsive-body);
+    line-height: $line-height-400;
+    color: $text-color-dark;
+    margin-bottom: 1em;
+    max-width: 70ch;
+}
+
+li {
+    margin-left: 20px;
 }

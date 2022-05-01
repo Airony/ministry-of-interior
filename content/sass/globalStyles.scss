@@ -6,7 +6,6 @@
 @use "sass:map";
 @use "sass:list";
 
-
 * {
     margin: 0;
     padding: 0;
@@ -60,7 +59,7 @@ a {
 .btn-large {
     font-weight: bold;
     @include uppercase;
-    font-size: var(--fs-300);
+    font-size: $fs-400;
     padding: 1.35em 0.75em;
     display: inline-block;
 }
@@ -68,16 +67,8 @@ a {
 .btn-small {
     font-weight: bold;
     padding: 0.75em 0.75em;
-    font-size: var(--fs-300);
+    font-size: $fs-400;
 }
-
-.btn-very-small {
-    font-family: 'HK Grotesk';
-    font-size: var(--fs-100);
-    font-weight: bold;
-    padding: 0.75em 0.75em;
-}
-
 
 .btn-underline {
     font-family: 'HK Grotesk';
@@ -91,43 +82,14 @@ a {
 
 .btn-underline-small {
     font-weight: bold;
-    font-size: var(--fs-300);
-
-}
-
-
-
-@for $i from 1 through 6 {
-    h#{$i} {
-        margin-bottom: list.nth(map.get($heading-margins, h#{$i}), 2);
-        font-weight: bold;
-        color: $header-color;
-        font-family: 'HK Grotesk';
-        display: block;
-        font-size: var(--fs-#{900 - (($i - 1) * 100)});
-
-    }
-}
-
-p,
-li {
-    font-size: var(--fs-400);
-    line-height: var(--body-line-height);
-    color: $text-color-dark;
-    margin-bottom: 1em;
-}
-
-li {
-    margin-left: 20px;
+    font-size: $fs-300;
 }
 
 .read-more {
     @include uppercase;
     font-weight: bold;
-    font-size: var(--fs-300);
+    font-size: $fs-300;
     color: $clr-secondary;
-
-
 }
 
 .text-input {
@@ -137,7 +99,7 @@ li {
     border-radius: $border-radius;
     font-family: "Lora";
     color: $text-color-dark;
-    font-size: var(--fs-400);
+    font-size: $fs-400;
 
     &::placeholder {
         font-family: inherit;
@@ -149,11 +111,11 @@ li {
 
 
 .text-input-medium {
-    font-size: var(--fs-300);
+    font-size: $fs-400;
 }
 
 .text-input-small {
-    font-size: var(--fs-200);
+    font-size: $fs-300;
 }
 
 .textfield {
@@ -172,7 +134,7 @@ li {
 
 label {
     display: block;
-    font-size: var(--fs-500);
+    font-size: $fs-500;
     color: $text-color-dark;
     font-weight: bold;
     margin-bottom: 15px;
@@ -187,12 +149,11 @@ button {
 .card {
     background: $clr-primary-50;
     border-radius: $border-radius;
-    font-size: var(--fs-300);
+    font-size: $fs-300;
 
     .card-title {
         font-family: "Lora";
         font-weight: bold;
-        font-size: var(--fs-400);
     }
 }
 

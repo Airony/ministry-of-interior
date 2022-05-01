@@ -1,5 +1,5 @@
 @use "../variables/colors"as *;
-@use "../variables/type"as *;
+@use "../variables/type-vars"as *;
 
 .footer {
     background: $clr-primary-900;
@@ -28,14 +28,14 @@
             @include uppercase;
             margin-left: 1em;
             margin-bottom: 0;
-            font-size: var(--fs-700);
+            font-size: $fs-700;
         }
     }
 
     .content {
         display: flex;
         justify-content: space-between;
-        font-size: var(--fs-400);
+        font-size: $fs-400;
     }
 
     .info {
