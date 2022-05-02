@@ -417,6 +417,18 @@
                 grid-column: 2 / 3;
                 grid-row: 1 / -1;
 
+                .text-input {
+                    resize: vertical;
+                }
+            }
+
+            &__name-input {
+                align-self: start;
+            }
+
+            &__email-input {
+                align-self: end;
+
             }
         }
 
