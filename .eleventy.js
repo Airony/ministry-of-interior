@@ -23,7 +23,7 @@ function constructList(headings, currentDepth) {
   for (let i = 0; i < headings.length; i++) {
     const heading = headings[i];
 
-    result += `<li class='toc-level-${currentDepth}'>
+    result += `<li class='toc__level-${currentDepth}'>
                   <a href='#${heading.id}' class='toc__item'>${heading.content}</a>`;
     if (heading.children) {
       result += `<ul>${constructList(heading.children, currentDepth + 1)}</ul>`;

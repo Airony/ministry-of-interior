@@ -32,7 +32,7 @@
     }
 }
 
-.content {
+.post {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -42,26 +42,28 @@
 
 }
 
-.post-content {
-    min-width: 0;
-    flex: 9 0 min-content;
+.post {
+    &__content {
+        min-width: 0;
+        flex: 9 0 min-content;
 
-    @include apply-heading-top-margins;
+        @include apply-heading-top-margins;
 
-    & > :first-child {
-        margin-top: 0
-    }
+        & > :first-child {
+            margin-top: 0
+        }
 
-    h2 {
-        font-size: $fs-900;
-    }
+        h2 {
+            font-size: $fs-900;
+        }
 
-    h3 {
-        font-size: $fs-800;
+        h3 {
+            font-size: $fs-800;
+        }
     }
 }
 
-.toc-container {
+.toc {
     display: flex;
     flex-direction: column;
     padding: 1em 2em 2em 0;
@@ -71,13 +73,17 @@
     min-height: 100vh;
     border-right: 1px solid $clr-primary-300;
     flex: 1 0 30%;
-}
 
-.toc {
-    font-size: $fs-300;
+    &__title {
+        font-size: var(--fs-responsive-h5);
+    }
 
-    li {
-        list-style: none;
+    &__list {
+        font-size: $fs-300;
+
+        li {
+            list-style: none;
+        }
     }
 
     &__item {
@@ -91,32 +97,32 @@
         &:hover {
             color: $clr-secondary
         }
+    }
 
+    @for $i from 1 through 6 {
+        &__level-#{$i} {
+            margin: 0;
+            margin-left: ($i - 1) * 18px;
+        }
     }
 }
 
-@for $i from 1 through 6 {
-    .toc-level-#{$i} {
-        margin: 0;
-        margin-left: ($i - 1) * 18px;
-    }
-}
 
 @media screen and (max-width:1000px) {
 
-    .content {
+    .post {
         flex-direction: column;
-    }
 
-    .post-content {
-        @for $i from 1 through 6 {
-            h#{$i} {
-                font-size: var(--fs-responsive-h#{$i});
+        &__content {
+            @for $i from 1 through 6 {
+                h#{$i} {
+                    font-size: var(--fs-responsive-h#{$i});
+                }
             }
         }
     }
 
-    .toc-container {
+    .toc {
         position: static;
         min-height: auto;
         margin-inline: 0;
