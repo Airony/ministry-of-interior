@@ -6,6 +6,8 @@ pagination:
   size: 6
 ---
 {% import "./_includes/components/forms.njk" as forms %}
+{%- from './_includes/components/article.macro.njk' import article  %}
+{%- from 'components/lang-select.macro.njk' import langSelect %}
 
 <head>
     <link rel="stylesheet" href="/css/pages/index.css">
@@ -38,24 +40,8 @@ pagination:
     <section class="articles">
         <h2 class='section-title articles__section-title'>Latest News</h2>
         <div class="grid articles-grid">
-            {%- for article in homepage.news %}
-                <div class="card article {{'article--main' if loop.first}}" >
-
-                    <img class="article__img"src='./assets/img/{{article.img}}'alt="" >
-                    <div class="article__content">
-
-                        <h4 class="card-title article__title">
-                            {{article.title}}
-                        </h4>
-                        <p class="article__date">
-                            {{article.date}}
-                        </p>
-                        <p class="article__body">
-                            {{article.body}}
-                        </p>
-                        <a href="{{article.link}}" class="read-more">Read More</a>
-                    </div>
-                </div>
+            {%- for newsArticle in homepage.news %}
+                {{article(newsArticle,'article--main') if loop.first else article(newsArticle)}}
             {% endfor -%}
         </div>
         <a href="#" class="btn-primary btn-large more-btn">More News</a>

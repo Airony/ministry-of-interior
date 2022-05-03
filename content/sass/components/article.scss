@@ -1,0 +1,78 @@
+@use '../variables/colors'as *;
+@use '../variables/type-vars'as *;
+@use '../variables/misc'as *;
+
+
+@mixin base-style {
+    background: $clr-primary-50;
+    display: flex;
+    position: relative;
+
+    &__title {
+        font-size: var(--fs-responsive-body);
+    }
+
+    &__img {
+        aspect-ratio: 2;
+        border: none;
+        object-fit: cover;
+    }
+
+    &__content {
+        padding: 1.5em 1em;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__date {
+        color: #877c73;
+        font-family: monospace;
+        margin-block: 10px;
+    }
+
+    &__body {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        margin-bottom: 1em;
+    }
+}
+
+@mixin vertical-style {
+    @include base-style;
+    flex-direction: column;
+
+    &__img {
+        width: 100%;
+        max-height: 250px;
+    }
+}
+
+@mixin horizontal-style {
+    @include base-style;
+    max-height: 26em;
+
+    &__img {
+        width: 40%;
+        flex-shrink: 0;
+        height: auto;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+@mixin horizontal-style--override {
+    flex-direction: column;
+    max-height: none;
+
+    &__img {
+        width: 100%;
+        max-height: 250px;
+    }
+}

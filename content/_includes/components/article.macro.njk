@@ -1,0 +1,17 @@
+{% macro article(article, class = "article") %}
+    <div class="card {{ class }}" >
+        <img class="{{ class }}__img"src='./assets/img/{{article.img}}'alt="" >
+        <div class="{{ class }}__content">
+            <h4 class="card-title {{ class }}__title">
+                {{ article.title }}
+            </h4>
+            <p class="{{ class }}__date">
+                {{article.date}}
+            </p>
+            <p class="{{class}}__body">
+                {{article.body}}
+            </p>
+            <a href="{{article.link}}" class="read-more">Read More</a>
+        </div>
+    </div>
+{% endmacro %}
