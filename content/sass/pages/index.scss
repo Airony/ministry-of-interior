@@ -2,6 +2,8 @@
 @use "../variables/spacing"as *;
 @use "../variables/type-vars"as *;
 @use "../variables/misc"as *;
+@use "sass:list";
+@use "../components/guide.scss"as guide;
 
 
 
@@ -203,6 +205,13 @@
 
 .guides {
     padding: var(--section-spacing-large) var(--horizontal-padding);
+
+    .section-title {
+        font-family: 'Lora';
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 1.5em;
+    }
 }
 
 .guides-list {
@@ -210,58 +219,10 @@
     isolation: isolate;
 }
 
+
+
 .guide {
-    position: relative;
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    overflow: hidden;
-
-    &__img {
-        height: 100%;
-        width: 100%;
-        border: none;
-        position: absolute;
-        inset: 0;
-        object-fit: cover;
-    }
-
-
-    &__title {
-        text-align: center;
-        color: white;
-        font-style: italic;
-        width: 100%;
-        padding-block: 6em 2em;
-        z-index: 2;
-        font-size: $fs-400;
-    }
-
-    &__indicator {
-        display: none;
-    }
-
-    &__img-overlay {
-        position: absolute;
-        inset: 0;
-        opacity: 0.6;
-        background: linear-gradient(to top, rgba(77, 61, 56, 0.8) 0%, rgba(77, 61, 56, 0) 100%),
-            rgba(77, 61, 56, 0);
-        transition: background 400ms ease-in;
-    }
-
-    &:hover,
-    &:focus {
-        .guide__img-overlay {
-            background: linear-gradient(to top, rgba(77, 61, 56, 0.8) 0%, rgba(77, 61, 56, 0) 100%),
-                rgba(77, 61, 56, 0.8);
-        }
-    }
-
-    &:focus {
-        z-index: 2
-    }
+    @include guide.base-style
 }
 
 // MARK: Ministry
@@ -372,20 +333,12 @@
 
     .container {
         padding: 0.65em 0.5em;
-
     }
 
     &__title {
         margin: 0;
         font-size: $fs-400;
         font-weight: bold;
-        // line-height: 1.7;
-        // display: inline;
-        // transition: background 300s ease-in;
-        // text-decoration: underline 2px rgba($text-color-dark, 0);
-        // text-underline-offset: -2px;
-        // transition: text-decoration-color 300ms ease-in, text-underline-offset 200ms ease-in-out;
-        // padding-bottom: 6px;
     }
 
     &:focus,
@@ -441,6 +394,22 @@
     }
 }
 
+@media (hover:none) {
+    @include guide.no-hover-style;
+}
+
+@media screen and (max-width: 1200px) {
+    .guide {
+        &__title {
+            font-size: $fs-500;
+        }
+
+        &__desc {
+            font-size: $fs-300;
+        }
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .articles-grid {
         grid-template-columns: [main-start] 1fr [main-end];
@@ -460,18 +429,20 @@
             margin: 1.5em 1em;
             padding: 0;
         }
-    }
 
-    .article--main {
+        &--main {
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .guides-list {
         flex-direction: column;
     }
 
-    .guides-list {
-        flex-wrap: wrap;
-    }
-
     .guide {
-        width: 50%;
+        @include guide.collapsed-style;
     }
 }
 
@@ -512,48 +483,6 @@
             margin: 0 0 0 10px;
             text-align: left;
             font-size: $fs-300;
-        }
-    }
-
-    .guides-list {
-        flex-wrap: wrap;
-    }
-
-    .guide {
-        width: 100%;
-        padding: 1em;
-
-        &__title {
-            position: static;
-            margin-top: 0.5em;
-        }
-
-        &__img {
-            display: none;
-        }
-
-        &__indicator {
-            display: block;
-            color: white;
-            font-size: $fs-400;
-            font-family: "HK Grotesk";
-            font-weight: 400;
-        }
-
-        &:nth-child(1) {
-            background-color: #6484f2;
-        }
-
-        &:nth-child(2) {
-            background-color: #ef2f53;
-        }
-
-        &:nth-child(3) {
-            background-color: #ea8238;
-        }
-
-        &:nth-child(4) {
-            background-color: #129f8e;
         }
     }
 

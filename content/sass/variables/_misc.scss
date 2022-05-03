@@ -1,5 +1,6 @@
 @use "./colors.scss"as *;
 @use "sass:string";
+@use "sass:list";
 
 $border-radius: 2px;
 $transition-clr : color 200ms ease;
@@ -63,6 +64,16 @@ $transition-clr : color 200ms ease;
     }
 
     @return $result;
+}
+
+@mixin property-from-list($property, $list, $selector) {
+    @for $i from 1 to length($list) + 1 {
+        &:nth-child(#{$i}) {
+            #{$selector} {
+                #{$property}: list.nth($list, $i);
+            }
+        }
+    }
 }
 
 @mixin btn-expanded($new-selector : null) {

@@ -67,72 +67,73 @@ pagination:
             <h2 class='section-title guides__section-title' >Useful Guides</h2>
             <div class="guides-list">
                 {%- for guide in homepage.guides %}
-                    <a  href="#" class="card guide">
-                        <h5 class='guide__indicator'>Guide <span class="guide__number">{{loop.index}}
-                            </span>
-                        </h5>
-                        <img  class='guide__img' src='assets/img/{{guide.img}}' alt="" srcset="">
-                        <div class="guide__img-overlay"></div>
-                        <h5 class="card-title guide__title">{{guide.title}}</h5>
-                    </a>
-                {% endfor -%}
-            </div>
-            <a href="#" class="btn-primary btn-large more-btn">More Guides</a>
-        </section>
-    </div>
-    <section class="ministry">
-        <h2 class='section-title ministry__section-title'>The Ministry and It's Duties</h2>
-        <div class="content">
-
-            <div class="container">
-                <p class='container__body'>Why are you lin kthat in commodo ultrices euismod. Lobortis imperdiet diam, tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor. Arcu, quam enim leo nascetur.</p>
-                <img class='container__img' src="./assets/img/ministry-img.png" alt="" >
-            </div>
-            <div class="container">
-                <p class='container__body'>Neque euismod nec fusce in commodo ultrices euismod. Lobortis imperdiet diam, tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor. Arcu, quam enim leo nascetur.</p>
-                <img class='container__img' src="./assets/img/ministry-img.png" alt="" srcset="">
-            </div>
+                    <a  href="#" class="card guide"></span>
+                    <img  class='guide__img' src='assets/img/{{guide.img}}' alt="" srcset="">
+                    <div class="guide__img-overlay"></div>
+                    <div class="guide__content">
+                        <h5 class="card-title guide__title">{{guide.title}}
+                            <span class="guide__number">{{loop.index}}</span></h5>
+                        <p class="guide__desc">Blandit pellentesque elementum faucibus pretium, augue in senectus ut.</p>
+                    </div>
+                </a>
+            {% endfor -%}
         </div>
+        <a href="#" class="btn-primary btn-large more-btn">More Guides</a>
     </section>
-    <div class="newsletter-bg">
+</div>
+<section class="ministry">
+    <h2 class='section-title ministry__section-title'>The Ministry and It's Duties</h2>
+    <div class="content">
 
-        <section class="newsletter">
-            <h2 class='section-title newsletter__section-title'>Stay in Contact</h2>
-            <p class='newsletter__body'>Subscribe to our newsletter to receive all latest news and updates.</p>
-            <form class="form">
-                <input class="form__email text-input" type="email" placeholder='Enter your email' >
-                <input class='form__submit btn-primary btn-large' type="submit" value="Subscribe" >
-            </form>
-        </section>
+        <div class="container">
+            <p class='container__body'>Why are you lin kthat in commodo ultrices euismod. Lobortis imperdiet diam, tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor. Arcu, quam enim leo nascetur.</p>
+            <img class='container__img' src="./assets/img/ministry-img.png" alt="" >
+        </div>
+        <div class="container">
+            <p class='container__body'>Neque euismod nec fusce in commodo ultrices euismod. Lobortis imperdiet diam, tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor. Arcu, quam enim leo nascetur.</p>
+            <img class='container__img' src="./assets/img/ministry-img.png" alt="" srcset="">
+        </div>
     </div>
-    <div class="files-bg">
-        <section class="files">
-            <h2 class='section-title files__section-title'>Files</h2>
-            <div class="grid files-grid">
-                {%- for file in homepage.files %}
-                    <a class="card file" href='#'>
-                        <img class="file__img" src='./assets/img/file-img.png' alt="" >
-                        <div class="container">
-                            <h6 class="card-title file__title">{{file.title}}</h6>
-                        </div>
-                    </a>
-                {% endfor -%}
-            </div>
-        </section>
-    </div>
+</section>
+<div class="newsletter-bg">
 
-    <section class="send-message">
-        <h2 class='section-title send-message__section-title'>Send Us a Message</h2>
-        <form action="" class="form">
-            <div class="grid inputs">
-
-                {{forms.textfield("Name","","inputs__name-input textfield-grow")}}
-                {{forms.textfield("Email","","inputs__email-input textfield-grow")}}
-                {{forms.textarea("Message","","inputs__message-input textfield-grow")}}
-            </div>
-            <input class='form__submit btn-primary btn-large' type="submit" value="Send Message" >
-
+    <section class="newsletter">
+        <h2 class='section-title newsletter__section-title'>Stay in Contact</h2>
+        <p class='newsletter__body'>Subscribe to our newsletter to receive all latest news and updates.</p>
+        <form class="form">
+            <input class="form__email text-input" type="email" placeholder='Enter your email' >
+            <input class='form__submit btn-primary btn-large' type="submit" value="Subscribe" >
         </form>
     </section>
+</div>
+<div class="files-bg">
+    <section class="files">
+        <h2 class='section-title files__section-title'>Files</h2>
+        <div class="grid files-grid">
+            {%- for file in homepage.files %}
+                <a class="card file" href='#'>
+                    <img class="file__img" src='./assets/img/file-img.png' alt="" >
+                    <div class="container">
+                        <h6 class="card-title file__title">{{file.title}}</h6>
+                    </div>
+                </a>
+            {% endfor -%}
+        </div>
+    </section>
+</div>
+
+<section class="send-message">
+    <h2 class='section-title send-message__section-title'>Send Us a Message</h2>
+    <form action="" class="form">
+        <div class="grid inputs">
+
+            {{forms.textfield("Name","","inputs__name-input textfield-grow")}}
+            {{forms.textfield("Email","","inputs__email-input textfield-grow")}}
+            {{forms.textarea("Message","","inputs__message-input textfield-grow")}}
+        </div>
+        <input class='form__submit btn-primary btn-large' type="submit" value="Send Message" >
+
+    </form>
+</section>
 
 </body>

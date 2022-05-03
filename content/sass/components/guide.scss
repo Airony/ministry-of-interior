@@ -1,0 +1,188 @@
+@use "../variables/colors"as *;
+@use "../variables/type-vars"as *;
+@use "../variables/misc"as *;
+@use "sass:list";
+
+$_bg-clrs-list: hsl(226, 85%, 67%),
+hsl(173, 80%, 35%),
+hsl(25, 81%, 57%),
+hsl(349, 86%, 56%);
+$_bg-hover-clrs-list: hsl(226, 100%, 60%),
+hsl(173, 95%, 30%),
+hsl(25, 95%, 55%),
+hsl(349, 90%, 53%);
+$_slide-up-trans-dur: 250ms;
+$_background-clr-trans-dur : 150ms;
+
+@mixin base-style {
+    position: relative;
+    width: 25%;
+    overflow: hidden;
+    color: $text-color-light;
+    text-align: center;
+
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        border: none;
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
+    }
+
+    &__content {
+        padding: 1em 1.5em 3em 1.5em;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2;
+    }
+
+    &__desc {
+        color: inherit;
+        font-size: $fs-400;
+        visibility: hidden;
+        transform: translateY(50%);
+        font-family: 'HK Grotesk';
+        transition: multiple-transitions($_slide-up-trans-dur, ease-in-out, transform, visibility, opacity);
+        opacity: 0;
+    }
+
+    &__title {
+        color: inherit;
+        font-style: italic;
+        width: 100%;
+        z-index: 2;
+        font-size: $fs-600;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: top $_slide-up-trans-dur ease-in-out;
+        margin-block: 1em 0;
+    }
+
+    &__number {
+        display: none;
+        font-size: $fs-1000;
+        opacity: 0.8;
+        font-weight: bold;
+        align-self: end;
+    }
+
+    &__img-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(black, 0.3);
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translateY(100%);
+            transition: transform $_slide-up-trans-dur ease-in-out;
+        }
+    }
+
+    @include property-from-list(background-color, $_bg-clrs-list, ".guide__img-overlay::after");
+
+    &:hover,
+    &:focus {
+        .guide {
+            &__title {
+                top: 0;
+            }
+
+            &__desc {
+                visibility: visible;
+                transform: translateY(0);
+                opacity: 0.9;
+            }
+
+            &__img-overlay::after {
+                transform: none;
+            }
+        }
+    }
+
+    &:focus {
+        z-index: 2
+    }
+}
+
+@mixin no-hover-style {
+    .guide {
+        &__number {
+            display: initial;
+        }
+
+        &__desc {
+            visibility: visible;
+            opacity: 0.9;
+            transform: none;
+        }
+
+        &__title {
+            top: 0
+        }
+
+        &__img-overlay::after {
+            transform: none;
+            transition: background-color $_background-clr-trans-dur ease-in;
+        }
+
+        &:focus {
+            @include property-from-list(background-color, $_bg-hover-clrs-list, ".guide__img-overlay::after");
+        }
+    }
+}
+
+@mixin collapsed-style {
+    $transition-dur: 200ms;
+    width: 100%;
+
+    &__content {
+        align-items: stretch;
+        padding: 1em 2em 1.5em 1em;
+    }
+
+    &__img {
+        display: none;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: static;
+        margin: 0;
+        transform: none;
+        width: auto;
+    }
+
+    &__number {
+        display: initial;
+        font-size: $fs-900;
+    }
+
+    &__desc {
+        visibility: visible;
+        opacity: 0.9;
+        transform: none;
+        margin: 0;
+        margin-top: 1em;
+        text-align: start;
+    }
+
+    &__img-overlay::after {
+        transform: none;
+        transition: background-color $_background-clr-trans-dur ease-in;
+    }
+
+    &:hover,
+    &:focus {
+        @include property-from-list(background-color, $_bg-hover-clrs-list, ".guide__img-overlay::after");
+    }
+}
