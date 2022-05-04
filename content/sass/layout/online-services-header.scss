@@ -144,10 +144,6 @@
         @include nav.collapsed-style;
         z-index: 2;
         font-size: $fs-500;
-
-        &__additional-item {
-            display: block;
-        }
     }
 
     .nav-link-menu {
@@ -197,6 +193,10 @@
 
     .main-nav {
         font-size: $fs-300;
+
+        &__additional-item {
+            display: block;
+        }
     }
 }
 
