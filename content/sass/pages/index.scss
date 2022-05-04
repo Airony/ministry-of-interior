@@ -423,7 +423,7 @@
         &__title {
             margin: 0 0 0 10px;
             text-align: left;
-            font-size: $fs-300;
+            font-size: $fs-400;
         }
     }
 
@@ -438,6 +438,14 @@
     .file {
         &__title {
             font-size: $fs-200;
+        }
+    }
+}
+
+@media screen and (max-width:400px) {
+    .action {
+        &__title {
+            font-size: $fs-300;
         }
     }
 }
