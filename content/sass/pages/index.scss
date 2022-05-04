@@ -23,7 +23,7 @@
 
     &__title {
         position: absolute;
-        width: clamp(300px, 80%, 1200px);
+        width: min(80%, 1200px);
         text-align: center;
         color: white;
     }
@@ -443,6 +443,13 @@
 }
 
 @media screen and (max-width:400px) {
+
+    .hero {
+        &__title {
+            font-size: $fs-600;
+        }
+    }
+
     .action {
         &__title {
             font-size: $fs-300;
