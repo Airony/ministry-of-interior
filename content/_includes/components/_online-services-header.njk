@@ -51,9 +51,10 @@
                 {% if item.expandable %}
                     <button class="main-nav__btn" aria-controls='nav-menu-{{menuCount}}' aria-expanded='false' data-expand-btn="true">
                         {{item.label}}
-                        <svg class="icon icon-small main-nav__icon" >
-                            <use href="/assets/icons/sprite.svg#drop-down"></use>
-                        </svg>
+                        <div class="icon icon-small main-nav__icon" >
+                            {% include "../../assets/icons/dropdown.svg" %}
+                        </div>
+
                     </button>
 
                     <div class="menu-collapse nav-link-menu" id="nav-menu-{{menuCount}}" data-collapse-outside='true'>

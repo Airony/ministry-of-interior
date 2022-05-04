@@ -57,6 +57,8 @@
         aspect-ratio: 1;
         width: 4em;
         max-width: 120px;
+        color: $text-color-dark;
+
         min-width: 80px;
     }
 
@@ -414,8 +416,8 @@
         flex-direction: row;
 
         &__icon {
-            width: 45px;
-            height: 45px;
+            width: 60px;
+            height: 60px;
         }
 
         &__title {

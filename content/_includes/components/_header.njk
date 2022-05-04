@@ -34,9 +34,9 @@
     <nav class="main-nav" id='main-nav' data-modal='true'>
 
         <button class="main-nav__close-btn" aria-controls="main-nav" aria-expanded='false' data-modal-btn='true'>
-            <svg class="icon icon-small main-nav__close-icon" >
-                <use href="/assets/icons/sprite.svg#close"></use>
-            </svg>
+            <div class="icon icon-small">
+                {% include "../../assets/icons/close.svg" %}
+            </div>
         </button>
         {% set menuCount = 1%}
         {%- for item in navigation %}
@@ -44,9 +44,9 @@
                 {% if item.expandable %}
                     <button class="main-nav__btn" aria-controls='nav-menu-{{menuCount}}' aria-expanded='false' data-expand-btn="true">
                         {{item.label}}
-                        <svg class="icon icon-small main-nav__icon" >
-                            <use href="/assets/icons/sprite.svg#drop-down"></use>
-                        </svg>
+                        <div class="icon icon-small main-nav__icon" >
+                            {% include "../../assets/icons/dropdown.svg" %}
+                        </div>
                     </button>
 
                     <div class="nav-link-menu" id="nav-menu-{{menuCount}}" data-collapse-outside='true'>
@@ -77,8 +77,8 @@
     </div>
     {{searchBarToggle('main-header__search-bar-container')}}
     <button class="hamburger" aria-controls='main-nav' aria-expanded='false' data-modal-btn='true'>
-        <svg class="icon hamburger__icon" >
-            <use href="/assets/icons/sprite.svg#hamburger"></use>
-        </svg>
+        <div class="icon hamburger__icon" >
+            {% include "../../assets/icons/hamburger.svg" %}
+        </div>
     </button>
 </header>
