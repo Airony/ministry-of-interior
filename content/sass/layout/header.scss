@@ -270,5 +270,9 @@
 
     .main-nav {
         font-size: $fs-300;
+
+        &__additional-item {
+            display: block;
+        }
     }
 }

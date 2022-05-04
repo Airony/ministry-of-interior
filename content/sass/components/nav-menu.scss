@@ -30,6 +30,12 @@
     &__close-btn {
         display: none;
     }
+
+    &__additional-link {
+        color: $clr-accent-golden;
+        text-decoration: underline;
+        font-weight: normal
+    }
 }
 
 @mixin collapsed-style {
