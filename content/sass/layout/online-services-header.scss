@@ -85,7 +85,7 @@
     padding: 0.5em .25em;
     min-width: 100%;
     @include shadow-400;
-    font-size: $fs-400;
+    font-size: inherit;
     color: $text-color-dark;
 
     &__link {
@@ -199,6 +199,10 @@
 
     .main-header__login-btn {
         display: none;
+    }
+
+    .main-nav {
+        font-size: $fs-300;
     }
 }
 
