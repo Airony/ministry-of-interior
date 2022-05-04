@@ -16,6 +16,10 @@
     }
 }
 
+body {
+    width: 100%;
+}
+
 section {
     padding: var(--section-spacing) var(--horizontal-padding);
     max-width: 1800px;
