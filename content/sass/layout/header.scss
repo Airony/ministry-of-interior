@@ -109,6 +109,8 @@
         font-weight: bold;
         color: inherit;
         word-wrap: normal;
+        font-size: $fs-300;
+        @include uppercase
     }
 
     &__link {
@@ -132,6 +134,12 @@
     .upper-header,
     .main-header {
         font-size: $fs-300
+    }
+
+    .nav-link-menu {
+        &__title {
+            font-size: $fs-200;
+        }
     }
 
     .action {
@@ -184,7 +192,7 @@
 
     .main-nav {
         @include nav.collapsed-style;
-        font-size: $fs-500;
+        font-size: $fs-400;
         z-index: 2;
     }
 
@@ -193,11 +201,12 @@
         position: static;
         transform-origin: top;
         box-shadow: none;
-        font-size: $fs-300;
+        font-size: $fs-400;
         background-color: unset;
         transform: none;
-        padding: 2em 0;
+        padding: 0 0 1em 0;
         flex-wrap: wrap;
+        gap: 0;
 
         &__list {
             width: 100%;
@@ -205,23 +214,25 @@
         }
 
         &__link {
-            padding: 1em;
+            padding: 0.75em;
             border-bottom: 1px $clr-primary-700 solid;
             padding-left: 2em;
 
+            @include not-last {
+                border-bottom: 1px solid $border-light-100;
+            }
+
             &:hover {
-                background-color: $clr-primary-700;
+                background-color: $clr-primary-600;
             }
         }
 
         &__title {
-            font-size: inherit;
             padding-left: 1.5em;
-            opacity: 0.9;
-            margin-bottom: 1em;
+            margin-block: 1em;
         }
 
-        &.menu--expanded {
+        @include menu-expanded {
             display: flex;
             color: $text-color-light;
         }
@@ -273,6 +284,14 @@
 
         &__additional-item {
             display: block;
+        }
+    }
+
+    .nav-link-menu {
+        font-size: $fs-300;
+
+        &__title {
+            font-size: $fs-100;
         }
     }
 }

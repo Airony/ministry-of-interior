@@ -11,7 +11,7 @@
     &__btn,
     &__link {
         font-size: inherit;
-        color: $text-color-light;
+        color: inherit;
         padding: 1.5em 1em;
         display: block;
         width: 100%;
@@ -68,7 +68,7 @@
             height: 35px;
         }
 
-        color: $text-color-light;
+        color: inherit;
         margin-bottom: 2em;
         margin-left: auto;
 
@@ -78,7 +78,9 @@
     }
 
     &__item {
-        border-bottom: 2px solid $border-light-200;
+        @include not-last {
+            border-bottom: 2px solid $border-light-200;
+        }
     }
 
     &__btn,
@@ -96,8 +98,6 @@
         }
 
         @include btn-expanded {
-            background: $clr-primary-800;
-
             .icon {
                 transform: rotate(180deg);
             }

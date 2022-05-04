@@ -96,11 +96,18 @@ $transition-clr : color 200ms ease;
     }
 }
 
+@mixin not-last() {
+    &:not(:last-child) {
+        @content;
+    }
+}
+
 @mixin hover-opacity() {
     &:hover {
         opacity: 0.8;
     }
 }
+
 
 $border-light-200:rgba(255, 255, 255, 0.15);
 $border-light-100:rgba(255, 255, 255, 0.1);
