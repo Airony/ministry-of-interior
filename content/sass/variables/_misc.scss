@@ -103,8 +103,10 @@ $transition-clr : color 200ms ease;
 }
 
 @mixin hover-opacity() {
+    transition: opacity 100ms ease-in;
+
     &:hover {
-        opacity: 0.8;
+        opacity: 0.9;
     }
 }
 

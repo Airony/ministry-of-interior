@@ -12,6 +12,7 @@
 .upper-header {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     padding-inline: var(--horizontal-padding);
     padding-block: 1.5em;
     gap: 1.5em;
@@ -22,6 +23,17 @@
 
     &__account-btn {
         display: none;
+    }
+
+    &__link,
+    .lang-select__btn {
+        padding: 0.5em;
+
+        &:hover,
+        &:focus {
+            transition: background-color 150ms ease;
+            background-color: $clr-primary-200;
+        }
     }
 }
 

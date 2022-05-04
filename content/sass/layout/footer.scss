@@ -2,8 +2,10 @@
 @use "../variables/type-vars"as *;
 
 .footer {
+    $currentColor: $text-color-light;
+
     background: $clr-primary-900;
-    color: $clr-primary-100;
+    color: $currentColor;
     padding: var(--section-spacing) var(--horizontal-padding);
 
     .logo {
@@ -77,13 +79,16 @@
             text-decoration: underline;
             font-family: "Hk Grotesk";
             color: inherit;
+            transition: color 300ms ease;
 
-            &:hover {
-                opacity: 0.8;
+            &:hover,
+            &:focus {
+                color: rgba($currentColor, 0.8);
             }
 
             &:focus {
                 outline: 2px $clr-secondary solid;
+                outline-offset: 4px;
             }
         }
     }
@@ -94,15 +99,24 @@
 
         &__link {
             font-size: inherit;
+            transition: color 300ms ease;
+            color: $currentColor;
+
+            &:hover,
+            &:focus {
+                color: rgba($currentColor, 0.8);
+            }
+
+            &:focus {
+                outline: 2px $clr-secondary solid;
+                outline-offset: 4px;
+            }
 
             svg {
                 height: 2.5em;
                 width: 2.5em;
             }
 
-            &:hover {
-                opacity: 0.8;
-            }
         }
     }
 }
