@@ -27,12 +27,12 @@ pagination:
         <h2 class='section-title actions__section-title'>Common Resources</h2>
         <div class="grid actions-grid">
             {%- for action in homepage.actions %}
-                <div class='card action'>
+                <a class='card action' href={{action.link}}>
                     <svg class='icon action__icon'>
                         <use href="./assets/icons/sprite.svg#{{action.icon}}"></use>
                     </svg>
-                    <a class="card-title action__title" href={{action.link}}>{{action.title}}</a>
-                </div>
+                    <h3 class="card-title action__title">{{action.title}}</h3>
+                </a>
             {% endfor -%}
         </div>
     </section>

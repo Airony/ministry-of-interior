@@ -41,7 +41,7 @@
 
 .actions-grid {
     width: 100%;
-    @include grid-preferred-columns(4, 220px, $space-hori-xs, $space-hori-xs)
+    @include grid-preferred-columns(5, 200px, $space-hori-xs, $space-hori-xs)
 }
 
 .action {
@@ -50,29 +50,33 @@
     flex-direction: column;
     padding: 1.25em 1em;
     color: $text-color-dark;
-    font-size: $fs-500;
-
+    font-size: $fs-400;
+    background-color: $clr-primary-50;
 
     &__icon {
         aspect-ratio: 1;
-        width: 4em;
+        width: 3em;
         max-width: 120px;
-        color: $text-color-dark;
-
-        min-width: 80px;
+        min-width: 70px;
+        color: inherit;
     }
 
     &__title {
+        font-size: inherit;
+        color: inherit;
         text-align: center;
         margin-top: 0.75em;
-        transition: $transition-clr;
         outline-offset: 4px;
+    }
 
-        &:focus,
-        &:hover {
-            color: $clr-secondary;
-        }
+    &__icon,
+    &__title {
+        transition: color 150ms ease-in;
+    }
 
+    &:focus,
+    &:hover {
+        color: $clr-secondary;
     }
 }
 
