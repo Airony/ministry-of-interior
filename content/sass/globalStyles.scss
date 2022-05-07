@@ -1,8 +1,8 @@
-@use "variables/colors"as *;
-@use "variables/spacing"as *;
-@use "variables/type"as *;
-@use "variables/type-vars"as *;
-@use "variables/misc"as *;
+@use "variables/colors" as *;
+@use "variables/spacing" as *;
+@use "variables/type" as *;
+@use "variables/type-vars" as *;
+@use "variables/misc" as *;
 @use "sass:map";
 @use "sass:list";
 
@@ -18,10 +18,10 @@
 
 body {
     width: 100%;
+    background-color: $background-clr;
 }
 
 section {
-    padding: var(--section-spacing) var(--horizontal-padding);
     max-width: 1800px;
     margin-inline: auto;
 }
@@ -131,7 +131,7 @@ a {
 
         .text-input {
             flex-grow: 1;
-            background-color: $clr-primary-50;
+            background-color: $clr-neutral-100;
         }
     }
 }
@@ -150,8 +150,9 @@ button {
     font-family: unset;
 }
 
+
 .card {
-    background: $clr-primary-50;
+    background-color: $clr-neutral-100;
     border-radius: $border-radius;
     font-size: $fs-300;
 

@@ -1,10 +1,9 @@
-@use '../variables/colors'as *;
-@use '../variables/type-vars'as *;
-@use '../variables/misc'as *;
+@use '../variables/colors' as *;
+@use '../variables/type-vars' as *;
+@use '../variables/misc' as *;
 
 
 @mixin base-style {
-    background: $clr-primary-50;
     display: flex;
     position: relative;
 
@@ -26,7 +25,7 @@
     }
 
     &__date {
-        color: #877c73;
+        color: $clr-neutral-800;
         font-family: monospace;
         margin-block: 10px;
     }

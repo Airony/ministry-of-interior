@@ -1,7 +1,7 @@
-@use "../variables/colors"as *;
-@use "../variables/type-vars"as *;
-@use "../variables/spacing"as *;
-@use '../variables/misc'as *;
+@use "../variables/colors" as *;
+@use "../variables/type-vars" as *;
+@use "../variables/spacing" as *;
+@use '../variables/misc' as *;
 
 .lang-select {
     position: relative;
@@ -17,7 +17,7 @@
     }
 
     &__drop-menu {
-        background-color: $clr-primary-50;
+        background-color: $clr-neutral-100;
         display: none;
         position: absolute;
         bottom: 0;
@@ -38,7 +38,7 @@
         font-weight: inherit;
 
         &:hover {
-            background-color: $clr-primary-100;
+            background-color: $clr-neutral-300;
         }
     }
 }

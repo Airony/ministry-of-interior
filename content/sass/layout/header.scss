@@ -1,12 +1,12 @@
-@use "../variables/colors"as *;
-@use "../variables/type-vars"as *;
-@use "../variables/spacing"as *;
-@use '../variables/misc'as *;
+@use "../variables/colors" as *;
+@use "../variables/type-vars" as *;
+@use "../variables/spacing" as *;
+@use '../variables/misc' as *;
 @use '../components/langselect.scss';
 @use '../components/searchbar.scss';
 @use '../components/search-toggle.scss';
 @use '../components/hamburger.scss';
-@use '../components/nav-menu.scss'as nav;
+@use '../components/nav-menu.scss' as nav;
 
 
 
@@ -82,6 +82,7 @@
 .main-header {
     width: 100%;
     background-color: $clr-primary-700;
+    color: $text-color-light;
     display: flex;
     align-items: baseline;
     gap: 40px;
@@ -103,7 +104,7 @@
     position: absolute;
     width: max-content;
     min-width: 100%;
-    background-color: $clr-primary-50;
+    background-color: $clr-primary-100;
     color: $text-color-dark;
     font-size: inherit;
     font-weight: 400;
@@ -179,8 +180,8 @@
 
         .logo {
             display: block;
-            color: $clr-primary-100;
             font-size: $fs-400;
+            color: inherit;
             font-weight: bold;
             font-style: italic;
             white-space: nowrap;
@@ -223,7 +224,6 @@
 
         &__link {
             padding: 0.75em;
-            border-bottom: 1px $clr-primary-700 solid;
             padding-left: 2em;
 
             @include not-last {

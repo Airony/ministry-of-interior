@@ -1,5 +1,5 @@
-@use '../variables/colors.scss'as *;
-@use '../variables/misc.scss'as *;
+@use '../variables/colors.scss' as *;
+@use '../variables/misc.scss' as *;
 
 .main-nav {
     display: flex;
@@ -79,7 +79,7 @@
 
     &__item {
         @include not-last {
-            border-bottom: 2px solid $border-light-200;
+            border-bottom: 2px solid $border-light-100;
         }
     }
 

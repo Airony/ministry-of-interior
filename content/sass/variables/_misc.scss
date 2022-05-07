@@ -1,4 +1,4 @@
-@use "./colors.scss"as *;
+@use "./colors.scss" as *;
 @use "sass:string";
 @use "sass:list";
 
@@ -44,7 +44,7 @@ $transition-clr : color 200ms ease;
     align-items: center;
 }
 
-@mixin grid-preferred-columns($preferred-count, $min-size, $column-gap:0px, $row-gap:0px) {
+@mixin grid-preferred-columns($preferred-count, $min-size, $column-gap: 0px, $row-gap: 0px) {
     column-gap: $column-gap;
     row-gap: $row-gap;
     grid-template-columns: repeat(auto-fill,
@@ -58,7 +58,7 @@ $transition-clr : color 200ms ease;
     @for $i from 1 through length($properties) {
         $result: $result + nth($properties, $i) $duration $timing-func;
 
-        @if($i !=length($properties)) {
+        @if($i  !=length($properties)) {
             $result: $result + string.unquote(',');
         }
     }
@@ -111,9 +111,9 @@ $transition-clr : color 200ms ease;
 }
 
 
-$border-light-200:rgba(255, 255, 255, 0.15);
-$border-light-100:rgba(255, 255, 255, 0.1);
+$border-light-200: rgba(255, 255, 255, 0.15);
+$border-light-100: rgba(255, 255, 255, 0.1);
 
-$border-dark-50:rgba(0, 0, 0, 0.025);
-$border-dark-100:rgba(0, 0, 0, 0.05);
-$border-dark-400:rgba(0, 0, 0, 0.2);
+$border-dark-50: rgba(0, 0, 0, 0.025);
+$border-dark-100: rgba(0, 0, 0, 0.05);
+$border-dark-400: rgba(0, 0, 0, 0.2);

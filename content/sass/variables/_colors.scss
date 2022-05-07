@@ -1,37 +1,45 @@
-$clr-primary-900: hsla(6, 15%, 13%, 1);
-$clr-primary-800:hsl(16, 27%, 19%);
-$clr-primary-700:hsl(16, 22%, 26%);
-$clr-primary-600:hsl(15, 20%, 35%);
-$clr-primary-500:hsl(16, 16%, 47%);
-$clr-primary-400:hsl(16, 24%, 64%);
-$clr-primary-300:hsl(15, 27%, 76%);
-$clr-primary-200:hsl(15, 28%, 85%);
-$clr-primary-100:hsl(15, 20%, 89%);
-$clr-primary-75:hsl(17, 15%, 90%);
-$clr-primary-50:hsl(17, 33%, 96%);
+// $clr-primary-900: hsla(6, 15%, 13%, 1);
+// $clr-primary-800: hsl(16, 27%, 19%);
+// $clr-primary-700: hsl(16, 22%, 26%);
+// $clr-primary-600: hsl(15, 20%, 35%);
+// $clr-primary-500: hsl(16, 16%, 47%);
+// $clr-primary-400: hsl(16, 24%, 64%);
+// $clr-primary-300: hsl(15, 27%, 76%);
+// $clr-primary-200: hsl(15, 28%, 85%);
+// $clr-primary-100: hsl(15, 20%, 89%);
+// $clr-primary-75: hsl(17, 15%, 90%);
+// $clr-primary-50: hsl(17, 33%, 96%);
 
+$clr-primary-50: hsl(27, 60%, 97%);
+$clr-primary-100: hsl(27, 43%, 91%);
+$clr-primary-200: hsl(26, 40%, 85%);
+$clr-primary-300: hsl(23, 22%, 79%);
+$clr-primary-400: hsl(22, 33%, 66%);
+$clr-primary-500: hsl(19, 22%, 52%);
+$clr-primary-600: hsl(18, 20%, 43%);
+$clr-primary-700: hsl(15, 20%, 35%);
+$clr-primary-800: hsl(15, 22%, 25%);
+$clr-primary-900: hsl(18, 27%, 18%);
+$clr-primary-1000: hsl(15, 30%, 13%);
 
 $clr-secondary: hsla(0, 61%, 47%);
 $clr-secondary-light: rgb(234, 76, 76);
+
+
+$clr-neutral-100: hsl(26, 42%, 98%);
+$clr-neutral-200: hsl(30, 42%, 95%);
+$clr-neutral-300: hsl(24, 27%, 93%);
+$clr-neutral-400: hsl(24, 24%, 89%);
+$clr-neutral-500: hsl(24, 20%, 83%);
+$clr-neutral-600: hsl(26, 10%, 67%);
+$clr-neutral-700: hsl(23, 7%, 54%);
+$clr-neutral-800: hsl(27, 4%, 35%);
+$clr-neutral-900: hsl(26, 7%, 25%);
+$clr-neutral-1000: hsl(26, 7%, 15%);
 $clr-btn-hover: rgb(136, 34, 58);
-// $clr-btn-hover: hsl(11, 79%, 54%);
-
-$text-color-dark : $clr-primary-800;
-$text-color-light : white;
-$header-color:$clr-primary-800;
-$background-clr: $clr-primary-100;
-
 $clr-accent-golden: hsl(39, 69%, 59%);
 
-
-// $clr-accent-golden: hsl(45, 44%, 52%);
-// $clr-primary-950: #4a352e;
-// $clr-primary-900: hsl(15, 46%, 20%);
-// $clr-primary-800: hsl(25, 20%, 41%);
-// $clr-primary-700: hsl(15, 16%, 35%);
-// $clr-primary-600: hsl(15, 35%, 85%);
-// $clr-primary-300: hsl(15, 27%, 91%);
-// $clr-primary-250: hsl(15, 33%, 94%);
-// $clr-primary-200: hsl(15, 33%, 96%);
-// $clr-primary-100: hsl(15, 100%, 99%);
-// $clr-accent-golden:hsl(349, 26%, 32%);
+$text-color-dark : $clr-primary-900;
+$text-color-light : $clr-neutral-100;
+$header-color: $clr-primary-900;
+$background-clr: $clr-primary-100;

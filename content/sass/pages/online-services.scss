@@ -1,6 +1,6 @@
-@use '../variables/colors'as *;
-@use '../variables/misc'as *;
-@use '../variables/type-vars'as *;
+@use '../variables/colors' as *;
+@use '../variables/misc' as *;
+@use '../variables/type-vars' as *;
 
 
 .intro {
@@ -9,7 +9,7 @@
 
 
 .table-container {
-    background-color: $clr-primary-50;
+    background-color: $clr-neutral-200;
     padding: 1em 1em;
     width: 100%;
     border: 1px solid $border-dark-400;
@@ -28,8 +28,8 @@
         padding-bottom: 1em;
     }
 
-    tr:not(:last-child):not(:first-child) {
-        border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
+    tr:not(:last-child) {
+        border-bottom: 1px $clr-neutral-600 solid;
     }
 
     td {
@@ -143,7 +143,8 @@
         }
 
         tr:nth-child(even) {
-            background: $clr-primary-75;
+            // background-color: $clr-neutral-400;
+
         }
 
 
@@ -156,12 +157,5 @@
 @media screen and (max-width: 600px) {
     .requests-table {
         font-size: $fs-300;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .requests-table__actions {
-        // gap: 20px;
-
     }
 }
