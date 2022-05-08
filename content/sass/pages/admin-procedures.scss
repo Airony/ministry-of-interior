@@ -1,14 +1,10 @@
-@use '../variables/spacing'as *;
-@use '../variables/type-vars'as *;
-@use '../variables/colors'as *;
-@use '../variables/misc'as *;
+@use '../variables/spacing' as *;
+@use '../variables/type-vars' as *;
+@use '../variables/colors' as *;
+@use '../variables/misc' as *;
 
 .procedures {
     padding: var(--section-spacing-large) var(--horizontal-padding);
-
-    // &__text {
-    //     width: clamp(300px, 65%, 800px);
-    // }
 
     &__no-result {
         display: none;
@@ -25,7 +21,7 @@
     margin-inline: -2em;
 
     .text-input {
-        width: clamp(300px, 40%, 700px);
+        width: clamp(min(300px, 100%), 40%, 700px);
     }
 }
 
