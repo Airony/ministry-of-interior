@@ -29,13 +29,13 @@ function filter(input) {
       target.style.display = "";
     }
   });
-  console.log(i);
+
+  const onEmpty = document.querySelectorAll(
+    `.${input.getAttribute("data-show-on-empty")}`
+  );
   if (i == filterTargets.length) {
-    const onEmpty = document.querySelectorAll(
-      `.${input.getAttribute("data-show-on-empty")}`
-    );
-    console.log("empty");
-    console.log(onEmpty);
     onEmpty.forEach((ele) => (ele.style.display = "initial"));
+  } else {
+    onEmpty.forEach((ele) => (ele.style.display = ""));
   }
 }
