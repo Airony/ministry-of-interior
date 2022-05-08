@@ -1,6 +1,7 @@
-@use '../variables/type-vars'as *;
-@use '../variables/colors'as *;
-@use '../variables/misc'as *;
+@use '../variables/type-vars' as *;
+@use '../variables/colors' as *;
+@use '../variables/misc' as *;
+
 
 .post-title {
     $pattern-clr-dark: $clr-primary-900;
@@ -38,7 +39,7 @@
     justify-content: center;
     flex-wrap: wrap;
     column-gap: 5%;
-    padding-block: var(--section-spacing-large);
+    padding: var(--section-spacing-large) var(--horizontal-padding);
 
 }
 
