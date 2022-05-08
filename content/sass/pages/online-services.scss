@@ -3,8 +3,8 @@
 @use '../variables/type-vars' as *;
 
 
-.intro {
-    padding-block: var(--section-spacing-large) 0;
+main {
+    padding: var(--section-spacing-large) var(--horizontal-padding);
 }
 
 
