@@ -1,4 +1,5 @@
-@use '../variables/colors'as *;
+@use '../variables/colors' as *;
+@use '../variables/type-vars' as *;
 
 .logo {
     display: flex;
@@ -16,11 +17,11 @@
     &__title {
         font-weight: bold;
         ;
-        font-size: var(--fs-200);
+        font-size: $fs-400;
     }
 
     &__tagline {
-        font-size: var(--fs-100);
+        font-size: $fs-300;
     }
 
     &__img {

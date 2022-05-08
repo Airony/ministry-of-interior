@@ -1,20 +1,20 @@
-@use '../variables/colors'as *;
-@use '../variables/misc'as *;
-@use '../variables/type-vars'as *;
+@use '../variables/colors' as *;
+@use '../variables/misc' as *;
+@use '../variables/type-vars' as *;
 @use 'sass:math';
-@use '../components/logo.scss'as *;
+@use '../components/logo.scss' as *;
 @use '../components/langselect.scss';
 @use '../components/searchbar.scss';
-@use '../components/search-toggle.scss'as *;
-@use '../components/hamburger.scss'as *;
-@use '../components/nav-menu.scss'as nav;
+@use '../components/search-toggle.scss' as *;
+@use '../components/hamburger.scss' as *;
+@use '../components/nav-menu.scss' as nav;
 
 .upper-header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-inline: var(--horizontal-padding);
-    padding-block: 1.5em;
+    padding-block: 0.5em;
     gap: 1.5em;
     font-family: 'Hk Grotesk';
     font-size: $fs-400;
@@ -48,7 +48,7 @@
     .content {
         display: flex;
         align-items: center;
-        padding: 1.5em var(--horizontal-padding);
+        padding: 1em var(--horizontal-padding);
         justify-content: space-between;
         gap: 2.5em;
     }
@@ -77,6 +77,12 @@
     .hamburger {
         display: none;
     }
+
+    &__login-btn,
+    .search-bar__input,
+    .logo__title {
+        font-size: inherit;
+    }
 }
 
 
@@ -92,9 +98,8 @@
 
 .nav-link-menu {
     flex-direction: column;
-    background-color: $clr-primary-100;
+    background-color: $clr-neutral-100;
     position: absolute;
-    padding: 0.5em .25em;
     min-width: 100%;
     @include shadow-400;
     font-size: inherit;
@@ -110,7 +115,7 @@
         }
 
         &:hover {
-            background-color: $clr-primary-200;
+            background-color: $clr-neutral-300;
         }
     }
 
@@ -121,6 +126,8 @@
 
 @media screen and (max-width: 800px) {
     .main-header {
+        font-size: $fs-300;
+
         .controls {
             align-items: center;
         }
@@ -199,8 +206,16 @@
         }
     }
 
-    .main-header__login-btn {
-        display: none;
+    .main-header {
+        &__login-btn {
+            display: none;
+        }
+
+        .logo {
+            &__tagline {
+                font-size: $fs-100;
+            }
+        }
     }
 
     .main-nav {

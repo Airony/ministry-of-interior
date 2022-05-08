@@ -119,12 +119,18 @@
         color: inherit;
         word-wrap: normal;
         font-size: $fs-300;
+        margin-bottom: 0.3em;
         @include uppercase
     }
 
     &__link {
         color: inherit;
         word-wrap: normal;
+        transition: color 200ms ease-in;
+
+        &:hover {
+            color: $clr-secondary;
+        }
     }
 
     &__list {
@@ -216,6 +222,7 @@
         padding: 0 0 1em 0;
         flex-wrap: wrap;
         gap: 0;
+        padding-left: 1.5em;
 
         &__list {
             width: 100%;
@@ -224,19 +231,20 @@
 
         &__link {
             padding: 0.75em;
-            padding-left: 2em;
+            padding-left: 1em;
 
             @include not-last {
                 border-bottom: 1px solid $border-light-100;
             }
 
             &:hover {
+                color: inherit;
                 background-color: $clr-primary-600;
             }
         }
 
         &__title {
-            padding-left: 1.5em;
+            margin-bottom: 0;
             margin-block: 1em;
         }
 
