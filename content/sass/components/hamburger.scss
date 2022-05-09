@@ -1,4 +1,4 @@
-@use '../variables/colors'as *;
+@use '../variables/colors' as *;
 
 .hamburger {
     padding: .6em;
@@ -8,8 +8,8 @@
     }
 
     .icon {
-        color: $text-color-light;
         width: 30px;
         height: 30px;
+        color: $text-color-light;
     }
 }

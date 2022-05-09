@@ -3,20 +3,19 @@
 
 .logo {
     display: flex;
-    align-items: center;
     gap: 1em;
+    align-items: center;
 
     &__content {
         display: flex;
-        align-items: center;
         flex-direction: column;
-        color: $text-color-light;
+        align-items: center;
         align-items: flex-start;
+        color: $text-color-light;
     }
 
     &__title {
         font-weight: bold;
-        ;
         font-size: $fs-400;
     }
 

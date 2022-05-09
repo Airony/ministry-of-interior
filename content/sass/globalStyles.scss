@@ -7,9 +7,9 @@
 @use "sass:list";
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 
     &:focus {
         outline: 2px solid $clr-primary-900;
@@ -18,6 +18,8 @@
 
 body {
     width: 100%;
+    font-family: $font-family-primary;
+    background: $background-clr;
     background-color: $background-clr;
 }
 
@@ -27,13 +29,8 @@ section {
 }
 
 a {
-    text-decoration: none;
     color: currentColor;
-}
-
-body {
-    background: $background-clr;
-    font-family: "Lora";
+    text-decoration: none;
 }
 
 button,
@@ -42,13 +39,13 @@ a {
 }
 
 .btn-primary {
-    cursor: pointer;
-    background-color: $clr-secondary;
     color: white;
+    font-family: $font-family-secondary;
+    background-color: $clr-secondary;
     border: none;
-    transition: background-color 200ms ease-out;
-    font-family: "HK Grotesk";
     border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 200ms ease-out;
 
     &:focus,
     &:hover {
@@ -61,22 +58,22 @@ a {
 }
 
 .btn-large {
-    font-weight: bold;
-    @include uppercase;
-    font-size: $fs-400;
-    padding: 1.35em 0.75em;
     display: inline-block;
+    padding: 1.35em 0.75em;
+    font-weight: bold;
+    font-size: $fs-400;
+    @include uppercase;
 }
 
 .btn-small {
-    font-weight: bold;
     padding: 0.75em 0.75em;
+    font-weight: bold;
     font-size: $fs-400;
 }
 
 .btn-underline {
-    font-family: 'HK Grotesk';
     color: $clr-secondary;
+    font-family: $font-family-secondary;
     text-decoration: underline;
 
     &:hover {
@@ -91,28 +88,27 @@ a {
 
 .read-more {
     @include uppercase;
+    color: $clr-secondary;
     font-weight: bold;
     font-size: $fs-300;
-    color: $clr-secondary;
 }
 
 .text-input {
-    padding: 1em 0.5em;
     display: inline-block;
-    border: none;
-    border-radius: $border-radius;
-    font-family: "Lora";
+    padding: 1em 0.5em;
     color: $text-color-dark;
     font-size: $fs-400;
+    font-family: $font-family-primary;
+    border: none;
+    border-radius: $border-radius;
 
     &::placeholder {
-        font-family: inherit;
-        font-size: inherit;
         color: inherit;
+        font-size: inherit;
+        font-family: inherit;
         opacity: 0.8;
     }
 }
-
 
 .text-input-medium {
     font-size: $fs-400;
@@ -138,27 +134,26 @@ a {
 
 label {
     display: block;
-    font-size: $fs-500;
+    margin-bottom: 15px;
     color: $text-color-dark;
     font-weight: bold;
-    margin-bottom: 15px;
+    font-size: $fs-500;
 }
 
 button {
+    font-family: unset;
     background: none;
     border: none;
-    font-family: unset;
 }
 
-
 .card {
+    font-size: $fs-300;
     background-color: $clr-neutral-100;
     border-radius: $border-radius;
-    font-size: $fs-300;
 
     .card-title {
-        font-family: "Lora";
         font-weight: bold;
+        font-family: $font-family-primary;
     }
 }
 
@@ -167,16 +162,16 @@ button {
 }
 
 .icon {
-    vertical-align: middle;
-    color: inherit;
     display: inline-block;
+    color: inherit;
+    vertical-align: middle;
 
     svg,
     use {
         width: 100%;
         height: auto;
-        fill: currentColor;
         color: inherit;
+        fill: currentColor;
     }
 }
 

@@ -7,26 +7,26 @@
     position: relative;
 
     &__btn {
-        vertical-align: middle;
-        font-size: inherit;
-        font-weight: inherit;
-        letter-spacing: inherit;
-        text-transform: inherit;
         color: currentColor;
+        font-weight: inherit;
+        font-size: inherit;
+        letter-spacing: inherit;
         white-space: nowrap;
+        text-transform: inherit;
+        vertical-align: middle;
     }
 
     &__drop-menu {
-        background-color: $clr-neutral-100;
-        display: none;
         position: absolute;
         bottom: 0;
         left: 50%;
-        transform: translateY(100%) translateX(-50%);
         z-index: 4; // Might cause some problems later, idk & idc
+        display: none;
         flex-direction: column;
-        @include shadow-400;
+        background-color: $clr-neutral-100;
         border-radius: $border-radius;
+        transform: translateY(100%) translateX(-50%);
+        @include shadow-400;
 
         &.menu--expanded {
             display: flex;

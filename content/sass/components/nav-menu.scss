@@ -1,20 +1,21 @@
 @use '../variables/colors.scss' as *;
 @use '../variables/misc.scss' as *;
+@use '../variables/type-vars.scss' as *;
 
 .main-nav {
     display: flex;
     align-items: center;
     color: $text-color-light;
+    font-family: $font-family-secondary;
     border-top: 1px solid $border-light-200;
-    font-family: 'Hk Grotesk';
 
     &__btn,
     &__link {
-        font-size: inherit;
-        color: inherit;
-        padding: 1.5em 1em;
         display: block;
         width: 100%;
+        padding: 1.5em 1em;
+        color: inherit;
+        font-size: inherit;
         text-align: start;
 
         &:hover {
@@ -33,8 +34,8 @@
 
     &__additional-link {
         color: $clr-accent-golden;
-        text-decoration: underline;
-        font-weight: normal
+        font-weight: normal;
+        text-decoration: underline
     }
 }
 
@@ -43,16 +44,14 @@
     $fade-in-dur: 300ms;
 
     position: fixed;
-    inset: 0;
-    transform: translateX(-100%);
-    padding: 2em;
-    overflow-y: scroll;
-
     flex-direction: column;
     align-items: stretch;
-
+    padding: 2em;
+    overflow-y: scroll;
     background-color: inherit;
+    transform: translateX(-100%);
     transition: transform $animation-dur ease-in-out;
+    inset: 0;
 
     & > * {
         opacity: 0;
@@ -62,15 +61,14 @@
 
     &__close-btn {
         display: initial;
+        margin-bottom: 2em;
+        margin-left: auto;
+        color: inherit;
 
         .icon {
             width: 35px;
             height: 35px;
         }
-
-        color: inherit;
-        margin-bottom: 2em;
-        margin-left: auto;
 
         &:hover {
             background-color: $clr-primary-600;
@@ -98,6 +96,7 @@
         }
 
         @include btn-expanded {
+
             .icon {
                 transform: rotate(180deg);
             }

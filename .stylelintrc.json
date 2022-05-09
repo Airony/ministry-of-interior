@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "stylelint-config-recommended-scss",
+        "stylelint-config-prettier-scss",
+        "stylelint-group-selectors",
+        "stylelint-config-rational-order"
+    ],
+    "rules": {
+        "no-descending-specificity": null,
+        "rule-empty-line-before": "always",
+        "no-extra-semicolons": true,
+        "max-empty-lines": 1
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "prettier.htmlWhitespaceSensitivity": "ignore",
+    "stylelint.enable": true,
+    "css.validate": false,
+    "scss.validate": false
+}

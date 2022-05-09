@@ -15,13 +15,17 @@ $fs-200: 0.875rem;
 $fs-100: 0.75rem;
 $line-height-400: 1.5;
 
-$heading-margins: ("h1":(1em, 0.75em),
+$heading-margins: (
+    "h1":(1em, 0.75em),
     "h2":(1.25em, 0.75em),
     "h3":(1em, 0.75em),
     "h4":(1em, 0.75em),
     "h5":(1em, 0.75em),
     "h6":(0.75em, 0.5em),
 );
+
+$font-family-primary: 'Lora', sans-serif;
+$font-family-secondary: 'HK Grotesk', serif;
 
 @mixin apply-heading-top-margins {
     @for $i from 1 through 6 {
@@ -32,6 +36,6 @@ $heading-margins: ("h1":(1em, 0.75em),
 }
 
 @mixin uppercase {
-    text-transform: uppercase;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }

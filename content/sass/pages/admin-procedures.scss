@@ -15,9 +15,8 @@
 .filter {
     margin-top: 4em;
     margin-bottom: 4em;
-    background-color: $clr-primary-200;
-
     padding: 2em 4em 2em 2em;
+    background-color: $clr-primary-200;
     margin-inline: -2em;
 
     .text-input {
@@ -32,16 +31,16 @@
 
 .procedure-card {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
     padding: 1.25em 1em;
-    transition: transform 200ms ease-in;
     font-size: $fs-400;
+    transition: transform 200ms ease-in;
 
     &__content {
         display: flex;
-        flex-direction: column;
         flex: 1 1 220px;
+        flex-direction: column;
     }
 
     &__title {
@@ -56,10 +55,10 @@
     }
 
     &__icon {
-        width: clamp(60px, 35%, 110px);
-        aspect-ratio: 1;
         flex-shrink: 0;
+        width: clamp(60px, 35%, 110px);
         fill: $text-color-dark;
+        aspect-ratio: 1;
     }
 
     &__title,
@@ -78,7 +77,9 @@
 }
 
 @media screen and (max-width: 500px) {
+
     .procedure-card {
+
         &__title {
             font-size: $fs-400;
         }

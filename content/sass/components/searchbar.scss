@@ -1,5 +1,5 @@
-@use '../variables/misc'as *;
-@use '../variables/type-vars'as *;
+@use '../variables/misc' as *;
+@use '../variables/type-vars' as *;
 
 .search-bar {
     display: flex;
@@ -8,8 +8,8 @@
 
     &__input {
         flex-grow: 1;
-        border: none;
         font-size: inherit;
+        border: none;
         @include no-border-radius-right;
     }
 

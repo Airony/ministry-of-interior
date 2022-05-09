@@ -11,15 +11,15 @@
 
 .upper-header {
     display: flex;
-    justify-content: flex-end;
+    gap: 1.5em;
     align-items: center;
+    justify-content: flex-end;
+    color: $text-color-dark;
+    font-weight: bold;
+    font-size: $fs-400;
+    font-family: $font-family-secondary;
     padding-inline: var(--horizontal-padding);
     padding-block: 0.5em;
-    gap: 1.5em;
-    font-family: 'Hk Grotesk';
-    font-size: $fs-400;
-    font-weight: bold;
-    color: $text-color-dark;
 
     &__account-btn {
         display: none;
@@ -31,33 +31,33 @@
 
         &:hover,
         &:focus {
-            transition: background-color 150ms ease;
             background-color: $clr-primary-200;
+            transition: background-color 150ms ease;
         }
     }
 }
 
 .main-header {
-    display: flex;
-    flex-direction: column;
-    background-color: $clr-primary-700;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
     font-size: $fs-400;
+    background-color: $clr-primary-700;
 
     .content {
         display: flex;
-        align-items: center;
-        padding: 1em var(--horizontal-padding);
-        justify-content: space-between;
         gap: 2.5em;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em var(--horizontal-padding);
     }
 
     .controls {
         display: flex;
-        justify-content: flex-end;
         flex-grow: 1;
         gap: 1em;
+        justify-content: flex-end;
     }
 
     &__search-bar-container {
@@ -85,7 +85,6 @@
     }
 }
 
-
 .main-nav {
     padding-inline: var(--horizontal-padding);
     border-top: 1px solid $border-light-200;
@@ -95,20 +94,19 @@
     }
 }
 
-
 .nav-link-menu {
-    flex-direction: column;
-    background-color: $clr-neutral-100;
     position: absolute;
+    flex-direction: column;
     min-width: 100%;
-    @include shadow-400;
-    font-size: inherit;
     color: $text-color-dark;
+    font-size: inherit;
+    background-color: $clr-neutral-100;
+    @include shadow-400;
 
     &__link {
+        min-width: 100%;
         padding: .75em 3em .75em 0.75em;
         white-space: nowrap;
-        min-width: 100%;
 
         &:not(:last-child) {
             border-bottom: 1px solid $border-dark-400;
@@ -125,6 +123,7 @@
 }
 
 @media screen and (max-width: 800px) {
+
     .main-header {
         font-size: $fs-300;
 
@@ -139,18 +138,18 @@
 
         &__search-bar-container {
             $animation-dur: 200ms;
-
-            visibility: hidden;
             position: absolute;
+            right: 0;
             bottom: 0;
             left: 0;
-            right: 0;
             padding: 1em;
-            transform: translateY(100%);
-            opacity: 0;
             background-color: $clr-primary-700;
-            transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
             border: 1px solid $border-dark-400;
+            transform: translateY(100%);
+
+            visibility: hidden;
+            opacity: 0;
+            transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
 
             @include menu-expanded {
                 visibility: visible;
@@ -167,15 +166,15 @@
 
     .nav-link-menu {
         position: static;
-        transform: none;
-        box-shadow: none;
-        background: none;
-        color: inherit;
         padding-bottom: 1em;
+        color: inherit;
+        background: none;
+        box-shadow: none;
+        transform: none;
 
         &__link {
-            color: inherit;
             padding: 1em 0 1em 1.5em;
+            color: inherit;
 
             &:not(:last-child) {
                 border-color: $border-light-100;
@@ -189,7 +188,9 @@
 }
 
 @media screen and (max-width: 600px) {
+
     .upper-header {
+
         &__nav-list {
             display: none;
         }
@@ -207,11 +208,13 @@
     }
 
     .main-header {
+
         &__login-btn {
             display: none;
         }
 
         .logo {
+
             &__tagline {
                 font-size: $fs-100;
             }
@@ -228,7 +231,9 @@
 }
 
 @media screen and (max-width: 400px) {
+
     .main-header {
+
         .content {
             flex-direction: column;
             gap: 0;

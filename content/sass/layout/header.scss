@@ -8,26 +8,25 @@
 @use '../components/hamburger.scss';
 @use '../components/nav-menu.scss' as nav;
 
-
-
 // MARK : Upperheader
+
 .upper-header {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     padding: 0.75em 2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: "HK Grotesk";
-    font-size: $fs-500;
     color: $text-color-dark;
-    gap: 2em;
     font-weight: bold;
+    font-size: $fs-500;
+    font-family: $font-family-secondary;
 
     &__logo {
         display: flex;
         align-items: center;
-        font-family: "Lora";
         font-weight: bold;
+        font-family: $font-family-primary;
         font-style: italic;
     }
 
@@ -41,10 +40,6 @@
         font-size: inherit;
         white-space: nowrap;
     }
-
-
-    display: flex;
-
 }
 
 // MARK : Secondary Nav
@@ -64,8 +59,8 @@
 
         &:hover,
         &:focus {
-            transition: background-color 150ms ease;
             background-color: $clr-primary-200;
+            transition: background-color 150ms ease;
         }
     }
 
@@ -79,17 +74,18 @@
 }
 
 // MARK : Mainheader
+
 .main-header {
-    width: 100%;
-    background-color: $clr-primary-700;
-    color: $text-color-light;
-    display: flex;
-    align-items: baseline;
-    gap: 40px;
-    padding-inline: 5%;
-    font-size: $fs-400;
     position: relative;
     z-index: 2;
+    display: flex;
+    gap: 40px;
+    align-items: baseline;
+    width: 100%;
+    color: $text-color-light;
+    font-size: $fs-400;
+    background-color: $clr-primary-700;
+    padding-inline: 5%;
 
     .logo,
     .hamburger,
@@ -100,26 +96,26 @@
 }
 
 .nav-link-menu {
-    display: none;
     position: absolute;
+    z-index: 2;
+    display: none;
+    gap: 2.5em;
     width: max-content;
     min-width: 100%;
-    background-color: $clr-primary-100;
-    color: $text-color-dark;
-    font-size: inherit;
-    font-weight: 400;
     padding: 1em 3em 1em 1.25em;
-    gap: 2.5em;
-    z-index: 2;
+    color: $text-color-dark;
+    font-weight: 400;
+    font-size: inherit;
+    background-color: $clr-primary-100;
     border-radius: $border-radius;
     @include shadow-400;
 
     &__title {
-        font-weight: bold;
-        color: inherit;
-        word-wrap: normal;
-        font-size: $fs-300;
         margin-bottom: 0.3em;
+        color: inherit;
+        font-weight: bold;
+        font-size: $fs-300;
+        word-wrap: normal;
         @include uppercase
     }
 
@@ -135,8 +131,8 @@
 
     &__list {
         display: flex;
-        gap: 1em;
         flex-direction: column;
+        gap: 1em;
     }
 
     &.menu--expanded {
@@ -152,12 +148,14 @@
     }
 
     .nav-link-menu {
+
         &__title {
             font-size: $fs-200;
         }
     }
 
     .action {
+
         &__title {
             font-size: $fs-400
         }
@@ -165,6 +163,7 @@
 }
 
 @media screen and (max-width: 950px) {
+
     .upper-header {
         font-size: $fs-400;
 
@@ -175,9 +174,10 @@
     }
 
     // MARK : Mainheader small
+
     .main-header {
-        justify-content: start;
         align-items: center;
+        justify-content: start;
         padding-block: 1em;
 
         .hamburger {
@@ -186,9 +186,9 @@
 
         .logo {
             display: block;
-            font-size: $fs-400;
             color: inherit;
             font-weight: bold;
+            font-size: $fs-400;
             font-style: italic;
             white-space: nowrap;
         }
@@ -199,34 +199,34 @@
         }
 
         &__search-bar-container {
-            flex: 0 1 300px;
             display: initial;
+            flex: 0 1 300px;
             margin-left: auto
         }
     }
 
     .main-nav {
         @include nav.collapsed-style;
-        font-size: $fs-400;
         z-index: 2;
+        font-size: $fs-400;
     }
 
     .nav-link-menu {
-        width: 100%;
         position: static;
-        transform-origin: top;
-        box-shadow: none;
-        font-size: $fs-400;
-        background-color: unset;
-        transform: none;
-        padding: 0 0 1em 0;
         flex-wrap: wrap;
         gap: 0;
+        width: 100%;
+        padding: 0 0 1em 0;
         padding-left: 1.5em;
+        font-size: $fs-400;
+        background-color: unset;
+        box-shadow: none;
+        transform: none;
+        transform-origin: top;
 
         &__list {
-            width: 100%;
             gap: 0;
+            width: 100%;
         }
 
         &__link {
@@ -256,13 +256,14 @@
 }
 
 @media screen and (max-width: 600px) {
+
     .secondary-nav .container {
         display: none;
     }
 
     .main-header {
-        justify-content: space-between;
         gap: 0;
+        justify-content: space-between;
 
         .logo {
             font-size: $fs-400;
@@ -275,18 +276,18 @@
 
         &__search-bar-container {
             $animation-dur: 200ms;
-
-            visibility: hidden;
             position: absolute;
+            right: 0;
             bottom: 0;
             left: 0;
-            right: 0;
             padding: 1em;
-            transform: translateY(100%);
-            opacity: 0;
             background-color: $clr-primary-700;
-            transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
             border: 1px solid $border-dark-400;
+            transform: translateY(100%);
+
+            visibility: hidden;
+            opacity: 0;
+            transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
 
             @include menu-expanded {
                 visibility: visible;

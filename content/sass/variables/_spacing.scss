@@ -1,9 +1,8 @@
-$space-vert-xs:clamp(30px, 4vh, 60px);
-$space-vert-s:clamp(50px, 8vh, 80px);
+$space-vert-xs: clamp(30px, 4vh, 60px);
+$space-vert-s: clamp(50px, 8vh, 80px);
 
-$space-hori-s:clamp(40px, 6vw, 80px);
-$space-hori-xs:clamp(30px, 4vw, 60px);
-
+$space-hori-s: clamp(40px, 6vw, 80px);
+$space-hori-xs: clamp(30px, 4vw, 60px);
 
 :root {
     --horizontal-padding: max(16px, 6vw);
@@ -14,18 +13,19 @@ $space-hori-xs:clamp(30px, 4vw, 60px);
 
 @mixin bypass-horizontal-padding {
     width: calc(100% + var(--horizontal-padding) * 2);
-    margin-left: calc(-1 * var(--horizontal-padding));
     max-width: none;
+    margin-left: calc(-1 * var(--horizontal-padding));
 }
 
-
 @media screen and (max-width: 1500px) {
+
     :root {
         --horizontal-padding: max(16px, 4vw);
     }
 }
 
 @media screen and (max-width: 1100px) {
+
     :root {
         --section-spacing-large: clamp(70px, 10vh, 140px);
     }
