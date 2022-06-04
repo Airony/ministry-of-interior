@@ -84,7 +84,7 @@
     width: 100%;
     color: $text-color-light;
     font-size: $fs-400;
-    background-color: $clr-primary-700;
+    background-color: $headerr-clr;
     padding-inline: 5%;
 
     .logo,
@@ -239,7 +239,7 @@
 
             &:hover {
                 color: inherit;
-                background-color: $clr-primary-600;
+                background-color: $headerr-hover-clr;
             }
         }
 
@@ -281,7 +281,7 @@
             bottom: 0;
             left: 0;
             padding: 1em;
-            background-color: $clr-primary-700;
+            background-color: $headerr-clr;
             border: 1px solid $border-dark-400;
             transform: translateY(100%);
 
