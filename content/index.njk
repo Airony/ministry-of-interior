@@ -2,37 +2,37 @@
 layout: global-layout.njk
 title: 'why are you like this'
 pagination:
-  data: homepage
-  size: 6
+    data: homepage
+    size: 6
+featuredguides : featured_guides.js
 ---
 {% import "./_includes/components/forms.njk" as forms %}
-{%- from './_includes/components/article.macro.njk' import article  %}
+{%- from './_includes/components/article.macro.njk' import article %}
 {%- from 'components/lang-select.macro.njk' import langSelect %}
 
 <head>
     <link rel="stylesheet" href="/css/pages/index.css">
 </head>
+
 <body>
     <section class='hero'>
         <h1 class='hero__title'>Welcome to the Algerien Ministry of Interior</h1>
-        <img src="./assets/img/hero-img-320.png" alt="" class="hero__img"
-            srcset="./assets/img/hero-img-320.png 400w,
+        <img src="./assets/img/hero-img-320.png" alt="" class="hero__img" srcset="./assets/img/hero-img-320.png 400w,
             ./assets/img/hero-img-1000.png 1000w,
                     ./assets/img/hero-img-1440.png 1440w,
-                    ./assets/img/hero-img-1920.png 1920w"
-                    >
+                    ./assets/img/hero-img-1920.png 1920w">
 
     </section>
     <section class="actions">
         <h2 class='section-title actions__section-title'>Common Resources</h2>
         <div class="grid actions-grid">
             {%- for action in homepage.actions %}
-                <a class='card action' href={{action.link}}>
-                    <svg class='icon action__icon'>
-                        <use href="./assets/icons/sprite.svg#{{action.icon}}"></use>
-                    </svg>
-                    <h3 class="card-title action__title">{{action.title}}</h3>
-                </a>
+            <a class='card action' href={{action.link}}>
+                <svg class='icon action__icon'>
+                    <use href="./assets/icons/sprite.svg#{{action.icon}}"></use>
+                </svg>
+                <h3 class="card-title action__title">{{action.title}}</h3>
+            </a>
             {% endfor -%}
         </div>
     </section>
@@ -41,7 +41,7 @@ pagination:
         <h2 class='section-title articles__section-title'>Latest News</h2>
         <div class="grid articles-grid">
             {%- for newsArticle in homepage.news %}
-                {{article(newsArticle,'article--main') if loop.first else article(newsArticle)}}
+            {{article(newsArticle,'article--main') if loop.first else article(newsArticle)}}
             {% endfor -%}
         </div>
         <a href="#" class="btn-primary btn-large more-btn">More News</a>
@@ -50,76 +50,84 @@ pagination:
     <div class="guides-bg">
 
         <section class="guides">
-            <h2 class='section-title guides__section-title' >Useful Guides</h2>
+            <h2 class='section-title guides__section-title'>Useful Guides</h2>
             <div class="guides-list">
-                {%- for guide in homepage.guides %}
-                    <a  href="#" class="card guide"></span>
-                    <img  class='guide__img' src='assets/img/{{guide.img}}' alt="" srcset="">
+                {%- for guide in featured_guides %}
+                <a href="#" class="card guide"></span>
+                    <img class='guide__img' src='{{guide.image}}' alt="" srcset="">
                     <div class="guide__img-overlay"></div>
                     <div class="guide__content">
-                        <h5 class="card-title guide__title">{{guide.title}}
-                            <span class="guide__number">{{loop.index}}</span></h5>
-                        <p class="guide__desc">Blandit pellentesque elementum faucibus pretium, augue in senectus ut.</p>
+                        <div class="guide__title-container">
+                            <h5 class="card-title guide__title">{{guide.title}}</h5>
+                            <span class="guide__number">{{loop.index}}</span>
+                        </div>
+                        <p class="guide__desc">{{guide.content}}</p>
                     </div>
                 </a>
-            {% endfor -%}
-        </div>
-        <a href="#" class="btn-primary btn-large more-btn">More Guides</a>
-    </section>
-</div>
-<section class="ministry">
-    <h2 class='section-title ministry__section-title'>The Ministry and It's Duties</h2>
-    <div class="content">
-
-        <div class="container">
-            <p class='container__body'>Why are you lin kthat in commodo ultrices euismod. Lobortis imperdiet diam, tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor. Arcu, quam enim leo nascetur.</p>
-            <img class='container__img' src="./assets/img/ministry-img.png" alt="" >
-        </div>
-        <div class="container">
-            <p class='container__body'>Neque euismod nec fusce in commodo ultrices euismod. Lobortis imperdiet diam, tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor. Arcu, quam enim leo nascetur.</p>
-            <img class='container__img' src="./assets/img/ministry-img.png" alt="" srcset="">
-        </div>
+                {% endfor -%}
+            </div>
+            <a href="#" class="btn-primary btn-large more-btn">More Guides</a>
+        </section>
     </div>
-</section>
-<div class="newsletter-bg">
+    <section class="ministry">
+        <h2 class='section-title ministry__section-title'>The Ministry and It's Duties</h2>
+        <div class="content">
 
-    <section class="newsletter">
-        <h2 class='section-title newsletter__section-title'>Stay in Contact</h2>
-        <p class='newsletter__body'>Subscribe to our newsletter to receive all latest news and updates.</p>
-        <form class="form">
-            <input class="form__email text-input" type="email" placeholder='Enter your email' >
-            <input class='form__submit btn-primary btn-large' type="submit" value="Subscribe" >
-        </form>
+            <div class="container">
+                <p class='container__body'>Why are you lin kthat in commodo ultrices euismod. Lobortis imperdiet diam,
+                    tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In
+                    euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor.
+                    Arcu, quam enim leo nascetur.</p>
+                <img class='container__img' src="./assets/img/ministry-img.png" alt="">
+            </div>
+            <div class="container">
+                <p class='container__body'>Neque euismod nec fusce in commodo ultrices euismod. Lobortis imperdiet diam,
+                    tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In
+                    euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor.
+                    Arcu, quam enim leo nascetur.</p>
+                <img class='container__img' src="./assets/img/ministry-img.png" alt="" srcset="">
+            </div>
+        </div>
     </section>
-</div>
-<div class="files-bg">
-    <section class="files">
-        <h2 class='section-title files__section-title'>Files</h2>
-        <div class="grid files-grid">
-            {%- for file in homepage.files %}
+    <div class="newsletter-bg">
+
+        <section class="newsletter">
+            <h2 class='section-title newsletter__section-title'>Stay in Contact</h2>
+            <p class='newsletter__body'>Subscribe to our newsletter to receive all latest news and updates.</p>
+            <form class="form">
+                <input class="form__email text-input" type="email" placeholder='Enter your email'>
+                <input class='form__submit btn-primary btn-large' type="submit" value="Subscribe">
+            </form>
+        </section>
+    </div>
+    <div class="files-bg">
+        <section class="files">
+            <h2 class='section-title files__section-title'>Files</h2>
+            <div class="grid files-grid">
+                {%- for file in homepage.files %}
                 <a class="card file" href='#'>
-                    <img class="file__img" src='./assets/img/file-img.png' alt="" >
+                    <img class="file__img" src='./assets/img/file-img.png' alt="">
                     <div class="container">
                         <h6 class="card-title file__title">{{file.title}}</h6>
                     </div>
                 </a>
-            {% endfor -%}
-        </div>
+                {% endfor -%}
+            </div>
+        </section>
+    </div>
+
+    <section class="send-message">
+        <h2 class='section-title send-message__section-title'>Send Us a Message</h2>
+        <form action="" class="form">
+            <div class="grid inputs">
+
+                {{forms.textfield("Name","","inputs__name-input textfield-grow")}}
+                {{forms.textfield("Email","","inputs__email-input textfield-grow")}}
+                {{forms.textarea("Message","","inputs__message-input textfield-grow")}}
+            </div>
+            <input class='form__submit btn-primary btn-large' type="submit" value="Send Message">
+
+        </form>
     </section>
-</div>
-
-<section class="send-message">
-    <h2 class='section-title send-message__section-title'>Send Us a Message</h2>
-    <form action="" class="form">
-        <div class="grid inputs">
-
-            {{forms.textfield("Name","","inputs__name-input textfield-grow")}}
-            {{forms.textfield("Email","","inputs__email-input textfield-grow")}}
-            {{forms.textarea("Message","","inputs__message-input textfield-grow")}}
-        </div>
-        <input class='form__submit btn-primary btn-large' type="submit" value="Send Message" >
-
-    </form>
-</section>
 
 </body>

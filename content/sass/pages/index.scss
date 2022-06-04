@@ -363,20 +363,26 @@ section {
 }
 
 @media (hover:none) {
-    @include guide.no-hover-style;
+
+    .guide {
+        @include guide.no-hover-style;
+    }
 }
 
 @media screen and (max-width: 1200px) {
 
     .guide {
 
+        font-size: $fs-300;
+
         &__title {
-            font-size: $fs-500;
+            font-size: $fs-400;
         }
 
-        &__desc {
-            font-size: $fs-300;
+        &__number {
+            font-size: $fs-800;
         }
+
     }
 }
 

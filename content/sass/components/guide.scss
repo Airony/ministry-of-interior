@@ -11,7 +11,7 @@ $_bg-hover-clrs-list: hsl(226, 100%, 60%),
     hsl(173, 95%, 30%),
     hsl(25, 95%, 55%),
     hsl(349, 90%, 53%);
-$_slide-up-trans-dur: 250ms;
+$_slide-up-trans-dur: 300ms;
 $_background-clr-trans-dur : 150ms;
 
 @mixin base-style {
@@ -19,7 +19,7 @@ $_background-clr-trans-dur : 150ms;
     width: 25%;
     overflow: hidden;
     color: $text-color-light;
-    text-align: center;
+    font-size: $fs-400;
 
     &__img {
         position: absolute;
@@ -34,31 +34,37 @@ $_background-clr-trans-dur : 150ms;
         z-index: 2;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        gap: 0.75em;
         height: 100%;
-        padding: 1em 1.5em 3em 1.5em;
+        padding: 1.35em 1.25em 2em 1.25em;
     }
 
     &__desc {
         color: inherit;
-        font-size: $fs-400;
+        font-size: inherit;
         font-family: $font-family-secondary;
         transform: translateY(50%);
         visibility: hidden;
         opacity: 0;
-        transition: multiple-transitions($_slide-up-trans-dur, ease-in-out, transform, visibility, opacity);
+        transition: multiple-transitions($_slide-up-trans-dur, ease-in-out, transform, visibility, opacity),
+    }
+
+    &__title-container {
+        position: relative;
+        top: 50%;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        width: 100%;
+        transform: translateY(-50%);
+        transition: top $_slide-up-trans-dur ease-in-out;
     }
 
     &__title {
-        position: relative;
-        top: 50%;
         z-index: 2;
-        width: 100%;
         color: inherit;
         font-size: $fs-600;
         font-style: italic;
-        transform: translateY(-50%);
-        transition: top $_slide-up-trans-dur ease-in-out;
         margin-block: 1em 0;
     }
 
@@ -73,26 +79,36 @@ $_background-clr-trans-dur : 150ms;
     &__img-overlay {
         position: absolute;
         inset: 0;
-        background: rgba(black, 0.3);
+        background: rgba(black, 0.25);
 
+        &::before,
         &::after {
             position: absolute;
-            transform: translateY(100%);
-            transition: transform $_slide-up-trans-dur ease-in-out;
             content: "";
             inset: 0;
         }
+
+        &::before {
+            opacity: 0.5;
+            mix-blend-mode: multiply;
+        }
+
+        &::after {
+            transform: translateY(100%);
+            transition: transform $_slide-up-trans-dur ease-in-out;
+        }
     }
 
-    @include property-from-list(background-color, $_bg-clrs-list, ".guide__img-overlay::after");
+    @include property-from-list(background-color, $_bg-clrs-list, ".guide__img-overlay::after,.guide__img-overlay::before");
 
     &:hover,
     &:focus {
 
         .guide {
 
-            &__title {
+            &__title-container {
                 top: 0;
+                transform: none;
             }
 
             &__desc {
@@ -114,36 +130,37 @@ $_background-clr-trans-dur : 150ms;
 
 @mixin no-hover-style {
 
-    .guide {
+    &__number {
+        display: initial;
+    }
 
-        &__number {
-            display: initial;
-        }
+    &__desc {
+        transform: none;
+        visibility: visible;
+        opacity: 0.9;
+    }
 
-        &__desc {
-            transform: none;
-            visibility: visible;
-            opacity: 0.9;
-        }
+    &__title-container {
+        top: 0;
+        justify-content: space-between;
+        transform: none;
 
-        &__title {
-            top: 0
-        }
+    }
 
-        &__img-overlay::after {
-            transform: none;
-            transition: background-color $_background-clr-trans-dur ease-in;
-        }
+    &__img-overlay::after {
+        transform: none;
+        transition: background-color $_background-clr-trans-dur ease-in;
+    }
 
-        &:focus {
-            @include property-from-list(background-color, $_bg-hover-clrs-list, ".guide__img-overlay::after");
-        }
+    &:focus {
+        @include property-from-list(background-color, $_bg-hover-clrs-list, ".guide__img-overlay::after");
     }
 }
 
 @mixin collapsed-style {
     $transition-dur: 200ms;
     width: 100%;
+    aspect-ratio: unset;
 
     &__content {
         align-items: stretch;
@@ -154,15 +171,17 @@ $_background-clr-trans-dur : 150ms;
         display: none;
     }
 
-    &__title {
+    &__title-container {
         position: static;
         display: flex;
-        align-items: center;
         justify-content: space-between;
         width: 100%;
-        width: auto;
         margin: 0;
         transform: none;
+    }
+
+    &__title {
+        margin: 0;
     }
 
     &__number {
@@ -172,7 +191,6 @@ $_background-clr-trans-dur : 150ms;
 
     &__desc {
         margin: 0;
-        margin-top: 1em;
         text-align: start;
         transform: none;
         visibility: visible;
