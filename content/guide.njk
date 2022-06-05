@@ -1,0 +1,37 @@
+---
+layout: global-layout.njk
+pagination:
+    data: guides
+    alias: guide
+    size: 1
+permalink: "/{{guide.link}}/index.html"
+eleventyComputed:
+  title: "{{ guide.title }}"
+---
+
+<head>
+    <link rel="stylesheet" href="/css/pages/guide.css">
+    <title>{{guide.title}}</title>
+</head>
+
+<script>
+    console.log( "{{guide.title}}" );
+</script>
+<main class="guide">
+    <div class="guide-info">
+        <div class="guide-info__container">
+            <h1 class="guide-info__title">
+                {{guide.title}}
+            </h1>
+            <span class="guide-info__date">{{guide.formattedDate}}</span>
+
+        </div>
+        <div class="guide-info__img-container">
+            <img src="{{ guide.featuredImgUrl }}" alt="" class="guide-info__img">
+            <div class="guide-info__img-overlay"></div>
+        </div>
+    </div>
+    <div class="guide__content">
+        {{guide.content | safe}}
+    </div>
+    </main>

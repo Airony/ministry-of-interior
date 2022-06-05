@@ -1,0 +1,78 @@
+@use '../variables/colors' as *;
+@use '../variables/type-vars' as *;
+
+.guide-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+
+    &__container {
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        color: white;
+        padding-block: 4em;
+    }
+
+    &__title {
+        max-width: min(80%, 1200px);
+        text-align: center;
+    }
+
+    &__title,
+    &__date {
+        color: inherit;
+    }
+
+    &__date {
+        font-size: $fs-600;
+        font-style: italic;
+    }
+
+    &__img-container {
+        position: absolute;
+        inset: 0;
+
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__img-overlay {
+        position: absolute;
+        background-color: $clr-primary-900;
+        opacity: 0.8;
+        mix-blend-mode: multiply;
+        inset: 0;
+    }
+}
+
+.guide__content {
+    max-width: 120ch;
+    padding: var(--section-spacing-large) var(--horizontal-padding);
+    margin-inline: auto;
+
+    @include apply-heading-top-margins;
+
+    p {
+        max-width: inherit;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .guide-info {
+
+        &__date {
+            font-size: $fs-500
+        }
+    }
+}
