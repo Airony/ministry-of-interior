@@ -4,7 +4,7 @@ pagination:
     data: guides
     alias: guide
     size: 1
-permalink: "/{{guide.link}}/index.html"
+permalink: "/{{guide.link}}"
 eleventyComputed:
   title: "{{ guide.title }}"
 ---
@@ -14,9 +14,6 @@ eleventyComputed:
     <title>{{guide.title}}</title>
 </head>
 
-<script>
-    console.log( "{{guide.title}}" );
-</script>
 <main class="guide">
     <div class="guide-info">
         <div class="guide-info__container">
@@ -34,4 +31,4 @@ eleventyComputed:
     <div class="guide__content">
         {{guide.content | safe}}
     </div>
-    </main>
+</main>

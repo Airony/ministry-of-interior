@@ -4,7 +4,6 @@ title: 'why are you like this'
 pagination:
     data: homepage
     size: 6
-featuredguides : featured_guides.js
 ---
 {% import "./_includes/components/forms.njk" as forms %}
 {%- from './_includes/components/article.macro.njk' import article %}
@@ -48,12 +47,11 @@ featuredguides : featured_guides.js
 
     </section>
     <div class="guides-bg">
-
         <section class="guides">
             <h2 class='section-title guides__section-title'>Useful Guides</h2>
             <div class="guides-list">
                 {%- for guide in featured_guides %}
-                <a href="#" class="card guide"></span>
+                <a href="/{{guide.link}}" class="card guide"></span>
                     <img class='guide__img' src='{{guide.image}}' alt="" srcset="">
                     <div class="guide__img-overlay"></div>
                     <div class="guide__content">
