@@ -10,6 +10,7 @@
 // $clr-primary-75: hsl(17, 15%, 90%);
 // $clr-primary-50: hsl(17, 33%, 96%);
 
+// Color Pallete
 $clr-primary-50: hsl(27, 60%, 97%);
 $clr-primary-100: hsl(27, 43%, 91%);
 $clr-primary-200: hsl(26, 40%, 85%);
@@ -38,9 +39,12 @@ $clr-neutral-1000: hsl(26, 7%, 15%);
 $clr-btn-hover: rgb(136, 34, 58);
 $clr-accent-golden: hsl(39, 69%, 59%);
 
+//Text Colors
 $text-color-dark : $clr-primary-900;
 $text-color-light : $clr-neutral-100;
-$header-color: $clr-primary-900;
-$headerr-clr: $clr-primary-800;
-$headerr-hover-clr: $clr-primary-700;
+$heading-color: $clr-primary-900;
+
+// UI Elements
+$header-clr: $clr-primary-800;
+$header-hover-clr: $clr-primary-700;
 $background-clr: $clr-primary-100;

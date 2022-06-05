@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: column;
     font-size: $fs-400;
-    background-color: $headerr-clr;
+    background-color: $header-clr;
 
     .content {
         display: flex;
@@ -143,7 +143,7 @@
             bottom: 0;
             left: 0;
             padding: 1em;
-            background-color: $headerr-clr;
+            background-color: $header-clr;
             border: 1px solid $border-dark-400;
             transform: translateY(100%);
 
@@ -181,7 +181,7 @@
             }
 
             &:hover {
-                background-color: $headerr-hover-clr;
+                background-color: $header-hover-clr;
             }
         }
     }
