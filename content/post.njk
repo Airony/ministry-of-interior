@@ -1,11 +1,12 @@
 ---
 layout: global-layout.njk
-title: 'its a post'
 pagination:
   data: posts
   alias: post
   size: 1
 permalink: "/{{post.link}}/index.html"
+eleventyComputed:
+    title: "{{post.title}}"
 ---
 
 <head>
