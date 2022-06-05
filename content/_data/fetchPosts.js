@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const parser = require("node-html-parser");
+const helper = require("../../helper");
 
 async function fetchPosts(postName, makeHeadings, fields) {
     const posts = [];
@@ -54,62 +54,23 @@ async function wpPosts(postName, fields, makeHeadings, page = 1) {
                     title: p.title.rendered,
                     excerpt: p.excerpt.rendered,
                     content: p.content.rendered,
-                    link: cleanLink(p.link),
+                    link: helper.cleanWpLink(p.link),
                     formattedDate: formattedDate,
                     featuredImgUrl: p["featured_img_url"],
                 };
 
                 if (makeHeadings) {
-                    result.headings = extractHeadings(p.content.rendered);
+                    result.headings = helper.extractHeadings(
+                        p.content.rendered
+                    );
                 }
+
                 return result;
             });
     } catch (err) {
         console.log(`Problem fetching posts: ${err}`);
         return null;
     }
-}
-
-// Clean link
-function cleanLink(str) {
-    return str.replace(process.env["WORDPRESS_HOST"], "").trim();
-}
-
-function extractHeadings(str) {
-    let doc = parser.parse(str);
-    let headings = doc.querySelectorAll("h2, h3,h4,h5,h6");
-
-    headings = headings.map((heading) => {
-        return {
-            level: parseInt(heading.tagName.substring(1, 2)) - 1,
-            id: heading.id,
-            content: heading.textContent,
-        };
-    });
-    return orderHeadings(headings, 0).list;
-}
-
-function orderHeadings(headings, startIndex) {
-    let result = [];
-
-    for (let i = startIndex; i < headings.length; i++) {
-        let heading = headings[i];
-        let next = headings[i + 1];
-
-        if (next?.level > heading.level) {
-            const { list, newIndex } = orderHeadings(headings, i + 1);
-            result.push({
-                ...heading,
-                children: list,
-            });
-            i = newIndex;
-        } else if (next?.level > heading.level) {
-            return { children: result, newIndex: i };
-        } else {
-            result.push({ ...heading });
-        }
-    }
-    return { list: result };
 }
 
 module.exports = fetchPosts;
