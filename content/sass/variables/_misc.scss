@@ -46,8 +46,8 @@ $transition-clr : color 200ms ease;
 
 @mixin grid-preferred-columns($preferred-count, $min-size, $column-gap: 0px, $row-gap: 0px) {
     grid-template-columns: repeat(auto-fill,
-            minmax(max(calc((100% - $column-gap * ($preferred-count - 1)) / $preferred-count),
-                    $min-size), 1fr));
+            minmax(max(calc((100% - $column-gap * ($preferred-count - 1)) / $preferred-count), min($min-size, 100%)),
+                1fr));
     column-gap: $column-gap;
     row-gap: $row-gap;
 }
