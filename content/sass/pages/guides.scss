@@ -1,0 +1,74 @@
+@use '../variables/type-vars' as *;
+@use '../variables/misc' as *;
+@use '../variables/colors' as *;
+@use '../components/article.scss' as article;
+
+$guide-gap: 4em;
+
+.guides {
+    padding: var(--section-spacing-large) var(--horizontal-padding);
+}
+
+.guides-filter {
+
+    margin-bottom: 4em;
+    padding: 2em 4em 2em 2em;
+    background-color: $clr-primary-200;
+    margin-inline: -2em;
+
+    .text-input {
+        width: clamp(min(300px, 100%), 40%, 400px);
+    }
+}
+
+.guides-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $guide-gap;
+    justify-content: stretch;
+}
+
+.guide {
+    @include article.horizontal-style;
+
+    &__img {
+        width: 30%;
+        aspect-ratio: 2;
+    }
+
+    &__title {
+        font-size: $fs-600;
+    }
+}
+
+.guides__no-result {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .guides-list {
+        @include grid-preferred-columns(2, 300px, $guide-gap, $guide-gap);
+    }
+
+    .guide {
+        @include article.horizontal-style--override;
+        flex-grow: 1;
+
+        &__title {
+            font-size: $fs-500;
+        }
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .guide {
+
+        &__title {
+            font-size: $fs-400;
+        }
+    }
+
+}
