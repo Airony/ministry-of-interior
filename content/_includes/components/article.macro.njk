@@ -1,17 +1,23 @@
-{% macro article(article, class = "article") %}
+{% macro article(title, img, date, body, class = "article") %}
     <div class="card {{ class }}" >
-        <img class="{{ class }}__img"src='./assets/img/{{article.img}}'alt="" >
+        <img class="{{ class }}__img"src='{{img}}'alt="" >
         <div class="{{ class }}__content">
+
             <h4 class="card-title {{ class }}__title">
-                {{ article.title }}
+                {{ title }}
             </h4>
-            <p class="{{ class }}__date">
-                {{article.date}}
-            </p>
+
+            {%if date %}
+                <p class="{{ class }}__date">
+                    {{date}}
+                </p>
+            {% endif %}
+
             <p class="{{class}}__body">
-                {{article.body}}
+                {{body}}
             </p>
-            <a href="{{article.link}}" class="read-more">Read More</a>
+
+            <a href="{{link}}" class="read-more">Read More</a>
         </div>
     </div>
 {% endmacro %}

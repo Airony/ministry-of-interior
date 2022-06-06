@@ -40,7 +40,13 @@ pagination:
         <h2 class='section-title articles__section-title'>Latest News</h2>
         <div class="grid articles-grid">
             {%- for newsArticle in homepage.news %}
-            {{article(newsArticle,'article--main') if loop.first else article(newsArticle)}}
+
+                {% set title = newsArticle.title %}
+                {% set date = newsArticle.date %}
+                {% set img = '/assets/img/' + newsArticle.img %}
+                {% set body = newsArticle.body %}
+                {{ article(title, img, date,body ,('article--main' if loop.first else 'article'))}}
+
             {% endfor -%}
         </div>
         <a href="#" class="btn-primary btn-large more-btn">More News</a>
