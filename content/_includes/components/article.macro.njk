@@ -1,4 +1,4 @@
-{% macro article(title, img, date, body, class = "article") %}
+{% macro article(title, img, date, body,link = '#', class = "article", maxSize = null) %}
     <div class="card {{ class }}" >
         <img class="{{ class }}__img"src='{{img}}'alt="" >
         <div class="{{ class }}__content">
@@ -14,7 +14,7 @@
             {% endif %}
 
             <p class="{{class}}__body">
-                {{body}}
+                {{  body | truncate(maxSize) }}
             </p>
 
             <a href="{{link}}" class="read-more">Read More</a>

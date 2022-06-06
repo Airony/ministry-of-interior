@@ -45,7 +45,7 @@ pagination:
                 {% set date = newsArticle.date %}
                 {% set img = '/assets/img/' + newsArticle.img %}
                 {% set body = newsArticle.body %}
-                {{ article(title, img, date,body ,('article--main' if loop.first else 'article'))}}
+                {{ article(title, img, date, body , class = ('article--main' if loop.first else 'article'))}}
 
             {% endfor -%}
         </div>
