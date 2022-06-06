@@ -57,6 +57,7 @@ async function wpPosts(postName, fields, makeHeadings, page = 1) {
                     link: helper.cleanWpLink(p.link),
                     formattedDate: formattedDate,
                     featuredImgUrl: p["featured_img_url"],
+                    preview: p.preview,
                 };
 
                 if (makeHeadings) {
