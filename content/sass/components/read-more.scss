@@ -1,0 +1,46 @@
+@use '../variables/colors' as *;
+@use '../variables/_type-vars' as *;
+
+$_trans-dur: 300ms;
+
+@mixin base-style {
+    position: relative;
+    padding: 0.5em;
+    font-size: $fs-300;
+    isolation: isolate;
+    transition: color $_trans-dur ease;
+
+    &::after {
+        position: absolute;
+        z-index: -1;
+        background: $clr-secondary;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform $_trans-dur ease-in-out;
+        content: '';
+        inset: 0;
+    }
+
+    &:focus,
+    &:hover {
+        color: white;
+        outline: none;
+
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+
+    &:focus::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: content-box;
+        width: 100%;
+        height: 100%;
+        padding: 4px;
+        outline: 3px solid $clr-secondary;
+        transform: translateX(-50%) translateY(-50%);
+        content: "";
+    }
+}
