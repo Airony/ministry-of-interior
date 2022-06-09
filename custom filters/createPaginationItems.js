@@ -68,7 +68,7 @@ function getIndices(
     const remainingPrevious = previousTargetCount - maxPrevious;
     return [
         // Add the remaining pages count to the other side while making sure we don't start/end at a page that doesnt exist
-        Math.max(0, currentPage - maxPrevious - remainingNext), // start index
+        Math.max(1, currentPage - maxPrevious - remainingNext), // start index
         Math.min(pageCount, currentPage + maxNext + remainingPrevious), // end index
     ];
 }
