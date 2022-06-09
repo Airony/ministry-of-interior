@@ -1,0 +1,20 @@
+{%- macro paginationMenu(paginationData,page,count = 12, collapseCount = 6) %}
+    <nav class='pagination-menu' aria-label="Pagination Navigation" role="navigation">
+        <ol>
+            {% set isFirst = true if paginationData.pageNumber == 0 else false %}
+            {% set isLast = true if paginationData.pageNumber + 1 == paginationData.pageCount else false %}
+            
+            {% if paginationData.pageNumber != 0 %} 
+                <li class='pagination-menu__item pagination-menu__first-page'> <a href='{{paginationData.href.first}}' aria-label="Go to first page">First</a></li>
+                <li class='pagination-menu__item pagination-menu__previous-page'> <a href="{{paginationData.href.previous}}" aria-label="Go to previous page"> < </a></li>
+            {% endif %}
+
+            {{paginationData | createPaginationItems(count,collapseCount) | safe}}
+
+            {% if paginationData.pageNumber + 1 != (paginationData.pages | length) %} 
+                <li class='pagination-menu__item pagination-menu__next-page'> <a href="{{paginationData.href.next}}" aria-label="Go to next page"> > </a></li>
+                <li class='pagination-menu__item pagination-menu__last-page'> <a href="{{paginationData.href.last}}" aria-label="Go to last page">Last</a></li>
+            {% endif %}
+        </ol>
+    </nav>
+{% endmacro %}

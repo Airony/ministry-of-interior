@@ -1,4 +1,5 @@
 require("dotenv").config();
+const createPaginationItems = require("./custom filters/createPaginationItems");
 
 module.exports = (config) => {
     //   config.addWatchTarget("./content/assets/");
@@ -10,6 +11,10 @@ module.exports = (config) => {
 
     config.addFilter("myfilter", (headings) => {
         return constructList(headings, 1);
+    });
+
+    config.addFilter("createPaginationItems", (data, count, collapsedCount) => {
+        return createPaginationItems(data, count, collapsedCount);
     });
 
     return {
