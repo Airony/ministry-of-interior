@@ -8,7 +8,7 @@ pagination:
 
 {%- from './_includes/components/article.macro.njk' import article %}
 {%- from './_includes/components/forms.njk' import textfield %}
-
+{%- from './_includes/components/pagination-menu.macro.njk' import paginationMenu %}
 <head>
     <link rel="stylesheet" href="/css/pages/guides.css">
     <script src="/scripts/filter.js"></script>
@@ -29,9 +29,11 @@ pagination:
             {% set img = guide.featuredImgUrl %}
             {% set body = guide.preview %}
             {% set link = '/' + guide.link %}
-
             {{ article(title, img, null, body, link, "guide", 160)}}
         {% endfor -%}
         <p class="guides__no-result">No search results found. Try another search term.</p>
+    </div>
+    <div class="pagination-container">
+        {{ paginationMenu(pagination, page, 10, 6) }}
     </div>
 </main>

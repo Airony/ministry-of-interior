@@ -2,6 +2,7 @@
 @use '../variables/misc' as *;
 @use '../variables/colors' as *;
 @use '../components/article.scss' as article;
+@use '../components/pagination-menu.scss' as pagination-menu;
 
 $guide-gap: 4em;
 
@@ -45,6 +46,22 @@ $guide-gap: 4em;
     display: none;
 }
 
+.pagination-container {
+    margin: 4em auto 0 auto;
+    font-size: $fs-500;
+}
+
+.pagination-menu {
+    @include pagination-menu.base-style;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .pagination-container {
+        font-size: $fs-400;
+    }
+}
+
 @media screen and (max-width: 1000px) {
 
     .guides-list {
@@ -58,7 +75,18 @@ $guide-gap: 4em;
         &__title {
             font-size: $fs-500;
         }
+    }
 
+    .pagination-container {
+        font-size: $fs-300;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .pagination-menu {
+        @include pagination-menu.stick;
+        @include pagination-menu.decrease-items;
     }
 }
 
@@ -71,4 +99,14 @@ $guide-gap: 4em;
         }
     }
 
+    .pagination-container {
+        font-size: $fs-200;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .pagination-menu {
+        @include pagination-menu.wrap;
+    }
 }
