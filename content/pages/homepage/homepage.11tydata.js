@@ -1,9 +1,9 @@
 const fetch = require("node-fetch");
-const helper = require("../../helper");
+const helper = require("../../../helper");
 const FEATURED_GUIDES_API_LINK =
     process.env["WORDPRESS_HOST"] + "wp-json/homepage-settings/featured-guides";
 
-module.exports = async function () {
+async function getFeaturedGuides() {
     try {
         const res = await fetch(`${FEATURED_GUIDES_API_LINK}`),
             json = await res.json();
@@ -19,4 +19,7 @@ module.exports = async function () {
         console.log("Fetching featured guides failed: " + err);
         return 0;
     }
+}
+module.exports = async function () {
+    return { featuredGuides: await getFeaturedGuides() };
 };

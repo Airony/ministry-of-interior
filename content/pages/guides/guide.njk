@@ -4,9 +4,9 @@ pagination:
     data: guides
     alias: guide
     size: 1
-permalink: "/{{guide.link}}"
 eleventyComputed:
-  title: "{{ guide.title }}"
+    title: "{{ guide.title }}"
+    permalink: "/{{guide.link}}"
 ---
 
 <head>

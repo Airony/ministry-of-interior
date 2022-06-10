@@ -1,12 +1,12 @@
 ---
 layout: global-layout.njk
 pagination:
-  data: posts
-  alias: post
-  size: 1
-permalink: "/{{post.link}}/index.html"
+    data: posts
+    alias: post
+    size: 1
 eleventyComputed:
     title: "{{post.title}}"
+    permalink: "/{{post.link}}"
 ---
 
 <head>

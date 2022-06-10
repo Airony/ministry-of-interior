@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const helper = require("../../helper");
+const helper = require("./helper");
 
 async function fetchPosts(postName, makeHeadings, fields) {
     const posts = [];

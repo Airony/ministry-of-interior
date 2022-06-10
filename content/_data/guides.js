@@ -1,6 +1,6 @@
-const fetchPosts = require("./fetchPosts");
+const fetchPosts = require("../../fetchPosts");
 
 module.exports = async function () {
-    data = await fetchPosts("guides",false, []);
+    data = await fetchPosts("guides", false, []);
     return data;
 };

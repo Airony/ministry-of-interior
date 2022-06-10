@@ -1,14 +1,12 @@
 ---
 layout: global-layout.njk
 title : 'Administrative Procedures'
-data : procedures
 ---
 
-{% import "./_includes/components/forms.njk" as forms %}
+{% import "components/forms.njk" as forms %}
 <head>
     <link rel="stylesheet" href="/css/pages/admin-procedures.css">
     <script src="/scripts/filter.js"></script>
-
 </head>
 
 <main>
@@ -16,7 +14,7 @@ data : procedures
         <h1 class='section-title'>Administrative Procedures</h1>
         <p class='procedures__text'>
     Non sed id quisque amet pretium, purus volutpat. Euismod urna gravida aenean mauris pellentesque egestas. Enim, pulvinar laoreet vestibulum gravida.
-</p>
+        </p>
         <form class="filter" name='procedures-filter' method='dialog'>
             <label>Filter</label>
             <input type="text" name="Filter" id="filter-input" class='text-input' data-filter-input='true' data-filter-target='procedure-card' 

@@ -1,0 +1,39 @@
+{
+    "procedures": [
+        {
+            "title": "Biometrique i.d card",
+            "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
+            "icon": "id-card"
+        },
+        {
+            "title": "Passport",
+            "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
+            "icon": "passport"
+        },
+        {
+            "title": "Marriage Cert.",
+            "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
+            "icon": "marriage-cert"
+        },
+        {
+            "title": "Birth Cert.",
+            "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
+            "icon": "document"
+        },
+        {
+            "title": "Death Cert.",
+            "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
+            "icon": "death-cert"
+        },
+        {
+            "title": "Driving License",
+            "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
+            "icon": "driving-license"
+        },
+        {
+            "title": "Vehicle Registration",
+            "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
+            "icon": "vehicle-regist"
+        }
+    ]
+}
