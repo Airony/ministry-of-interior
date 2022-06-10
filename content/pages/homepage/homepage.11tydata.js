@@ -1,5 +1,7 @@
 const fetch = require("node-fetch");
 const helper = require("../../../helper");
+const cache = require("../../../cache");
+
 const FEATURED_GUIDES_API_LINK =
     process.env["WORDPRESS_HOST"] + "wp-json/homepage-settings/featured-guides";
 
@@ -21,5 +23,5 @@ async function getFeaturedGuides() {
     }
 }
 module.exports = async function () {
-    return { featuredGuides: await getFeaturedGuides() };
+    return { featuredGuides: await cache(getFeaturedGuides, "featuredGuides") };
 };

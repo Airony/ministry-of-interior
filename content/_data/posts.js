@@ -1,6 +1,4 @@
 const fetchPosts = require("../../fetchPosts");
+const cache = require("../../cache");
 
-module.exports = async function () {
-    data = await fetchPosts("posts", true, []);
-    return data;
-};
+module.exports = cache(fetchPosts, "posts", ["posts", true, []]);
