@@ -56,14 +56,14 @@ eleventyComputed:
             <div class="guides-list">
                 {%- for guide in featuredGuides %}
                     <a href="/{{guide.link}}" class="card guide"></span>
-                    <img class='guide__img' src='{{guide.image}}' alt="" srcset="">
+                    <img class='guide__img' src='{{guide.featuredImgUrl}}' alt="" srcset="">
                     <div class="guide__img-overlay"></div>
                     <div class="guide__content">
                         <div class="guide__title-container">
                             <h5 class="card-title guide__title">{{guide.title}}</h5>
                             <span class="guide__number">{{loop.index}}</span>
                         </div>
-                        <p class="guide__desc">{{guide.content}}</p>
+                        <p class="guide__desc">{{guide.preview | truncate(90)}}</p>
                     </div>
                 </a>
             {% endfor -%}

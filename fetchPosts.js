@@ -2,41 +2,14 @@ const fetch = require("node-fetch");
 const helper = require("./helper");
 
 async function fetchPosts(postName, makeHeadings, fields) {
-    const posts = [];
-    const wpPagesCount = await wpPostPages(postName);
-    if (!wpPagesCount) {
-        return posts;
-    }
-
-    let wpList = [];
-
-    wpList.push(wpPosts(postName, fields, makeHeadings, 1));
-    const all = await Promise.all(wpList);
-    return all.flat();
-}
-
-// Get number of wp post pages
-async function wpPostPages(postName) {
-    const url =
-        process.env["WORDPRESS_HOST"] +
-        `wp-json/wp/v2/${postName}?orderby=date&order=desc&_fields=id&pages=1`;
-
-    try {
-        const res = await fetch(url);
-        return res.headers.get("x-wp-totalpages") || 0;
-    } catch (err) {
-        console.log(`Wordpress API Call failed: ${err}`);
-        return 0;
-    }
+    return await wpPosts(postName, fields, makeHeadings, 1);
 }
 
 // Fetch list of wp posts
-async function wpPosts(postName, fields, makeHeadings, page = 1) {
+async function wpPosts(queryName, fields, makeHeadings, p) {
     const url =
         process.env["WORDPRESS_HOST"] +
-        `wp-json/wp/v2/${postName}?orderby=date&order=desc&_fields=${fields.join(
-            ","
-        )}&pages=1`;
+        `?quick_fetch_data=${queryName}&fields=${fields.join(",")}`;
 
     try {
         const res = await fetch(url),
@@ -44,15 +17,15 @@ async function wpPosts(postName, fields, makeHeadings, page = 1) {
         return json
             .filter((p) => p.content.rendered && !p.content.protected)
             .map((p) => {
-                formattedDate = new Date(p.date).toLocaleString("en-us", {
+                formattedDate = new Date(p.post_date).toLocaleString("en-us", {
                     year: "numeric",
                     month: "short",
                     day: "numeric",
                 });
                 result = {
-                    slug: p.slug,
-                    title: p.title.rendered,
-                    excerpt: p.excerpt.rendered,
+                    slug: p.post_name,
+                    title: p.post_title,
+                    excerpt: p.post_excerpt,
                     content: p.content.rendered,
                     link: helper.cleanWpLink(p.link),
                     formattedDate: formattedDate,

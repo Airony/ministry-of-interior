@@ -1,4 +1,10 @@
 const fetchPosts = require("../../fetchPosts");
 const cache = require("../../cache");
 
-module.exports = cache(fetchPosts, "posts", ["posts", true, []]);
+module.exports = async function () {
+    return await cache(fetchPosts, "posts", [
+        "posts",
+        true,
+        ["link", "preview", "featured_img_url"],
+    ]);
+};
