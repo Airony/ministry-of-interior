@@ -133,6 +133,7 @@ section {
 
 .guides-list {
     display: flex;
+    flex-wrap: wrap;
     isolation: isolate;
 }
 
@@ -326,8 +327,6 @@ section {
 
     .guide {
 
-        font-size: $fs-300;
-
         &__title {
             font-size: $fs-400;
         }
@@ -336,6 +335,13 @@ section {
             font-size: $fs-800;
         }
 
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    .guide {
+        @include guide.collapsed-style;
     }
 }
 
@@ -349,17 +355,6 @@ section {
         @include article.horizontal-style--override;
     }
 
-}
-
-@media screen and (max-width: 900px) {
-
-    .guides-list {
-        flex-direction: column;
-    }
-
-    .guide {
-        @include guide.collapsed-style;
-    }
 }
 
 @media screen and (max-width: 800px) {
@@ -379,6 +374,10 @@ section {
             grid-column: auto;
             min-height: 180px;
         }
+    }
+
+    .guide {
+        font-size: $fs-300;
     }
 }
 

@@ -16,6 +16,7 @@ $_background-clr-trans-dur : 150ms;
 
 @mixin base-style {
     position: relative;
+    flex-shrink: 0;
     width: 25%;
     overflow: hidden;
     color: $text-color-light;
@@ -35,25 +36,30 @@ $_background-clr-trans-dur : 150ms;
         display: flex;
         flex-direction: column;
         gap: 0.75em;
+        justify-content: space-between;
         height: 100%;
         padding: 1.35em 1.25em 2em 1.25em;
     }
 
     &__desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
         color: inherit;
         font-size: inherit;
         font-family: $font-family-secondary;
         transform: translateY(50%);
         visibility: hidden;
         opacity: 0;
-        transition: multiple-transitions($_slide-up-trans-dur, ease-in-out, transform, visibility, opacity),
+        transition: multiple-transitions($_slide-up-trans-dur, ease-in-out, transform, visibility, opacity), ;
     }
 
     &__title-container {
         position: relative;
         top: 50%;
         display: flex;
-        align-items: end;
+        align-items: start;
         justify-content: center;
         width: 100%;
         transform: translateY(-50%);
@@ -62,15 +68,17 @@ $_background-clr-trans-dur : 150ms;
 
     &__title {
         z-index: 2;
+        margin: 0;
         color: inherit;
-        font-size: $fs-600;
+        font-size: $fs-500;
         font-style: italic;
-        margin-block: 1em 0;
+        text-align: center;
     }
 
     &__number {
         display: none;
-        align-self: end;
+        margin-top: -0.1em;
+        margin-left: 0.5em;
         font-weight: bold;
         font-size: $fs-1000;
         opacity: 0.8;
@@ -78,8 +86,8 @@ $_background-clr-trans-dur : 150ms;
 
     &__img-overlay {
         position: absolute;
-        inset: 0;
         background: rgba(black, 0.25);
+        inset: 0;
 
         &::before,
         &::after {
@@ -129,6 +137,7 @@ $_background-clr-trans-dur : 150ms;
 }
 
 @mixin no-hover-style {
+    aspect-ratio: unset;
 
     &__number {
         display: initial;
@@ -144,7 +153,10 @@ $_background-clr-trans-dur : 150ms;
         top: 0;
         justify-content: space-between;
         transform: none;
+    }
 
+    &__title {
+        text-align: start;
     }
 
     &__img-overlay::after {
@@ -158,12 +170,10 @@ $_background-clr-trans-dur : 150ms;
 }
 
 @mixin collapsed-style {
-    $transition-dur: 200ms;
     width: 100%;
     aspect-ratio: unset;
 
     &__content {
-        align-items: stretch;
         padding: 1em 2em 1.5em 1em;
     }
 
@@ -171,17 +181,16 @@ $_background-clr-trans-dur : 150ms;
         display: none;
     }
 
-    &__title-container {
-        position: static;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin: 0;
-        transform: none;
+    &__title {
+        text-align: start;
     }
 
-    &__title {
+    &__title-container {
+        position: static;
+        align-items: center;
+        justify-content: space-between;
         margin: 0;
+        transform: none;
     }
 
     &__number {
@@ -190,7 +199,6 @@ $_background-clr-trans-dur : 150ms;
     }
 
     &__desc {
-        margin: 0;
         text-align: start;
         transform: none;
         visibility: visible;
