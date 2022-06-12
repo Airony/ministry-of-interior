@@ -42,7 +42,6 @@
     &__content {
         flex: 9 0 min-content;
         min-width: 0;
-
         @include apply-heading-top-margins;
 
         & > :first-child {
@@ -56,6 +55,15 @@
         h3 {
             font-size: $fs-800;
         }
+    }
+}
+
+.post--no-toc {
+
+    .post__content {
+        flex-basis: fit-content;
+        flex-grow: 0;
+        margin-inline: auto;
     }
 }
 

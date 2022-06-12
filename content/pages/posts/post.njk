@@ -16,13 +16,17 @@ eleventyComputed:
 <div class="post-title">
     <h1 class='post-title__heading'>{{post.title}}</h1>
 </div>
-<section class="post">
-    <div class="toc">
-        <h2 class='toc__title'>Contents</h2>
-        <ul class='toc__list'>
-            {{post.headings | myfilter | safe}}
-        </ul>
-    </div>
+
+{%set showToc = post.headings | length > 0%}
+<section class="post {{'post--no-toc' if not showToc else ''}}">
+    {% if showToc %}
+        <div class="toc">
+            <h2 class='toc__title'>Contents</h2>
+            <ul class='toc__list'>
+                {{post.headings | myfilter | safe}}
+            </ul>
+        </div>
+    {% endif %}
     <main class="post__content">
         {{post.content | safe}}
     </main>
