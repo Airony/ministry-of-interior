@@ -42,6 +42,7 @@
     &__content {
         flex: 9 0 min-content;
         min-width: 0;
+        padding-top: 1em;
         @include apply-heading-top-margins;
 
         & > :first-child {
@@ -79,11 +80,11 @@
     border-right: 1px solid $clr-primary-300;
 
     &__title {
-        font-size: var(--fs-responsive-h5);
+        font-size: var(--fs-responsive-h3);
     }
 
     &__list {
-        font-size: $fs-300;
+        font-size: $fs-400;
 
         li {
             list-style: none;
@@ -94,8 +95,7 @@
         display: inline-block;
         margin-bottom: 12px;
         font-weight: 600;
-        font-size: $fs-300;
-        font-size: 18px;
+        font-size: inherit;
         transition: $transition-clr;
 
         &:hover {
@@ -106,7 +106,7 @@
     @for $i from 1 through 6 {
         &__level-#{$i} {
             margin: 0;
-            margin-left: ($i - 1) * 18px;
+            margin-left: ($i - 1) * 0.75em;
         }
     }
 }
@@ -127,11 +127,19 @@
 
     .toc {
         position: static;
+        min-width: min(100%, 400px);
         min-height: auto;
         margin-bottom: clamp(40px, 10vh, 80px);
-        padding: 2em 2em 4em;
+        padding: 2em 1em 4em 1em;
         background-color: $clr-primary-200;
         border: none;
         margin-inline: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .toc {
+        font-size: $fs-200;
     }
 }
