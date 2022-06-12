@@ -23,7 +23,7 @@ eleventyComputed:
         <div class="toc">
             <h2 class='toc__title'>Contents</h2>
             <ul class='toc__list'>
-                {{post.headings | myfilter | safe}}
+                {{post.headings | createTOCList | safe}}
             </ul>
         </div>
     {% endif %}

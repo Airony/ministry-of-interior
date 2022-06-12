@@ -1,6 +1,7 @@
 require("dotenv").config();
 const createPaginationItems = require("./custom filters/createPaginationItems");
-
+const createTOCList = require("./custom filters/createTOCList");
+console.log(createTOCList);
 module.exports = (config) => {
     //   config.addWatchTarget("./content/assets/");
     config.setBrowserSyncConfig({
@@ -9,8 +10,8 @@ module.exports = (config) => {
     config.addPassthroughCopy("content/assets");
     config.addPassthroughCopy("content/scripts");
 
-    config.addFilter("myfilter", (headings) => {
-        return constructList(headings, 1);
+    config.addFilter("createTOCList", (headings) => {
+        return createTOCList(headings);
     });
 
     config.addFilter("createPaginationItems", (data, count, collapsedCount) => {
@@ -24,21 +25,3 @@ module.exports = (config) => {
         },
     };
 };
-
-function constructList(headings, currentDepth) {
-    let result = "";
-    for (let i = 0; i < headings.length; i++) {
-        const heading = headings[i];
-
-        result += `<li class='toc__level-${currentDepth}'>
-                  <a href='#${heading.id}' class='toc__item'>${heading.content}</a>`;
-        if (heading.children) {
-            result += `<ul>${constructList(
-                heading.children,
-                currentDepth + 1
-            )}</ul>`;
-        }
-        result += `</li>`;
-    }
-    return result;
-}
