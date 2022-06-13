@@ -41,4 +41,10 @@ function orderHeadings(headings, startIndex) {
     return { list: result };
 }
 
-module.exports = { cleanWpLink, extractHeadings };
+function createParamsFromObject(obj) {
+    return Object.entries(obj).reduce((previousVal, [key, val]) => {
+        return previousVal + `&${key}=${val}`;
+    }, "");
+}
+
+module.exports = { cleanWpLink, extractHeadings, createParamsFromObject };

@@ -5,13 +5,16 @@ const helper = require("./helper");
 async function fetchPostsByType(
     postType,
     fields = [],
+    additionalFetchOpts = {},
     postProcessingOpts = {}
 ) {
-    const url =
+    let url =
         process.env["WORDPRESS_HOST"] +
         `?quick_fetch_data=posts&post_type=${postType}&fields=${fields.join(
             ","
         )}`;
+
+    url += helper.createParamsFromObject(additionalFetchOpts);
 
     try {
         const res = await fetch(url),
@@ -27,11 +30,15 @@ async function fetchPostsByType(
 async function fetchSpecialPosts(
     postsIdentifer,
     fields = [],
+    additionalFetchOpts = {},
     postProcessingOpts = {}
 ) {
-    const url =
+    let url =
         process.env["WORDPRESS_HOST"] +
         `?quick_fetch_data=${postsIdentifer}&fields=${fields.join(",")}`;
+
+    url += helper.createParamsFromObject(additionalFetchOpts);
+
     try {
         const res = await fetch(url),
             json = await res.json();
@@ -47,11 +54,9 @@ function processPosts(posts, postProcessingOpts) {
     return posts.map((p) => {
         p.link = helper.cleanWpLink(p.link);
         if (postProcessingOpts["extractHeadings"]) {
-            console.log("nope");
             p.headings = helper.extractHeadings(p.content_rendered);
         }
 
-        console.log(p);
         return p;
     });
 }

@@ -13,6 +13,7 @@ module.exports = async function () {
             "name",
             "date",
         ],
+        undefined,
         { extractHeadings: true },
     ]);
 };
