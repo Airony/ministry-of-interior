@@ -1,12 +1,23 @@
----
-layout: global-layout.njk
-pagination:
-    data: guides
-    alias: guide
-    size: 1
-eleventyComputed:
-    title: "{{ guide.title }}"
-    permalink: "/{{guide.link}}"
+---js
+{
+    "layout": "global-layout.njk",
+    "pagination":{
+        "data": "guides",
+        "alias": "guide",
+        "size": 1
+        },
+    "eleventyComputed":{
+        "title": "{{ guide.title }}",
+        "permalink": "/{{guide.link}}",
+        "date": (data) => {
+            return new Date(data.guide.date).toLocaleString("en-us", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+            });
+        }
+    }
+}
 ---
 
 <head>
@@ -20,15 +31,15 @@ eleventyComputed:
             <h1 class="guide-info__title">
                 {{guide.title}}
             </h1>
-            <span class="guide-info__date">{{guide.formattedDate}}</span>
+            <span class="guide-info__date">{{date}}</span>
 
         </div>
         <div class="guide-info__img-container">
-            <img src="{{ guide.featuredImgUrl }}" alt="" class="guide-info__img">
+            <img src="{{ guide.featured_img_url }}" alt="" class="guide-info__img">
             <div class="guide-info__img-overlay"></div>
         </div>
     </div>
     <div class="guide__content">
-        {{guide.content | safe}}
+        {{guide.content_rendered | safe}}
     </div>
 </main>

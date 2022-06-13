@@ -26,7 +26,7 @@ pagination:
     <div class="guides-list">
         {%- for guide in pagination.items %}
             {% set title = guide.title %}
-            {% set img = guide.featuredImgUrl %}
+            {% set img = guide.featured_img_url %}
             {% set body = guide.preview %}
             {% set link = '/' + guide.link %}
             {{ article(title, img, null, body, link, "guide", 160)}}
