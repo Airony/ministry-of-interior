@@ -1,7 +1,6 @@
 require("dotenv").config();
 const createPaginationItems = require("./custom filters/createPaginationItems");
 const createTOCList = require("./custom filters/createTOCList");
-console.log(createTOCList);
 module.exports = (config) => {
     //   config.addWatchTarget("./content/assets/");
     config.setBrowserSyncConfig({
