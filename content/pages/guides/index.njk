@@ -1,39 +1,7 @@
 ---
 title: Guides
-layout: global-layout
+layout: posts-index-page
 pagination:
     data: guides
-    size: 10
+    size: 10    
 ---
-
-{%- from 'components/article.macro.njk' import article %}
-{%- from 'components/forms.njk' import textfield %}
-{%- from 'components/pagination-menu.macro.njk' import paginationMenu %}
-<head>
-    <link rel="stylesheet" href="/css/pages/guides.css">
-    <script src="/scripts/filter.js"></script>
-</head>
-
-<main class="guides">
-    <h1 class='section-title'>Guides</h1>
-    <form class="guides-filter" name='guides-filter' method='dialog'>
-        <label>Filter</label>
-        <input type="text" name="Filter" id="filter-input" class='text-input' data-filter-input='true'
-            data-filter-target='guide' data-filter-field='guide__title' data-show-on-empty='guides__no-result'
-            placeholder='Search' autocomplete='off'>
-    </form>
-
-    <div class="guides-list">
-        {%- for guide in pagination.items %}
-            {% set title = guide.title %}
-            {% set img = guide.featured_img_url %}
-            {% set body = guide.preview %}
-            {% set link = '/' + guide.link %}
-            {{ article(title, img, null, body, link, "guide", 160)}}
-        {% endfor -%}
-        <p class="guides__no-result">No search results found. Try another search term.</p>
-    </div>
-    <div class="pagination-container">
-        {{ paginationMenu(pagination, page, 10, 6) }}
-    </div>
-</main>

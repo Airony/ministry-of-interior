@@ -1,0 +1,28 @@
+---
+layout: global-layout
+pagination:
+    data: guides
+    size: 1
+---
+{%- from 'components/article.macro.njk' import article %}
+{%- from 'components/pagination-menu.macro.njk' import paginationMenu %}
+<head>
+    <link rel="stylesheet" href="/css/pages/posts-index.css">
+</head>
+
+<main class="index-page">
+    <h1 class='section-title'>{{title}}</h1>
+    <div class="index-page__posts-list">
+        {%- for post in pagination.items %}
+            {% set title = post.title %}
+            {% set img = post.featured_img_url %}
+            {% set body = post.preview %}
+            {% set link = '/' + post.link %}
+            {{ article(title, img, null, body, link, "post", 160)}}
+        {% endfor -%}
+    </div>
+
+    <div class="index-page__pagination-container">
+        {{ paginationMenu(pagination, page, 10, 6) }}
+    </div>
+</main>
