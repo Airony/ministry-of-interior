@@ -36,7 +36,7 @@
         "sass": "^1.49.8"
     },
     "devDependencies": {
-        "@11ty/eleventy": "^1.0.0",
+        "@11ty/eleventy": "^1.0.1",
         "node-fetch": "^2.6.7",
         "prettier-plugin-nunjucks": "git+https://github.com/justrhysism/prettier-plugin-nunjucks.git",
         "stylelint": "^14.8.5",
