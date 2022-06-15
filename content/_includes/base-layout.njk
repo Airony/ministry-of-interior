@@ -4,10 +4,27 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/globalStyles.css">
+        {% block scripts %}{% endblock %}
+
+        {% block css %}
+            <link rel="stylesheet" href="/css/globalStyles.css">
+        {% endblock %}
+
         <title>{{title}}</title>
     </head>
+
     <body>
-        {{content | safe}}
+        {% block header %}
+            <p>{{basic}}</p>
+            {%include "./components/_header.njk" %}
+        {% endblock %}
+
+        {% block content %}
+            {{content | safe}}
+        {% endblock %}
+
+        {% block footer %}
+            {% include "./components/_footer.njk" %}
+        {% endblock %}
     </body>
 </html>

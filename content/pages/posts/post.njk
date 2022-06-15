@@ -1,33 +1,11 @@
 ---
-layout: global-layout.njk
 pagination:
     data: posts
     alias: post
     size: 1
 eleventyComputed:
-    title: "{{post.title}}"
     permalink: "/{{post.link}}"
 ---
+{% extends "post.njk" %}
 
-<head>
-    <link rel="stylesheet" href="/css/pages/post.css">
-</head>
-
-<div class="post-title">
-    <h1 class='post-title__heading'>{{post.title}}</h1>
-</div>
-
-{%set showToc = post.headings | length > 0%}
-<section class="post {{'post--no-toc' if not showToc else ''}}">
-    {% if showToc %}
-        <div class="toc">
-            <h2 class='toc__title'>Contents</h2>
-            <ul class='toc__list'>
-                {{post.headings | createTOCList | safe}}
-            </ul>
-        </div>
-    {% endif %}
-    <main class="post__content">
-        {{post.content_rendered | safe}}
-    </main>
-</section>
+{% set titleSection = 'img' %}

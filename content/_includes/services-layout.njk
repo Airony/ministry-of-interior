@@ -1,7 +1,5 @@
----
-layout: base-layout
----
+{% extends "base-layout.njk" %}
 
-{%include "./components/_online-services-header.njk"%}
-{{content | safe}}
-{%include "./components/_footer.njk"%}
+{% block header %}
+    {%include "./components/_online-services-header.njk"%}
+{% endblock %}

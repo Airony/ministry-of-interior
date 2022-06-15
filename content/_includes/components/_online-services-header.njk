@@ -2,11 +2,14 @@
 {%- from 'components/lang-select.macro.njk' import langSelect %}
 {%- from 'components/search-bar-toggle.macro.njk' import searchBarToggle %}
 
-<head>
-    <link rel="stylesheet" href="/css/layout/online-services-header.css">
+{% block scripts %}
     <script src='/scripts/menu-control.js'></script>
     <script src='/scripts/modal-control.js'></script>
-</head>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/css/layout/online-services-header.css">
+{% endblock %}
 
 <header class="upper-header">
     <a href="#" class='upper-header__account-btn'>

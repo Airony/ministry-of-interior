@@ -2,11 +2,14 @@
 {%- from 'components/search-bar-toggle.macro.njk' import searchBarToggle %}
 {%- from 'components/lang-select.macro.njk' import langSelect %}
 
-<head>
-    <link rel="stylesheet" href="/css/layout/header.css">
+{% block scripts %}
     <script src="/scripts/menu-control.js"></script>
     <script src="/scripts/modal-control.js"></script>
-</head>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/css/layout/header.css">
+{% endblock %}
 
 <header class="upper-header">
     <div class="upper-header__logo">

@@ -1,13 +1,11 @@
 ---js
 {
-    "layout": "global-layout.njk",
     "pagination":{
         "data": "guides",
         "alias": "guide",
         "size": 1
         },
     "eleventyComputed":{
-        "title": "{{ guide.title }}",
         "permalink": "/{{guide.link}}",
         "date": (data) => {
             return new Date(data.guide.date).toLocaleString("en-us", {
@@ -20,26 +18,33 @@
 }
 ---
 
-<head>
-    <link rel="stylesheet" href="/css/pages/guide.css">
-    <title>{{guide.title}}</title>
-</head>
+{% extends "base-layout.njk" %}
 
-<main class="guide">
+{% set title = guide.title %}
+
+{% block css %}
+    {{super()}}
+    <link rel="stylesheet" href="/css/pages/guide.css">
+{% endblock %}
+
+{% block content %}
     <div class="guide-info">
         <div class="guide-info__container">
             <h1 class="guide-info__title">
                 {{guide.title}}
             </h1>
-            <span class="guide-info__date">{{date}}</span>
-
+            {% if date %}
+                <span class="guide-info__date">{{date}}</span>
+            {% endif %}
         </div>
         <div class="guide-info__img-container">
             <img src="{{ guide.featured_img_url }}" alt="" class="guide-info__img">
             <div class="guide-info__img-overlay"></div>
         </div>
     </div>
-    <div class="guide__content">
-        {{guide.content_rendered | safe}}
-    </div>
-</main>
+    <section class="guide">
+        <main class="guide__content">
+            {{guide.content_rendered | safe}}
+        </main>
+    </section>
+{% endblock %}
