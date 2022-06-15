@@ -1,0 +1,32 @@
+{% extends "base-layout.njk" %}
+
+{% set post = pagination.items[0] %}
+{% set title = post.title %}
+
+{% block css %}
+    {{super()}}
+    <link rel="stylesheet" href="/css/pages/post.css">
+{% endblock %}
+
+{% block content %}
+    <div class="post-title">
+        <h1 class='post-title__heading'>{{title}}</h1>
+        {% if date %}
+            <span class="post-title__date">{{date}}</span>
+        {% endif %}
+    </div>
+    <section class="post">
+        {% if post.headings | length > 0 %}
+            <div class="toc">
+                <h2 class='toc__title'>Contents</h2>
+                <ul class='toc__list'>
+                    {{post.headings | createTOCList | safe}}
+                </ul>
+            </div>
+        {% endif %}
+
+        <main class="post__content">
+            {{post.content_rendered | safe}}
+        </main>
+    </section>
+{% endblock %}
