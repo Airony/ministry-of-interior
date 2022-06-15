@@ -10,6 +10,7 @@
     padding: 4em;
     text-align: center;
     background: $clr-primary-300;
+
     background: linear-gradient(324deg, $pattern-clr-dark 4%, transparent 4%) -70px 43px,
         linear-gradient(36deg, $pattern-clr-dark 4%, transparent 4%) 30px 43px,
         linear-gradient(72deg, $pattern-clr-light 8.5%, transparent 8.5%) 30px 43px,
@@ -28,6 +29,12 @@
 
     &__heading {
         color: $text-color-light;
+    }
+
+    &__date {
+        color: $text-color-light;
+        font-size: $fs-600;
+        font-style: italic;
     }
 }
 
@@ -134,6 +141,16 @@
         background-color: $clr-primary-200;
         border: none;
         margin-inline: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .post-style {
+
+        &__date {
+            font-size: $fs-500
+        }
     }
 }
 
