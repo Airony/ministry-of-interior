@@ -1,0 +1,28 @@
+---
+pagination:
+    data: files
+    size: 10    
+---
+
+{% extends "base-layout.njk" %}
+{% set title = "Files" %}
+
+{% block css %}
+    {{super()}}
+    <link rel="stylesheet" href="/css/pages/files.css">
+{% endblock %}
+
+{% block content %}
+    <section class="files">
+        <h1 class="section-title">{{title}}</h1>
+        <div class="files-list">
+            {% for file in pagination.items %}
+                <div class="card file">
+                    <img src="{{file['featured_img_url']}}" alt="" class="file__img">
+                    <a class='file__link' href='{{file.link}}'>{{file.title}}</a>
+                </div>
+            {% endfor %}
+        </div>
+        {% include "components/_posts-pagination.njk" %}
+    </section>
+{% endblock %}

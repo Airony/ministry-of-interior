@@ -1,0 +1,20 @@
+---js
+{
+    "pagination":{
+        "data": "files",
+        "alias": "file",
+        "size": 1
+        },
+    "eleventyComputed":{
+        "permalink": "/{{file.link}}",
+        "date": (data) => {
+            return new Date(data.file.date).toLocaleString("en-us", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+            });
+        }
+    }
+}
+---
+{% extends "post.njk" %}

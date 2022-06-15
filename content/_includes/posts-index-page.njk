@@ -1,7 +1,6 @@
 {% extends "base-layout.njk" %}
 
 {%- from 'components/article.macro.njk' import article %}
-{%- from 'components/pagination-menu.macro.njk' import paginationMenu %}
 
 {% block css %}
     {{super()}}
@@ -21,8 +20,6 @@
             {% endfor -%}
         </div>
 
-        <div class="index-page__pagination-container">
-            {{ paginationMenu(pagination, page, 10, 6) }}
-        </div>
+        {% include "components/_posts-pagination.njk" %}
     </main>
 {% endblock %}

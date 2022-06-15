@@ -249,6 +249,9 @@ section {
     &__img {
         width: 100%;
         min-height: 70px;
+        aspect-ratio: 4.5;
+        max-height: 100px;
+        object-fit: cover;
     }
 
     .container {
@@ -355,6 +358,12 @@ section {
         @include article.horizontal-style--override;
     }
 
+    .file {
+
+        &__title {
+            font-size: $fs-300;
+        }
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -400,13 +409,6 @@ section {
             margin: 0 0 0 10px;
             font-size: $fs-400;
             text-align: left;
-        }
-    }
-
-    .file {
-
-        &__title {
-            font-size: $fs-300;
         }
     }
 }
