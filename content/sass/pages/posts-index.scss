@@ -2,7 +2,6 @@
 @use '../variables/misc' as *;
 @use '../variables/colors' as *;
 @use '../components/article.scss' as article;
-@use '../components/pagination-menu.scss' as pagination-menu;
 
 $post-gap: 4em;
 
@@ -15,16 +14,6 @@ $post-gap: 4em;
         gap: $post-gap;
         justify-content: stretch;
     }
-
-    &__pagination-container {
-        margin: 4em auto 0 auto;
-        font-size: $fs-500;
-
-        .pagination-menu {
-            @include pagination-menu.base-style;
-        }
-    }
-
 }
 
 .post {
@@ -40,27 +29,12 @@ $post-gap: 4em;
     }
 }
 
-@media screen and (max-width: 1200px) {
-
-    .index-page {
-
-        &__pagination-container {
-            font-size: $fs-400;
-        }
-
-    }
-}
-
 @media screen and (max-width: 1000px) {
 
     .index-page {
 
         &__posts-list {
             @include grid-preferred-columns(2, 300px, $post-gap, $post-gap);
-        }
-
-        &__pagination-container {
-            font-size: $fs-300;
         }
     }
 
@@ -75,34 +49,12 @@ $post-gap: 4em;
 
 }
 
-@media screen and (max-width: 800px) {
-
-    .pagination-menu {
-        @include pagination-menu.stick;
-        @include pagination-menu.decrease-items;
-    }
-}
-
 @media screen and (max-width: 500px) {
-
-    .index-page {
-
-        &__pagination-container {
-            font-size: $fs-200;
-        }
-    }
 
     .post {
 
         &__title {
             font-size: $fs-400;
         }
-    }
-}
-
-@media screen and (max-width: 450px) {
-
-    .pagination-menu {
-        @include pagination-menu.wrap;
     }
 }
