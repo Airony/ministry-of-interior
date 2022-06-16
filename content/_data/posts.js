@@ -12,6 +12,7 @@ module.exports = async function () {
             "title",
             "name",
             "date",
+            "categories",
         ],
         undefined,
         { extractHeadings: true },

@@ -54,24 +54,6 @@
 
                 "body": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
             }
-        ],
-        "guides": [
-            {
-                "title": "Social Housing",
-                "img": "guide-img-1.png"
-            },
-            {
-                "title": "Health & Safety",
-                "img": "guide-img-2.png"
-            },
-            {
-                "title": "Cybersecurity",
-                "img": "guide-img-3.png"
-            },
-            {
-                "title": "Green Spaces",
-                "img": "guide-img-4.png"
-            }
         ]
     }
 }

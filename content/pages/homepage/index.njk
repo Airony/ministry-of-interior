@@ -42,12 +42,12 @@ eleventyComputed:
         <section class="articles">
             <h2 class='section-title articles__section-title'>Latest News</h2>
             <div class="grid articles-grid">
-                {%- for newsArticle in homepage.news %}
+                {%- for newsArticle in collections.news.slice(0,4) %}
 
                     {% set title = newsArticle.title %}
-                    {% set date = newsArticle.date %}
-                    {% set img = '/assets/img/' + newsArticle.img %}
-                    {% set body = newsArticle.body %}
+                    {% set date = newsArticle.date | formatDate("DD/MM/YY") %}
+                    {% set img = newsArticle.featured_img_url %}
+                    {% set body = newsArticle.preview %}
                     {{ article(title, img, date, body , class = ('article--main' if loop.first else 'article'))}}
 
                 {% endfor -%}
