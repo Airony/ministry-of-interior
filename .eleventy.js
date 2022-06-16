@@ -1,6 +1,8 @@
 require("dotenv").config();
 const createPaginationItems = require("./custom filters/createPaginationItems");
 const createTOCList = require("./custom filters/createTOCList");
+const formatDate = require("./custom filters/formatDate");
+
 module.exports = (config) => {
     //   config.addWatchTarget("./content/assets/");
     config.setBrowserSyncConfig({
@@ -15,6 +17,19 @@ module.exports = (config) => {
 
     config.addFilter("createPaginationItems", (data, count, collapsedCount) => {
         return createPaginationItems(data, count, collapsedCount);
+    });
+
+    config.addFilter("formatDate", (date, format = "YMD") => {
+        return formatDate(date, format);
+    });
+
+    config.addCollection("news", (collection) => {
+        const allItems = collection.getAll()[0].data.posts;
+        console.log(allItems.filter((item) => {}));
+
+        return allItems.filter((item) => {
+            return item.categories.includes("News");
+        });
     });
 
     return {

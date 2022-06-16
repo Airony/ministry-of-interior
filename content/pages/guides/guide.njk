@@ -7,13 +7,7 @@
         },
     "eleventyComputed":{
         "permalink": "/{{guide.link}}",
-        "date": (data) => {
-            return new Date(data.guide.date).toLocaleString("en-us", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-            });
-        }
+        
     }
 }
 ---
@@ -33,9 +27,7 @@
             <h1 class="guide-info__title">
                 {{guide.title}}
             </h1>
-            {% if date %}
-                <span class="guide-info__date">{{date}}</span>
-            {% endif %}
+            <span class="guide-info__date">{{guide.date | formatDate}}</span>
         </div>
         <div class="guide-info__img-container">
             <img src="{{ guide.featured_img_url }}" alt="" class="guide-info__img">
