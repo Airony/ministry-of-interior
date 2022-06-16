@@ -6,7 +6,12 @@ module.exports = (date, format) => {
                 month: "short",
                 day: "numeric",
             });
-
+        case "DD/MM/YY":
+            return new Date(date).toLocaleString("en-gb", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+            });
         default:
             break;
     }
