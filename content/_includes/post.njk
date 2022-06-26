@@ -16,17 +16,20 @@
         {% endif %}
     </div>
     <section class="post">
-        {% if post.headings | length > 0 %}
-            <div class="toc">
-                <h2 class='toc__title'>Contents</h2>
-                <ul class='toc__list'>
-                    {{post.headings | createTOCList | safe}}
-                </ul>
-            </div>
-        {% endif %}
+        {% set tocContent = post.content_rendered | createTOCList %}
+        {% if tocContent | length > 0 %}
+            {% block toc %}
+                <div class="toc">
+                    <h2 class='toc__title'>Contents</h2>
+                    <ul class='toc__list'>
+                        {{tocContent | safe}}
+                    </ul>
+                </div>
+            {% endblock %}
+            {%endif%}
 
-        <main class="post__content">
-            {{post.content_rendered | safe}}
-        </main>
-    </section>
-{% endblock %}
+            <main class="post__content">
+                {{post.content_rendered | safe}}
+            </main>
+        </section>
+    {% endblock %}

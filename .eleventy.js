@@ -11,8 +11,8 @@ module.exports = (config) => {
     config.addPassthroughCopy("content/assets");
     config.addPassthroughCopy("content/scripts");
 
-    config.addFilter("createTOCList", (headings) => {
-        return createTOCList(headings);
+    config.addFilter("createTOCList", (content) => {
+        return createTOCList(content);
     });
 
     config.addFilter("createPaginationItems", (data, count, collapsedCount) => {
@@ -25,7 +25,6 @@ module.exports = (config) => {
 
     config.addCollection("news", (collection) => {
         const allItems = collection.getAll()[0].data.posts;
-        console.log(allItems.filter((item) => {}));
 
         return allItems.filter((item) => {
             return item.categories.includes("News");

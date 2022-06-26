@@ -53,9 +53,6 @@ async function fetchSpecialPosts(
 function processPosts(posts, postProcessingOpts) {
     return posts.map((p) => {
         p.link = helper.cleanWpLink(p.link);
-        if (postProcessingOpts["extractHeadings"]) {
-            p.headings = helper.extractHeadings(p.content_rendered);
-        }
 
         return p;
     });

@@ -14,7 +14,5 @@ module.exports = async function () {
             "date",
             "categories",
         ],
-        undefined,
-        { extractHeadings: true },
     ]);
 };
