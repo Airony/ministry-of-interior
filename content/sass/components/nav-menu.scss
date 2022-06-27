@@ -40,6 +40,7 @@
 }
 
 @mixin collapsed-style {
+    --collapsed: true;
     $animation-dur: 250ms;
     $fade-in-dur: 300ms;
 
