@@ -30,13 +30,13 @@
 
             <div class="procedures-list">
                 {%- for procedure in procedures %}
-                    <a class="card procedure-card" href="#">
+                    <a class="card procedure-card" href="{{procedure.link}}">
                         <svg class='procedure-card__icon'>
-                            <use href="/assets/icons/sprite.svg#passport"></use>
+                            <use href="/assets/icons/sprite.svg#{{procedure.icon}}"></use>
                         </svg>
                         <div class="procedure-card__content">
                             <h5 class="card-title procedure-card__title">{{procedure.title}}</h5>
-                            <p class="procedure-card__desc">{{procedure.desc}}</p>
+                            <p class="procedure-card__desc">{{procedure.desc | truncate(40)}}</p>
                         </div>
                     </a>
                 {% endfor -%}

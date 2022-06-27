@@ -3,37 +3,44 @@
         {
             "title": "Biometrique i.d card",
             "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
-            "icon": "id-card"
+            "icon": "id-card",
+            "link": "id-card"
         },
         {
             "title": "Passport",
             "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
-            "icon": "passport"
+            "icon": "passport",
+            "link": "#"
         },
         {
             "title": "Marriage Cert.",
             "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
-            "icon": "marriage-cert"
+            "icon": "marriage-cert",
+            "link": "#"
         },
         {
             "title": "Birth Cert.",
             "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
-            "icon": "document"
+            "icon": "document",
+            "link": "#"
         },
         {
             "title": "Death Cert.",
             "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
-            "icon": "death-cert"
+            "icon": "death-cert",
+            "link": "#"
         },
         {
             "title": "Driving License",
             "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
-            "icon": "driving-license"
+            "icon": "driving-license",
+            "link": "#"
         },
         {
             "title": "Vehicle Registration",
             "desc": "Odio lorem tincidunt lacus tincidunt aliquet amet.",
-            "icon": "vehicle-regist"
+            "icon": "vehicle-regist",
+            "link": "#"
         }
     ]
 }

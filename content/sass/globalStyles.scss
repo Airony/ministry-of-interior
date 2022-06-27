@@ -28,6 +28,11 @@ section {
     margin-inline: auto;
 }
 
+.page-content-container {
+    padding-inline: var(--horizontal-padding);
+    padding-bottom: var(--section-spacing-large);
+}
+
 a {
     color: currentColor;
     text-decoration: none;
@@ -84,6 +89,17 @@ a {
 .btn-underline-small {
     font-weight: bold;
     font-size: $fs-300;
+}
+
+.link-primary {
+    color: $clr-secondary;
+    font-weight: bold;
+    font-size: var(--fs-responsive-body);
+    transition: color 200ms ease;
+
+    &:hover {
+        color: $clr-btn-hover;
+    }
 }
 
 .read-more {
