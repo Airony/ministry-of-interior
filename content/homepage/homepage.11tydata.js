@@ -1,5 +1,5 @@
-const { fetchSpecialPosts } = require("../../../fetchPosts");
-const cache = require("../../../cache");
+const { fetchSpecialPosts } = require("../../fetchPosts");
+const cache = require("../../cache");
 
 module.exports = async function () {
     return {

@@ -16,7 +16,7 @@
     <body>
         {% block header %}
             <p>{{basic}}</p>
-            {%include "./components/_header.njk" %}
+            {%include "components/_header.njk" %}
         {% endblock %}
 
         {% block content %}
@@ -24,7 +24,7 @@
         {% endblock %}
 
         {% block footer %}
-            {% include "./components/_footer.njk" %}
+            {% include "components/_footer.njk" %}
         {% endblock %}
     </body>
 </html>
