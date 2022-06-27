@@ -17,7 +17,7 @@ $line-height-400: 1.5;
 
 $heading-margins: (
     "h1":(1em, 0.75em),
-    "h2":(1.25em, 0.75em),
+    "h2":(1em, 0.75em),
     "h3":(1em, 0.75em),
     "h4":(1em, 0.75em),
     "h5":(1em, 0.75em),
@@ -27,10 +27,10 @@ $heading-margins: (
 $font-family-primary: 'Lora', sans-serif;
 $font-family-secondary: 'HK Grotesk', serif;
 
-@mixin apply-heading-top-margins {
+@mixin remove-heading-top-margins {
     @for $i from 1 through 6 {
         h#{$i} {
-            margin-top: list.nth(map.get($heading-margins, h#{$i}), 1);
+            margin-top: 0;
         }
     }
 }

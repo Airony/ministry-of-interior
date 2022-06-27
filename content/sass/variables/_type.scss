@@ -68,11 +68,16 @@
 @for $i from 1 through 6 {
     h#{$i} {
         display: block;
+        margin-top: list.nth(map.get($heading-margins, h#{$i}), 1);
         margin-bottom: list.nth(map.get($heading-margins, h#{$i}), 2);
         color: $heading-color;
         font-weight: bold;
         font-size: var(--fs-responsive-h#{$i});
         font-family: $font-family-secondary;
+    }
+
+    .fs-h#{$i} {
+        font-size: var(--fs-responsive-h#{$i});
     }
 }
 

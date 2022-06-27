@@ -60,8 +60,6 @@
     padding: var(--section-spacing-large) var(--horizontal-padding);
     margin-inline: auto;
 
-    @include apply-heading-top-margins;
-
     p {
         max-width: inherit;
     }

@@ -6,6 +6,8 @@
 @use "../components/guide.scss" as guide;
 @use "../components/article.scss" as article;
 
+@include remove-heading-top-margins;
+
 section {
     padding: var(--section-spacing) var(--horizontal-padding);
 }
