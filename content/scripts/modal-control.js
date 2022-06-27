@@ -1,3 +1,5 @@
+const stickyModals = [];
+
 window.addEventListener("load", function () {
     const modals = this.document.querySelectorAll("[data-modal='true']");
 
@@ -5,10 +7,9 @@ window.addEventListener("load", function () {
         const modalControls = document.querySelectorAll(
             `button[data-modal-btn="true"][aria-controls="${modal.id}"]`
         );
-        console.log(modalControls);
         bindModalButtons(modal, modalControls);
         if (modal.dataset.preventScroll == "true") {
-            observeModalCollapseState(modal, modalControls);
+            stickyModals.push({ ele: modal, expanded: false });
         }
     });
 });
@@ -21,28 +22,38 @@ function bindModalButtons(modal, controls) {
     });
 }
 
-function toggleModal(modal, controls) {
+function toggleModal(modalEle, controls) {
     const expanded =
         controls[0].getAttribute("aria-expanded") == "true" ? true : false;
     if (expanded) {
-        closeModal(modal, controls);
+        closeModal(modalEle, controls);
     } else {
-        openModal(modal, controls);
+        openModal(modalEle, controls);
     }
 }
 
-function closeModal(modal, controls) {
+function closeModal(modalEle, controls) {
     controls.forEach((button) => button.setAttribute("aria-expanded", "false"));
-    modal.classList.remove("menu--expanded");
-    if (modal.getAttribute("data-prevent-scroll") == "true") {
-        unlockScroll();
+    modalEle.classList.remove("menu--expanded");
+    if (modalEle.getAttribute("data-prevent-scroll") == "true") {
+        stickyModals.find((modal) => modal.ele == modalEle).expanded = false;
+        updateScroll();
     }
 }
 
-function openModal(modal, controls) {
+function openModal(modalEle, controls) {
     controls.forEach((button) => button.setAttribute("aria-expanded", "true"));
-    modal.classList.add("menu--expanded");
-    if (modal.getAttribute("data-prevent-scroll") == "true") {
+    modalEle.classList.add("menu--expanded");
+    if (modalEle.getAttribute("data-prevent-scroll") == "true") {
+        stickyModals.find((modal) => modal.ele == modalEle).expanded = true;
+        updateScroll();
+    }
+}
+
+function updateScroll() {
+    if (stickyModals.every((modal) => modal.expanded == false)) {
+        unlockScroll();
+    } else {
         lockScroll();
     }
 }
@@ -59,13 +70,19 @@ function unlockScroll() {
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
 }
 
-function observeModalCollapseState(modal, controls) {
-    const resizeObserver = new ResizeObserver(() => {
-        const collapsed =
-            getComputedStyle(modal).getPropertyValue("--collapsed");
-        if (collapsed !== true && modal.classList.contains("menu--expanded")) {
-            closeModal(modal, controls);
+window.onresize = () => {
+    stickyModals.forEach((modal) => {
+        const collapsed = getComputedStyle(modal.ele)
+            .getPropertyValue("--collapsed")
+            .trim();
+
+        if (collapsed != "true" && modal.expanded) {
+            closeModal(
+                modal.ele,
+                document.querySelectorAll(
+                    `button[data-modal-btn="true"][aria-controls="${modal.ele.id}"]`
+                )
+            );
         }
     });
-    resizeObserver.observe(modal);
-}
+};
