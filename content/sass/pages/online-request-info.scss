@@ -1,0 +1,165 @@
+@use '../variables/colors' as *;
+@use '../variables/type-vars' as *;
+@use "../variables/_spacing.scss" as *;
+
+.online-service {
+    padding: var(--section-spacing-small) var(--horizontal-padding);
+
+    .container {
+        display: flex;
+        align-items: stretch;
+        column-gap: 5%;
+        row-gap: $space-hori-xs;
+    }
+
+}
+
+.required-docs {
+    flex: 1 1 500px;
+
+    &__list {
+        margin-left: calc(-1 * var(--horizontal-padding));
+        padding: 3em 1.5em 3em var(--horizontal-padding);
+        font-size: var(--fs-responsive-body);
+        background-color: $clr-primary-200;
+    }
+}
+
+.steps {
+    flex: 1 1 400px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        max-width: none;
+        margin: 0;
+        padding: 1em 2em 1em 1em;
+        color: $text-color-light;
+        font-weight: bold;
+        background-color: $clr-primary-700;
+    }
+
+    &__number {
+        $fs: clamp(20px, 1rem + 1vw, 28px);
+        display: block;
+        flex-shrink: 0;
+        width: calc(1.65 * $fs);
+        font-size: $fs;
+        line-height: calc(1.65 * $fs);
+        text-align: center;
+        background-color: $clr-primary-600;
+        border-radius: 100vh;
+    }
+
+    &__desc {
+        margin: 0;
+        margin-left: 1em;
+        color: inherit;
+        font-size: inherit;
+    }
+
+    &__list {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        list-style: none;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 10%;
+            z-index: -1;
+            border: 1px dashed $clr-primary-900;
+            content: '';
+        }
+    }
+}
+
+.bottom-begin-request-btn {
+    margin-top: 2.5em;
+
+}
+
+.faq {
+    margin-block: var(--section-spacing-large) var(--section-spacing-large);
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 4em;
+    }
+
+    &__item {
+        width: 100%;
+        border: 1px solid $clr-primary-1000;
+
+        details[open] {
+
+            .faq__icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1.5em 1em;
+        color: $text-color-dark;
+        font-weight: bold;
+        list-style: none;
+        background-color: $clr-primary-300;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        cursor: pointer;
+
+        p {
+            max-width: unset;
+            margin: 0;
+            color: inherit;
+            font-size: var(--fs-responsive-body);
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        transition: transform 200ms ease-in-out;
+    }
+
+    &__answer {
+        width: 100%;
+        max-width: unset;
+        margin: 0;
+        padding: 1.5em 1em;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+
+}
+
+@media screen and (max-width: 1100px) {
+
+    .online-service {
+
+        .container {
+            flex-direction: column;
+        }
+
+    }
+
+    .required-docs {
+        width: calc(100% + var(--horizontal-padding));
+        margin-left: 0;
+    }
+
+    .steps {
+        width: 100%;
+    }
+}

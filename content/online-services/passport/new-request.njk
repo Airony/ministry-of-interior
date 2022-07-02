@@ -1,0 +1,86 @@
+{% extends "base-layout.njk" %}
+
+{% block css %}
+    {{super()}}
+    <link rel="stylesheet" href="/css/pages/online-request-info.css">
+{% endblock %}
+
+{% macro faqItem(question, answer) %}
+    <div class="faq__item">
+        <details>
+            <summary class="faq__question">
+                <p>{{question}}</p>
+                <i class="icon faq__icon">{% include "../../assets/icons/dropdown.svg" %}</i>
+            </summary>
+            <p class='faq__answer'>{{answer}}</p>
+        </details>
+    </div>
+{% endmacro %}
+
+{% block content %}
+    <main class='online-service '>
+        <section class='request-intro'>
+            <h1>New Passport Request</h1>
+            <p>Dolore qui minim in ad ex aute excepteur velit. Dolor enim eu enim ex ipsum nisi in exercitation esse fugiat eiusmod fugiat officia nisi. Irure duis eu ad laborum ex fugiat reprehenderit quis officia nostrud proident ipsum. Commodo ut deserunt fugiat occaecat nisi sint nostrud pariatur. Veniam sunt quis incididunt sit.</p>
+        </section>
+        <div class="container">
+            <section class="required-docs">
+                <h2>Required Documents</h2>
+                <p>Please make sure to prepare the following document before placing a request</p>
+                <ul class='required-docs__list'>
+                    <li>Esse id in et non laboris tempor reprehenderit duis esse tempor cillum do quis.</li>
+                    <li>Duis cupidatat laboris in excepteur mollit dolor laboris duis officia Lorem exercitation.</li>
+                    <li>Labore do aliqua aliquip ullamco.</li>
+                    <li>Culpa commodo ullamco in irure in eiusmod nisi tempor exercitation do pariatur occaecat.</li>
+                    <li>Occaecat duis consequat culpa culpa sit voluptate culpa reprehenderit occaecat non tempor proident.</li>
+                </ul>
+            </section>
+            <section class="steps">
+                <h2>Steps</h2>
+                <ul class="steps__list">
+                    <li class='steps__item'>
+                        <span class='steps__number'>1</span>
+                        <p class='steps__desc'>Login or Create an Account</p>
+                    </li>
+                    <li class='steps__item'>
+                        <span class='steps__number'>2</span>
+                        <p class='steps__desc'>Prepare needed documents. </p>
+                    </li>
+                    <li class='steps__item'>
+                        <span class='steps__number'>3</span>
+                        <p class='steps__desc'>Fillout the online form </p>
+                    </li>
+                    <li class='steps__item'>
+                        <span class='steps__number'>4</span>
+                        <p class='steps__desc'>Wait & track your request. </p>
+                    </li>
+                    <li class='steps__item'>
+                        <span class='steps__number'>5</span>
+                        <p class='steps__desc'>Schedule an appointement for retrieval. </p>
+                    </li>
+                    <li class='steps__item'>
+                        <span class='steps__number'>6</span>
+                        <p class='steps__desc'>Retrieve your document at the designated place</p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <button class="btn-primary btn-large bottom-begin-request-btn">Begin Request</button>
+        <section class="faq">
+            <h2>FAQ</h2>
+            <div class="faq__list">
+                {{faqItem('Pariatur exercitation magna et officia ipsum irure.','Esse culpa labore ipsum fugiat minim nisi ullamco qui sint.')}}
+
+                {{faqItem('Eiusmod adipisicing aute tempor ad reprehenderit officia cillum non duis.','Ea culpa esse elit culpa et aliquip excepteur occaecat.')}}
+
+                {{faqItem('Nisi qui laborum anim est aliquip eiusmod officia.','Sint minim quis anim ex enim non occaecat consectetur esse minim.')}}
+
+                {{faqItem('Ea eiusmod occaecat minim mollit cupidatat Lorem exercitation anim laboris duis commodo.','Labore consequat sunt cillum consectetur nulla occaecat minim fugiat sit.')}}
+
+                {{faqItem('Irure est ex aute sint eu amet.','Officia aliqua cupidatat sint ullamco officia.')}}
+
+                {{faqItem('Proident irure culpa veniam sint velit veniam nulla enim labore est nostrud.','Occaecat exercitation velit labore minim exercitation.')}}
+            </div>
+        </section>
+    </main>
+{% endblock %}
