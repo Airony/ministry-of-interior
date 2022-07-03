@@ -1,6 +1,4 @@
-@use "../variables/colors" as *;
-@use "../variables/type-vars" as *;
-@use "../variables/misc" as *;
+@use "../variables/all" as *;
 @use "sass:list";
 
 $_bg-clrs-list: hsl(226, 85%, 67%),

@@ -1,7 +1,4 @@
-@use '../variables/colors' as *;
-@use '../variables/type-vars' as *;
-@use '../variables/misc' as *;
-@use './read-more' as read-more;
+@use '../variables/all' as *;
 
 @mixin base-style {
     position: relative;
@@ -41,7 +38,6 @@
     .read-more {
         align-self: flex-end;
         margin-top: auto;
-        @include read-more.base-style;
     }
 }
 
@@ -57,8 +53,8 @@
 
 @mixin horizontal-style {
     @include base-style;
-    max-height: 26em;
     align-items: stretch;
+    max-height: 26em;
 
     &__img {
         flex-shrink: 0;

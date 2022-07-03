@@ -1,10 +1,6 @@
-@use "../variables/colors" as *;
-@use "../variables/spacing" as *;
-@use "../variables/type-vars" as *;
-@use "../variables/misc" as *;
-@use "sass:list";
-@use "../components/guide.scss" as guide;
-@use "../components/article.scss" as article;
+@use '../main.scss' as *;
+@use "../components/guide.modular.scss" as guide;
+@use "../components/post-card-img.modular.scss" as post-card-img;
 
 @include remove-heading-top-margins;
 
@@ -98,13 +94,13 @@ section {
 }
 
 .article {
-    @include article.vertical-style;
+    @include post-card-img.vertical-style;
 
     &--main {
         flex-direction: row;
         grid-column-start: main-start;
         grid-column-end: main-end;
-        @include article.horizontal-style;
+        @include post-card-img.horizontal-style;
 
     }
 }
@@ -357,7 +353,7 @@ section {
     }
 
     .article--main {
-        @include article.horizontal-style--override;
+        @include post-card-img.horizontal-style--override;
     }
 
     .file {

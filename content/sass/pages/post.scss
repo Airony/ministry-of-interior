@@ -1,6 +1,4 @@
-@use '../variables/type-vars' as *;
-@use '../variables/colors' as *;
-@use '../variables/misc' as *;
+@use '../main.scss' as *;
 
 .post-title {
     $pattern-clr-dark: $clr-primary-900;

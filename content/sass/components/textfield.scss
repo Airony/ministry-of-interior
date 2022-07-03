@@ -1,0 +1,15 @@
+@use '../variables/all' as *;
+
+.textfield {
+    display: inline;
+
+    &-grow {
+        display: inline-flex;
+        flex-direction: column;
+
+        .text-input {
+            flex-grow: 1;
+            background-color: $clr-neutral-100;
+        }
+    }
+}

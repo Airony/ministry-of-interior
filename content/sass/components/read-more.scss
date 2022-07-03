@@ -1,11 +1,13 @@
-@use '../variables/colors' as *;
-@use '../variables/_type-vars' as *;
+@use '../variables/all' as *;
 
 $_trans-dur: 300ms;
 
-@mixin base-style {
+.read-more {
+    @include uppercase;
     position: relative;
     padding: 0.5em;
+    color: $clr-secondary;
+    font-weight: bold;
     font-size: $fs-300;
     isolation: isolate;
     transition: color $_trans-dur ease;

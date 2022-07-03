@@ -1,0 +1,27 @@
+@use '../variables/all' as *;
+
+input[type="text"] {
+    display: inline-block;
+    padding: 1em 0.5em;
+    color: $text-color-dark;
+    font-size: $fs-400;
+    font-family: $font-family-primary;
+    background-color: $clr-neutral-100;
+    border: none;
+    border-radius: $border-radius;
+
+    &::placeholder {
+        color: inherit;
+        font-size: inherit;
+        font-family: inherit;
+        opacity: 0.8;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    color: $text-color-dark;
+    font-weight: bold;
+    font-size: $fs-500;
+}

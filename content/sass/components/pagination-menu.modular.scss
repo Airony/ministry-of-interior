@@ -1,6 +1,4 @@
-@use '../variables/colors' as *;
-@use '../variables/type-vars' as *;
-@use '../variables/misc' as *;
+@use '../variables/all' as *;
 
 $_border-clr: $clr-primary-600;
 $_hover-clr: $clr-primary-700;

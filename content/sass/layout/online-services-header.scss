@@ -1,15 +1,7 @@
-@use '../variables/colors' as *;
-@use '../variables/misc' as *;
-@use '../variables/type-vars' as *;
-@use 'sass:math';
-@use '../components/logo.scss' as *;
-@use '../components/langselect.scss';
-@use '../components/searchbar.scss';
-@use '../components/search-toggle.scss' as *;
-@use '../components/hamburger.scss' as *;
-@use '../components/nav-menu.scss' as nav;
+@use '../variables/all' as *;
+@use '../components/nav-menu.modular.scss' as nav;
 
-.upper-header {
+.os-upper-header {
     display: flex;
     gap: 1.5em;
     align-items: center;
@@ -37,7 +29,7 @@
     }
 }
 
-.main-header {
+.os-main-header {
     position: relative;
     z-index: 2;
     display: flex;
@@ -85,7 +77,8 @@
     }
 }
 
-.main-nav {
+.os-main-nav {
+    @include nav.base-style;
     padding-inline: var(--horizontal-padding);
     border-top: 1px solid $border-light-200;
 
@@ -94,7 +87,7 @@
     }
 }
 
-.nav-link-menu {
+.os-nav-link-menu {
     position: absolute;
     flex-direction: column;
     min-width: 100%;
@@ -124,7 +117,7 @@
 
 @media screen and (max-width: 800px) {
 
-    .main-header {
+    .os-main-header {
         font-size: $fs-300;
 
         .controls {
@@ -158,13 +151,13 @@
         }
     }
 
-    .main-nav {
+    .os-main-nav {
         @include nav.collapsed-style;
         z-index: 2;
         font-size: $fs-500;
     }
 
-    .nav-link-menu {
+    .os-nav-link-menu {
         position: static;
         padding-bottom: 1em;
         color: inherit;
@@ -189,7 +182,7 @@
 
 @media screen and (max-width: 600px) {
 
-    .upper-header {
+    .os-upper-header {
 
         &__nav-list {
             display: none;
@@ -207,7 +200,7 @@
         }
     }
 
-    .main-header {
+    .os-main-header {
 
         &__login-btn {
             display: none;
@@ -221,7 +214,7 @@
         }
     }
 
-    .main-nav {
+    .os-main-nav {
         font-size: $fs-300;
 
         &__additional-item {
@@ -232,7 +225,7 @@
 
 @media screen and (max-width: 400px) {
 
-    .main-header {
+    .os-main-header {
 
         .content {
             flex-direction: column;

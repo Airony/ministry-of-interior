@@ -1,0 +1,17 @@
+@use '../variables/all' as *;
+
+body {
+    width: 100%;
+    font-family: $font-family-primary;
+    background-color: $background-clr;
+}
+
+section {
+    max-width: 1800px;
+    margin-inline: auto;
+}
+
+.page-content-container {
+    padding-inline: var(--horizontal-padding);
+    padding-bottom: var(--section-spacing-large);
+}

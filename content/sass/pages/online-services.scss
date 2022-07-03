@@ -1,6 +1,4 @@
-@use '../variables/colors' as *;
-@use '../variables/misc' as *;
-@use '../variables/type-vars' as *;
+@use '../main.scss' as *;
 
 main {
     padding: var(--section-spacing-large) var(--horizontal-padding);

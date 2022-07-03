@@ -1,7 +1,5 @@
-@use '../variables/type-vars' as *;
-@use '../variables/misc' as *;
-@use '../variables/colors' as *;
-@use '../components/article.scss' as article;
+@use '../main.scss' as *;
+@use '../components/post-card-img.modular.scss' as post-card-img;
 
 $post-gap: 4em;
 
@@ -17,7 +15,7 @@ $post-gap: 4em;
 }
 
 .post {
-    @include article.horizontal-style;
+    @include post-card-img.horizontal-style;
 
     &__img {
         width: 30%;
@@ -39,7 +37,7 @@ $post-gap: 4em;
     }
 
     .post {
-        @include article.horizontal-style--override;
+        @include post-card-img.horizontal-style--override;
         flex-grow: 1;
 
         &__title {

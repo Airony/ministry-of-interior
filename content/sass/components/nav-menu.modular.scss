@@ -1,8 +1,6 @@
-@use '../variables/colors.scss' as *;
-@use '../variables/misc.scss' as *;
-@use '../variables/type-vars.scss' as *;
+@use '../variables/all.scss' as *;
 
-.main-nav {
+@mixin base-style {
     display: flex;
     align-items: center;
     color: $text-color-light;

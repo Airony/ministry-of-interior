@@ -1,6 +1,4 @@
-@use '../variables/colors' as *;
-@use '../variables/type-vars' as *;
-@use "../variables/_spacing.scss" as *;
+@use '../main.scss' as *;
 
 .online-service {
     padding: var(--section-spacing-small) var(--horizontal-padding);

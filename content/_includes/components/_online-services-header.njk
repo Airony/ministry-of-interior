@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="/css/layout/online-services-header.css">
 {% endblock %}
 
-<header class="upper-header">
-    <a href="#" class='upper-header__account-btn'>
+<header class="os-upper-header">
+    <a href="#" class='os-upper-header__account-btn'>
         <i class="icon icon-small">{% include '../../assets/icons/account.svg' %}</i>Account</a>
     {{langSelect()}}
-    <nav class="upper-header__nav-list">
-        <a href="#" class='upper-header__link'>Back to interior ministry website</a>
+    <nav class="os-upper-header__nav-list">
+        <a href="#" class='os-upper-header__link'>Back to interior ministry website</a>
     </nav>
 </header>
-<header class="main-header">
+<header class="os-main-header">
     <div class="content">
         <div class="logo">
             <img class="logo__img" src="/assets/seal.svg"/>
@@ -29,53 +29,53 @@
             </div>
         </div>
         <div class="controls">
-            <a href="#" class='btn-primary btn-small main-header__login-btn'>Account Login</a>
-            {{searchBarToggle('main-header__search-bar-container')}}
-            <button class="hamburger" aria-controls='main-nav' aria-expanded='false' data-modal-btn='true'>
+            <a href="#" class='btn-primary btn-small os-main-header__login-btn'>Account Login</a>
+            {{searchBarToggle('os-main-header__search-bar-container')}}
+            <button class="hamburger" aria-controls='os-main-nav' aria-expanded='false' data-modal-btn='true'>
                 <div class="icon hamburger__icon" >
                     {% include "../../assets/icons/hamburger.svg" %}
                 </div>
             </button>
 
-            <div class="main-header__search-bar-container" id="main-header__search-bar-container">
-                {{searchBar("Search","main-header__search-bar")}}
+            <div class="os-main-header__search-bar-container" id="os-main-header__search-bar-container">
+                {{searchBar("Search","os-main-header__search-bar")}}
             </div>
         </div>
     </div>
-    <nav class="main-nav" data-modal='true' data-prevent-scroll='true' id='main-nav'>
-        <button class="main-nav__close-btn" aria-controls='main-nav' aria-expanded='false' data-modal-btn='true'>
+    <nav class="os-main-nav" data-modal='true' data-prevent-scroll='true' id='os-main-nav'>
+        <button class="os-main-nav__close-btn" aria-controls='os-main-nav' aria-expanded='false' data-modal-btn='true'>
             <div class="icon">
                 {% include "../../assets/icons/close.svg" %}
             </div>
         </button>
         {% set menuCount = 1%}
         {%- for item in svnavigation %}
-            <div class='main-nav__item'>
+            <div class='os-main-nav__item'>
                 {% if item.expandable %}
-                    <button class="main-nav__btn" aria-controls='nav-menu-{{menuCount}}' aria-expanded='false' data-expand-btn="true">
+                    <button class="os-main-nav__btn" aria-controls='nav-menu-{{menuCount}}' aria-expanded='false' data-expand-btn="true">
                         {{item.label}}
-                        <div class="icon icon-small main-nav__icon" >
+                        <div class="icon icon-small os-main-nav__icon" >
                             {% include "../../assets/icons/dropdown.svg" %}
                         </div>
 
                     </button>
 
-                    <div class="menu-collapse nav-link-menu" id="nav-menu-{{menuCount}}" data-collapse-outside='true'>
+                    <div class="menu-collapse os-nav-link-menu" id="nav-menu-{{menuCount}}" data-collapse-outside='true'>
                         {%- for list in item.lists %}
                             {%- for name, item in list.links %}
-                                <a href={{item}} class='nav-link-menu__link'>{{name}}</a>
+                                <a href={{item}} class='os-nav-link-menu__link'>{{name}}</a>
                             {% endfor -%}
                         {% endfor -%}
                     </div>
                     {% set menuCount = menuCount + 1%}
 
                 {% else %}
-                    <a href="{{item.link}}" class="main-nav__link">{{item.label}}</a>
+                    <a href="{{item.link}}" class="os-main-nav__link">{{item.label}}</a>
                 {% endif %}
             </div>
         {% endfor -%}
-        <div class='main-nav__item main-nav__additional-item'>
-            <a href="#" class='main-nav__link main-nav__additional-link'>Back to interior ministry website</a>
+        <div class='os-main-nav__item os-main-nav__additional-item'>
+            <a href="#" class='os-main-nav__link os-main-nav__additional-link'>Back to interior ministry website</a>
         </div>
     </nav>
 </header>

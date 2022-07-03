@@ -1,5 +1,4 @@
-@use "../variables/colors" as *;
-@use "../variables/type-vars" as *;
+@use '../variables/all' as *;
 
 .footer {
     $currentColor: $text-color-light;

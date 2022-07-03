@@ -1,5 +1,4 @@
-@use '../variables/colors' as *;
-@use '../variables/misc' as *;
+@use '../variables/all' as *;
 
 .search-bar-toggle {
     $animation-dur: 150ms;

@@ -1,0 +1,18 @@
+.icon {
+    display: inline-block;
+    color: inherit;
+    vertical-align: middle;
+
+    svg,
+    use {
+        width: 100%;
+        height: auto;
+        color: inherit;
+        fill: currentColor;
+    }
+}
+
+.icon-small {
+    width: 24px;
+    height: 24px;
+}

@@ -1,12 +1,5 @@
-@use "../variables/colors" as *;
-@use "../variables/type-vars" as *;
-@use "../variables/spacing" as *;
-@use '../variables/misc' as *;
-@use '../components/langselect.scss';
-@use '../components/searchbar.scss';
-@use '../components/search-toggle.scss';
-@use '../components/hamburger.scss';
-@use '../components/nav-menu.scss' as nav;
+@use '../variables/all' as *;
+@use '../components/nav-menu.modular.scss' as nav;
 
 // MARK : Upperheader
 
@@ -93,6 +86,10 @@
     &__search-bar-container {
         display: none;
     }
+}
+
+.main-nav {
+    @include nav.base-style;
 }
 
 .nav-link-menu {
