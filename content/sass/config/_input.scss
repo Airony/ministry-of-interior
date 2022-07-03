@@ -1,7 +1,8 @@
 @use '../variables/all' as *;
 
 input[type="text"],
-textarea {
+textarea,
+.text-input {
     display: inline-block;
     padding: 1em 0.5em;
     color: $text-color-dark;
