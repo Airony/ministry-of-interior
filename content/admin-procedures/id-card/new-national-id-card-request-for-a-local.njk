@@ -1,6 +1,11 @@
 {% extends "base-layout.njk" %}
 {% set title = "New National Id Card Request" %}
 
+{% block css %}
+    {{super()}}
+    <link rel="stylesheet" href="/css/pages/admin-procedure-info.css">
+{% endblock %}
+
 {% block content %}
     <main class="page-content-container">
         <section>
