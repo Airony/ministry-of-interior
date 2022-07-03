@@ -3,7 +3,7 @@
 .search-bar {
     display: flex;
     align-items: stretch;
-    font-size: $fs-300;
+    font-size: fs(300);
 
     &__input {
         flex-grow: 1;

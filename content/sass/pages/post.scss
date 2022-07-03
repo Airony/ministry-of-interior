@@ -1,13 +1,13 @@
 @use '../main.scss' as *;
 
 .post-title {
-    $pattern-clr-dark: $clr-primary-900;
-    $pattern-clr-light: $clr-primary-800;
+    $pattern-clr-dark: clr-primary(900);
+    $pattern-clr-light: clr-primary(800);
 
     width: 100%;
     padding: 4em;
     text-align: center;
-    background: $clr-primary-300;
+    background: clr-primary(300);
 
     background: linear-gradient(324deg, $pattern-clr-dark 4%, transparent 4%) -70px 43px,
         linear-gradient(36deg, $pattern-clr-dark 4%, transparent 4%) 30px 43px,
@@ -31,7 +31,7 @@
 
     &__date {
         color: $text-color-light;
-        font-size: $fs-600;
+        font-size: fs(600);
         font-style: italic;
     }
 }
@@ -54,11 +54,11 @@
         }
 
         h2 {
-            font-size: $fs-900;
+            font-size: fs(900);
         }
 
         h3 {
-            font-size: $fs-800;
+            font-size: fs(800);
         }
     }
 }
@@ -81,14 +81,14 @@
     flex-direction: column;
     min-height: 100vh;
     padding: 1em 2em 2em 0;
-    border-right: 1px solid $clr-primary-300;
+    border-right: 1px solid clr-primary(300);
 
     &__title {
         font-size: var(--fs-responsive-h3);
     }
 
     &__list {
-        font-size: $fs-400;
+        font-size: fs(400);
 
         li {
             list-style: none;
@@ -123,7 +123,7 @@
         &__content {
             @for $i from 1 through 6 {
                 h#{$i} {
-                    font-size: var(--fs-responsive-h#{$i});
+                    font-size: fs-rs(1100 - ($i - 1) * 100);
                 }
             }
         }
@@ -135,7 +135,7 @@
         min-height: auto;
         margin-bottom: clamp(40px, 10vh, 80px);
         padding: 2em 1em 4em 1em;
-        background-color: $clr-primary-200;
+        background-color: clr-primary(200);
         border: none;
         margin-inline: 0;
     }
@@ -146,7 +146,7 @@
     .post-style {
 
         &__date {
-            font-size: $fs-500
+            font-size: fs(500)
         }
     }
 }
@@ -154,6 +154,6 @@
 @media screen and (max-width: 500px) {
 
     .toc {
-        font-size: $fs-200;
+        font-size: fs(200);
     }
 }

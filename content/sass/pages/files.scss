@@ -17,7 +17,7 @@
     align-items: center;
     width: 100%;
     min-height: 5em;
-    font-size: $fs-500;
+    font-size: fs(500);
 
     &__img {
         position: absolute;
@@ -49,7 +49,7 @@
 
     .file {
         flex-direction: column;
-        font-size: $fs-400;
+        font-size: fs(400);
 
         &__img {
             position: static;
@@ -68,7 +68,7 @@
 @media screen and (max-width: 600px) {
 
     .file {
-        font-size: $fs-300;
+        font-size: fs(300);
 
         &__link {
             padding: 0.5em;
@@ -79,6 +79,6 @@
 @media screen and (max-width: 350px) {
 
     .file {
-        font-size: $fs-200;
+        font-size: fs(200);
     }
 }

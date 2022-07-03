@@ -26,41 +26,47 @@
 }
 
 :root {
-    --fs-responsive-body: #{$fs-500};
+    --fs-responsive-body: #{fs(500)};
 
-    --fs-responsive-h1: #{$fs-1200};
-    --fs-responsive-h2: #{$fs-1100};
-    --fs-responsive-h3: #{$fs-1000};
-    --fs-responsive-h4: #{$fs-900};
-    --fs-responsive-h5: #{$fs-800};
-    --fs-responsive-h6: #{$fs-700};
+    --fs-responsive-h1: #{fs(1200)};
+    --fs-responsive-h2: #{fs(1100)};
+    --fs-responsive-h3: #{fs(1000)};
+    --fs-responsive-h4: #{fs(900)};
+    --fs-responsive-h5: #{fs(800)};
+    --fs-responsive-h6: #{fs(700)};
 }
 
 @media screen and (max-width: 1200px) {
 
     :root {
-        --fs-responsive-body: #{$fs-400};
-        --fs-responsive-h2: #{$fs-1100};
-        --fs-responsive-h3: #{$fs-900};
+        --fs-responsive-body: #{fs(400)};
+        --fs-responsive-h2: #{fs(1100)};
+        --fs-responsive-h3: #{fs(900)};
     }
 }
 
 @media screen and (max-width: 800px) {
 
     :root {
-        --fs-responsive-h1: #{$fs-900};
-        --fs-responsive-h2: #{$fs-800};
-        --fs-responsive-h3: #{$fs-700};
+        --fs-responsive-h1: #{fs(900)};
+        --fs-responsive-h2: #{fs(800)};
+        --fs-responsive-h3: #{fs(700)};
+        --fs-responsive-h4: #{fs(700)};
+        --fs-responsive-h5: #{fs(600)};
+        --fs-responsive-h6: #{fs(500)};
     }
 }
 
 @media screen and (max-width: 500px) {
 
     :root {
-        --fs-responsive-body: #{$fs-300};
-        --fs-responsive-h1: #{$fs-800};
-        --fs-responsive-h2: #{$fs-700};
-        --fs-responsive-h3: #{$fs-600};
+        --fs-responsive-body: #{fs(300)};
+        --fs-responsive-h1: #{fs(800)};
+        --fs-responsive-h2: #{fs(700)};
+        --fs-responsive-h3: #{fs(600)};
+        --fs-responsive-h4: #{fs(500)};
+        --fs-responsive-h5: #{fs(400)};
+        --fs-responsive-h6: #{fs(300)};
     }
 }
 
@@ -71,12 +77,12 @@
         margin-bottom: list.nth(map.get($heading-margins, h#{$i}), 2);
         color: $heading-color;
         font-weight: bold;
-        font-size: var(--fs-responsive-h#{$i});
+        font-size: fs-rs(1000 - ($i - 1)*100);
         font-family: $font-family-secondary;
     }
 
     .fs-h#{$i} {
-        font-size: var(--fs-responsive-h#{$i});
+        font-size: fs-rs(1100 - ($i - 1)*100);
     }
 }
 
@@ -85,7 +91,7 @@ li {
     max-width: 70ch;
     margin-bottom: 1em;
     color: $text-color-dark;
-    font-size: var(--fs-responsive-body);
+    font-size: fs-rs(400);
     line-height: $line-height-400;
 }
 

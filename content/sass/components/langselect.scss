@@ -1,7 +1,4 @@
 @use "../variables/all" as *;
-@use "../variables/type-vars" as *;
-@use "../variables/spacing" as *;
-@use '../variables/misc' as *;
 
 .lang-select {
     position: relative;
@@ -23,7 +20,7 @@
         z-index: 4; // Might cause some problems later, idk & idc
         display: none;
         flex-direction: column;
-        background-color: $clr-neutral-100;
+        background-color: clr-neutral(100);
         border-radius: $border-radius;
         transform: translateY(100%) translateX(-50%);
         @include shadow-400;
@@ -38,7 +35,7 @@
         font-weight: inherit;
 
         &:hover {
-            background-color: $clr-neutral-300;
+            background-color: clr-neutral(300);
         }
     }
 }

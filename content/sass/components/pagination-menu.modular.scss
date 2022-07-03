@@ -1,7 +1,7 @@
 @use '../variables/all' as *;
 
-$_border-clr: $clr-primary-600;
-$_hover-clr: $clr-primary-700;
+$_border-clr: clr-primary(600);
+$_hover-clr: clr-primary(700);
 
 @mixin base-style {
     width: 100%;
@@ -19,7 +19,7 @@ $_hover-clr: $clr-primary-700;
         color: $clr-secondary;
         font-size: inherit;
         font-family: $font-family-secondary;
-        background-color: $clr-primary-100;
+        background-color: clr-primary(100);
         border-radius: 4px;
         outline: 2px solid $_border-clr;
         transition: multiple-transitions(200ms, ease-in, background-color, color);
@@ -50,7 +50,7 @@ $_hover-clr: $clr-primary-700;
 
     &__item--disabled {
         color: $text-color-light;
-        background: $clr-neutral-600;
+        background: clr-neutral(600);
 
         a {
             pointer-events: none;

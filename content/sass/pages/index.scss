@@ -51,8 +51,9 @@ section {
     flex-direction: column;
     align-items: center;
     padding: 1.25em 1em;
-    color: $clr-primary-800;
-    font-size: $fs-400;
+    color: clr-primary(800);
+
+    font-size: fs(400);
 
     &__icon {
         width: 3em;
@@ -115,7 +116,7 @@ section {
 // MARK: Guides
 
 .guides-bg {
-    background: $clr-neutral-100;
+    background: clr-neutral(100);
 }
 
 .guides {
@@ -182,8 +183,8 @@ section {
 // MARK: Newsletter
 
 .newsletter-bg {
-    $pattern-clr-light: $clr-primary-600;
-    $pattern-clr-dark: $clr-primary-700;
+    $pattern-clr-light: clr-primary(600);
+    $pattern-clr-dark: clr-primary(700);
 
     background:
         linear-gradient(135deg, $pattern-clr-dark 21px, $pattern-clr-light 22px, $pattern-clr-light 24px, transparent 24px, transparent 67px, $pattern-clr-light 67px, $pattern-clr-light 69px, transparent 69px),
@@ -206,7 +207,7 @@ section {
     }
 
     &__body {
-        font-size: $fs-600;
+        font-size: fs(600);
     }
 
     .form {
@@ -232,7 +233,7 @@ section {
 // MARK: Files
 
 .files-bg {
-    background: $clr-primary-200;
+    background: clr-primary(200);
 }
 
 .files-grid {
@@ -259,7 +260,7 @@ section {
     &__title {
         margin: 0;
         font-weight: bold;
-        font-size: $fs-400;
+        font-size: fs(400);
     }
 
     &:focus,
@@ -273,7 +274,7 @@ section {
     }
 
     &:focus {
-        outline: 2px solid $clr-primary-700;
+        outline: 2px solid clr-primary(700);
     }
 }
 
@@ -329,11 +330,11 @@ section {
     .guide {
 
         &__title {
-            font-size: $fs-400;
+            font-size: fs(400);
         }
 
         &__number {
-            font-size: $fs-800;
+            font-size: fs(800);
         }
 
     }
@@ -359,7 +360,7 @@ section {
     .file {
 
         &__title {
-            font-size: $fs-300;
+            font-size: fs(300);
         }
     }
 }
@@ -369,7 +370,7 @@ section {
     .newsletter {
 
         &__body {
-            font-size: $fs-400;
+            font-size: fs(400);
         }
     }
 
@@ -384,7 +385,7 @@ section {
     }
 
     .guide {
-        font-size: $fs-300;
+        font-size: fs(300);
     }
 }
 
@@ -405,7 +406,7 @@ section {
 
         &__title {
             margin: 0 0 0 10px;
-            font-size: $fs-400;
+            font-size: fs(400);
             text-align: left;
         }
     }
@@ -416,7 +417,7 @@ section {
     .file {
 
         &__title {
-            font-size: $fs-200;
+            font-size: fs(200);
         }
     }
 }
@@ -426,14 +427,14 @@ section {
     .hero {
 
         &__title {
-            font-size: $fs-600;
+            font-size: fs(600);
         }
     }
 
     .action {
 
         &__title {
-            font-size: $fs-300;
+            font-size: fs(300);
         }
     }
 }

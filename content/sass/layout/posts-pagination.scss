@@ -3,7 +3,7 @@
 
 .pagination-container {
     margin: 4em auto 0 auto;
-    font-size: $fs-500;
+    font-size: fs(500);
 }
 
 .pagination-menu {
@@ -13,14 +13,14 @@
 @media screen and (max-width: 1200px) {
 
     .pagination-container {
-        font-size: $fs-400;
+        font-size: fs(400);
     }
 }
 
 @media screen and (max-width: 1000px) {
 
     .pagination-container {
-        font-size: $fs-300;
+        font-size: fs(300);
     }
 }
 
@@ -35,7 +35,7 @@
 @media screen and (max-width: 500px) {
 
     .pagination-container {
-        font-size: $fs-200;
+        font-size: fs(200);
     }
 }
 

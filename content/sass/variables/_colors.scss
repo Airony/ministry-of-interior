@@ -1,50 +1,64 @@
-// $clr-primary-900: hsla(6, 15%, 13%, 1);
-// $clr-primary-800: hsl(16, 27%, 19%);
-// $clr-primary-700: hsl(16, 22%, 26%);
-// $clr-primary-600: hsl(15, 20%, 35%);
-// $clr-primary-500: hsl(16, 16%, 47%);
-// $clr-primary-400: hsl(16, 24%, 64%);
-// $clr-primary-300: hsl(15, 27%, 76%);
-// $clr-primary-200: hsl(15, 28%, 85%);
-// $clr-primary-100: hsl(15, 20%, 89%);
-// $clr-primary-75: hsl(17, 15%, 90%);
-// $clr-primary-50: hsl(17, 33%, 96%);
+@use 'sass:map';
+// clr-primary(900): hsla(6, 15%, 13%, 1);
+// clr-primary(800): hsl(16, 27%, 19%);
+// clr-primary(700): hsl(16, 22%, 26%);
+// clr-primary(600): hsl(15, 20%, 35%);
+// clr-primary(500): hsl(16, 16%, 47%);
+// clr-primary(400): hsl(16, 24%, 64%);
+// clr-primary(300): hsl(15, 27%, 76%);
+// clr-primary(200): hsl(15, 28%, 85%);
+// clr-primary(100): hsl(15, 20%, 89%);
+// clr-primary(75): hsl(17, 15%, 90%);
+// clr-primary(50): hsl(17, 33%, 96%);
 
 // Color Pallete
-$clr-primary-50: hsl(27, 60%, 97%);
-$clr-primary-100: hsl(27, 43%, 91%);
-$clr-primary-200: hsl(26, 40%, 85%);
-$clr-primary-300: hsl(23, 40%, 79%);
-$clr-primary-400: hsl(22, 33%, 66%);
-$clr-primary-500: hsl(19, 22%, 52%);
-$clr-primary-600: hsl(18, 20%, 43%);
-$clr-primary-700: hsl(15, 20%, 35%);
-$clr-primary-800: hsl(15, 22%, 25%);
-$clr-primary-900: hsl(18, 27%, 18%);
-$clr-primary-1000: hsl(15, 30%, 13%);
+
+$primary-colors: (
+    50:hsl(27, 60%, 97%),
+    100:hsl(27, 43%, 91%),
+    200:hsl(26, 40%, 85%),
+    300:hsl(23, 40%, 79%),
+    400:hsl(22, 33%, 66%),
+    500:hsl(19, 22%, 52%),
+    600:hsl(18, 20%, 43%),
+    700:hsl(15, 20%, 35%),
+    800:hsl(15, 22%, 25%),
+    900:hsl(18, 27%, 18%),
+    1000:hsl(15, 30%, 13%),
+);
+
+$neutral-colors: (
+    100:hsl(26, 42%, 98%),
+    200:hsl(30, 42%, 95%),
+    300:hsl(24, 27%, 93%),
+    400:hsl(24, 24%, 89%),
+    500:hsl(24, 20%, 83%),
+    600:hsl(26, 10%, 67%),
+    700:hsl(23, 7%, 54%),
+    800:hsl(27, 4%, 35%),
+    900:hsl(26, 7%, 25%),
+    1000:hsl(26, 7%, 15%),
+);
+
+@function clr-primary($shade) {
+    @return map.get($primary-colors, $shade);
+}
+
+@function clr-neutral($shade) {
+    @return map.get($neutral-colors, $shade);
+}
 
 $clr-secondary: hsla(0, 61%, 47%);
 $clr-secondary-light: rgb(234, 76, 76);
-
-$clr-neutral-100: hsl(26, 42%, 98%);
-$clr-neutral-200: hsl(30, 42%, 95%);
-$clr-neutral-300: hsl(24, 27%, 93%);
-$clr-neutral-400: hsl(24, 24%, 89%);
-$clr-neutral-500: hsl(24, 20%, 83%);
-$clr-neutral-600: hsl(26, 10%, 67%);
-$clr-neutral-700: hsl(23, 7%, 54%);
-$clr-neutral-800: hsl(27, 4%, 35%);
-$clr-neutral-900: hsl(26, 7%, 25%);
-$clr-neutral-1000: hsl(26, 7%, 15%);
-$clr-btn-hover: rgb(47, 142, 193);
 $clr-accent-golden: hsl(39, 69%, 59%);
 
 //Text Colors
-$text-color-dark : $clr-primary-900;
-$text-color-light : $clr-neutral-100;
-$heading-color: $clr-primary-900;
+$text-color-dark : clr-primary(900);
+$text-color-light : clr-neutral(100);
+$heading-color: clr-primary(900);
 
 // UI Elements
-$header-clr: $clr-primary-800;
-$header-hover-clr: $clr-primary-700;
-$background-clr: $clr-primary-100;
+$header-clr: clr-primary(800);
+$header-hover-clr: clr-primary(700);
+$background-clr: clr-primary(100);
+$clr-btn-hover: rgb(47, 142, 193);

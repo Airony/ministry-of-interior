@@ -8,7 +8,7 @@ $_trans-dur: 300ms;
     padding: 0.5em;
     color: $clr-secondary;
     font-weight: bold;
-    font-size: $fs-300;
+    font-size: fs(300);
     isolation: isolate;
     transition: color $_trans-dur ease;
 

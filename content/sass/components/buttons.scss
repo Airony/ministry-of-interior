@@ -39,14 +39,14 @@ a {
     display: inline-block;
     padding: 1.35em 0.75em;
     font-weight: bold;
-    font-size: $fs-400;
+    font-size: fs(400);
     @include uppercase;
 }
 
 .btn-small {
     padding: 0.75em 0.75em;
     font-weight: bold;
-    font-size: $fs-400;
+    font-size: fs(400);
 }
 
 .btn-underline {
@@ -61,13 +61,13 @@ a {
 
 .btn-underline-small {
     font-weight: bold;
-    font-size: $fs-300;
+    font-size: fs(300);
 }
 
 .link-primary {
     color: $clr-secondary;
     font-weight: bold;
-    font-size: var(--fs-responsive-body);
+    font-size: fs-rs(400);
     transition: color 200ms ease;
 
     &:hover {

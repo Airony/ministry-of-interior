@@ -29,7 +29,7 @@
     }
 
     &__date {
-        font-size: $fs-600;
+        font-size: fs(600);
         font-style: italic;
     }
 
@@ -47,7 +47,7 @@
 
     &__img-overlay {
         position: absolute;
-        background-color: $clr-primary-900;
+        background-color: clr-primary(900);
         opacity: 0.8;
         mix-blend-mode: multiply;
         inset: 0;
@@ -69,7 +69,7 @@
     .guide-info {
 
         &__date {
-            font-size: $fs-500
+            font-size: fs(500)
         }
     }
 }

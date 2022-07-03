@@ -1,18 +1,39 @@
 @use "sass:list";
 @use "sass:map";
 
-$fs-1200: clamp(3.25rem, 1rem + 3vw, 6rem);
-$fs-1100: 3rem;
-$fs-1000: 2.5rem;
-$fs-900: 2.25rem;
-$fs-800: 2rem;
-$fs-700: 1.75rem;
-$fs-600: 1.5rem;
-$fs-500: 1.25rem;
-$fs-400: 1.125rem;
-$fs-300: 1rem;
-$fs-200: 0.875rem;
-$fs-100: 0.75rem;
+$font-sizes: (
+    1200: clamp(3.25rem, 1rem + 3vw, 6rem),
+    1100: 3rem,
+    1000: 2.5rem,
+    900: 2.25rem,
+    800: 2rem,
+    700: 1.75rem,
+    600: 1.5rem,
+    500: 1.25rem,
+    400: 1.125rem,
+    300: 1rem,
+    200: 0.875rem,
+    100: 0.75rem,
+);
+
+$font-sizes-responsive: (
+    1000:var(--fs-responsive-h1),
+    900:var(--fs-responsive-h2),
+    800:var(--fs-responsive-h3),
+    700:var(--fs-responsive-h4),
+    600:var(--fs-responsive-h5),
+    500:var(--fs-responsive-h6),
+    400:var(--fs-responsive-body),
+);
+
+@function fs($size) {
+    @return map.get($font-sizes, $size);
+}
+
+@function fs-rs($size) {
+    @return map.get($font-sizes-responsive, $size);
+}
+
 $line-height-400: 1.5;
 
 $heading-margins: (

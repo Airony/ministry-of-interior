@@ -5,7 +5,7 @@
     display: flex;
 
     &__title {
-        font-size: var(--fs-responsive-body);
+        font-size: fs-rs(400);
     }
 
     &__img {
@@ -22,7 +22,7 @@
     }
 
     &__date {
-        color: $clr-neutral-800;
+        color: clr-neutral(800);
         font-family: monospace;
         margin-block: 10px;
     }

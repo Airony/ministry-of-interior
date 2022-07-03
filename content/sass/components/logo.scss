@@ -15,11 +15,11 @@
 
     &__title {
         font-weight: bold;
-        font-size: $fs-400;
+        font-size: fs(400);
     }
 
     &__tagline {
-        font-size: $fs-300;
+        font-size: fs(300);
     }
 
     &__img {

@@ -8,7 +8,7 @@
     justify-content: flex-end;
     color: $text-color-dark;
     font-weight: bold;
-    font-size: $fs-400;
+    font-size: fs(400);
     font-family: $font-family-secondary;
     padding-inline: var(--horizontal-padding);
     padding-block: 0.5em;
@@ -23,7 +23,7 @@
 
         &:hover,
         &:focus {
-            background-color: $clr-primary-200;
+            background-color: clr-primary(200);
             transition: background-color 150ms ease;
         }
     }
@@ -34,7 +34,7 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    font-size: $fs-400;
+    font-size: fs(400);
     background-color: $header-clr;
 
     .content {
@@ -93,7 +93,7 @@
     min-width: 100%;
     color: $text-color-dark;
     font-size: inherit;
-    background-color: $clr-neutral-100;
+    background-color: clr-neutral(100);
     @include shadow-400;
 
     &__link {
@@ -106,7 +106,7 @@
         }
 
         &:hover {
-            background-color: $clr-neutral-300;
+            background-color: clr-neutral(300);
         }
     }
 
@@ -118,7 +118,7 @@
 @media screen and (max-width: 800px) {
 
     .os-main-header {
-        font-size: $fs-300;
+        font-size: fs(300);
 
         .controls {
             align-items: center;
@@ -154,7 +154,7 @@
     .os-main-nav {
         @include nav.collapsed-style;
         z-index: 2;
-        font-size: $fs-500;
+        font-size: fs(500);
     }
 
     .os-nav-link-menu {
@@ -209,13 +209,13 @@
         .logo {
 
             &__tagline {
-                font-size: $fs-100;
+                font-size: fs(100);
             }
         }
     }
 
     .os-main-nav {
-        font-size: $fs-300;
+        font-size: fs(300);
 
         &__additional-item {
             display: block;

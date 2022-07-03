@@ -5,7 +5,7 @@
     position: relative;
     align-self: center;
     padding: 0.75em;
-    color: $clr-primary-100;
+    color: clr-primary(100);
     border-radius: 100vh;
 
     &__close-icon,
@@ -29,7 +29,7 @@
     }
 
     &:hover {
-        background-color: $clr-primary-600;
+        background-color: clr-primary(600);
     }
 
     @include btn-expanded(".search-bar-toggle") {

@@ -12,7 +12,7 @@
     padding: 0.75em 2em;
     color: $text-color-dark;
     font-weight: bold;
-    font-size: $fs-500;
+    font-size: fs(500);
     font-family: $font-family-secondary;
 
     &__logo {
@@ -52,7 +52,7 @@
 
         &:hover,
         &:focus {
-            background-color: $clr-primary-200;
+            background-color: clr-primary(200);
             transition: background-color 150ms ease;
         }
     }
@@ -76,7 +76,7 @@
     align-items: baseline;
     width: 100%;
     color: $text-color-light;
-    font-size: $fs-400;
+    font-size: fs(400);
     background-color: $header-clr;
     padding-inline: 5%;
 
@@ -103,7 +103,7 @@
     color: $text-color-dark;
     font-weight: 400;
     font-size: inherit;
-    background-color: $clr-neutral-100;
+    background-color: clr-neutral(100);
     border-radius: $border-radius;
     @include shadow-400;
 
@@ -111,7 +111,7 @@
         margin-bottom: 0.3em;
         color: inherit;
         font-weight: bold;
-        font-size: $fs-300;
+        font-size: fs(300);
         word-wrap: normal;
         @include uppercase
     }
@@ -141,20 +141,20 @@
 
     .upper-header,
     .main-header {
-        font-size: $fs-300
+        font-size: fs(300)
     }
 
     .nav-link-menu {
 
         &__title {
-            font-size: $fs-200;
+            font-size: fs(200);
         }
     }
 
     .action {
 
         &__title {
-            font-size: $fs-400
+            font-size: fs(400)
         }
     }
 }
@@ -162,7 +162,8 @@
 @media screen and (max-width: 950px) {
 
     .upper-header {
-        font-size: $fs-400;
+
+        font-size: fs(400);
 
         &__logo,
         .search-bar {
@@ -185,14 +186,14 @@
             display: block;
             color: inherit;
             font-weight: bold;
-            font-size: $fs-400;
+            font-size: fs(400);
             font-style: italic;
             white-space: nowrap;
         }
 
         .search-bar {
             width: 100%;
-            font-size: $fs-200;
+            font-size: fs(200);
         }
 
         &__search-bar-container {
@@ -205,7 +206,7 @@
     .main-nav {
         @include nav.collapsed-style;
         z-index: 2;
-        font-size: $fs-400;
+        font-size: fs(400);
     }
 
     .nav-link-menu {
@@ -215,7 +216,7 @@
         width: 100%;
         padding: 0 0 1em 0;
         padding-left: 1.5em;
-        font-size: $fs-400;
+        font-size: fs(400);
         background-color: unset;
         box-shadow: none;
         transform: none;
@@ -263,7 +264,7 @@
         justify-content: space-between;
 
         .logo {
-            font-size: $fs-400;
+            font-size: fs(400);
         }
 
         .search-bar-toggle {
@@ -294,7 +295,7 @@
     }
 
     .main-nav {
-        font-size: $fs-300;
+        font-size: fs(300);
 
         &__additional-item {
             display: block;
@@ -302,10 +303,10 @@
     }
 
     .nav-link-menu {
-        font-size: $fs-300;
+        font-size: fs(300);
 
         &__title {
-            font-size: $fs-100;
+            font-size: fs(100);
         }
     }
 }
