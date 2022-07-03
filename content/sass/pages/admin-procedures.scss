@@ -54,7 +54,7 @@
 
     &__icon {
         flex-shrink: 0;
-        width: clamp(60px, 35%, 110px);
+        width: clamp(50px, 35%, 85px);
         fill: $text-color-dark;
         aspect-ratio: 1;
     }
