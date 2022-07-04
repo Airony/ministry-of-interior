@@ -26,4 +26,12 @@ label {
     color: $text-color-dark;
     font-weight: bold;
     font-size: fs(500);
+
+    @media screen and (max-width: 600px) {
+        font-size: fs(400);
+    }
+
+    @media screen and (max-width: 300px) {
+        font-size: fs(300);
+    }
 }

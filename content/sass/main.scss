@@ -10,12 +10,6 @@
 @import 'config/menu';
 @import 'config/type';
 
-// Layout
-@import 'layout/header';
-@import 'layout/online-services-header';
-@import 'layout/footer';
-@import 'layout/posts-pagination';
-
 // Components
 @import 'components/buttons';
 @import 'components/card';
@@ -27,3 +21,9 @@
 @import 'components/searchbar';
 @import 'components/search-toggle';
 @import 'components/textfield';
+
+// Layout
+@import 'layout/header';
+@import 'layout/online-services-header';
+@import 'layout/footer';
+@import 'layout/posts-pagination';

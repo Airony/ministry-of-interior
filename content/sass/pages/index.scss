@@ -246,15 +246,16 @@ section {
     transition: transform 200ms ease-in-out;
 
     &__img {
+        display: block;
         width: 100%;
         min-height: 70px;
-        aspect-ratio: 4.5;
         max-height: 100px;
         object-fit: cover;
+        aspect-ratio: 4.5;
     }
 
     .container {
-        padding: 0.65em 0.5em;
+        padding: 1em 0.75em;
     }
 
     &__title {

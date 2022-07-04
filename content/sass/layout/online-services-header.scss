@@ -39,10 +39,12 @@
 
     .content {
         display: flex;
-        gap: 2.5em;
+        flex-wrap: wrap;
+        gap: 0.5em 1.5em;
         align-items: center;
         justify-content: space-between;
         padding: 1em var(--horizontal-padding);
+
     }
 
     .controls {
@@ -159,7 +161,7 @@
 
     .os-nav-link-menu {
         position: static;
-        padding-bottom: 1em;
+        padding-bottom: 2em;
         color: inherit;
         background: none;
         box-shadow: none;
@@ -191,8 +193,12 @@
         &__account-btn {
             display: initial;
             color: $clr-secondary;
+            transition: color 200ms ease;
 
-            @include hover-opacity;
+            &:hover,
+            &:focus {
+                color: $clr-btn-hover;
+            }
 
             .icon {
                 margin-right: 3px;
@@ -209,7 +215,7 @@
         .logo {
 
             &__tagline {
-                font-size: fs(100);
+                font-size: fs(300);
             }
         }
     }
@@ -228,8 +234,8 @@
     .os-main-header {
 
         .content {
-            flex-direction: column;
-            gap: 0;
+            // flex-direction: column;
+            // gap: 0;
         }
 
         .logo {

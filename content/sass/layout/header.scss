@@ -42,7 +42,7 @@
     align-items: baseline;
 
     &__item {
-        margin-right: 1em;
+        margin-right: .5em;
         white-space: nowrap;
     }
 
@@ -139,7 +139,10 @@
 
 @media screen and (max-width: 1200px) {
 
-    .upper-header,
+    .upper-header {
+        font-size: fs(400)
+    }
+
     .main-header {
         font-size: fs(300)
     }
@@ -159,11 +162,9 @@
     }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
 
     .upper-header {
-
-        font-size: fs(400);
 
         &__logo,
         .search-bar {
@@ -225,6 +226,7 @@
         &__list {
             gap: 0;
             width: 100%;
+            padding-bottom: 1em;
         }
 
         &__link {
@@ -308,5 +310,12 @@
         &__title {
             font-size: fs(100);
         }
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+    .main-header .logo {
+        font-size: fs(300);
     }
 }
