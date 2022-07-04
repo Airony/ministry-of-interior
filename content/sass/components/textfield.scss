@@ -12,4 +12,9 @@
             background-color: clr-neutral(100);
         }
     }
+
+    &--vertical {
+        display: flex;
+        flex-direction: column;
+    }
 }
