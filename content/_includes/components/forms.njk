@@ -1,4 +1,4 @@
-{% macro textfield(label, placeholder, class = '') %}
+{% macro textfield(label, placeholder = '', class = '') %}
     <div class="textfield {{class}}">
         <label for="{{label}}" class='label'>
             {{label}}
@@ -6,7 +6,7 @@
         <input type="text" for="{{label}}" placeholder="{{placeholder}}"class='text-input'>
     </div>
 {% endmacro %}
-{% macro textarea(label, placeholder, class = '') %}
+{% macro textarea(label, placeholder = '', class = '') %}
     <div class="textfield textarea {{class}}">
         <label for="{{label}}" class='label'>
             {{label}}
