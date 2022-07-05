@@ -14,9 +14,7 @@
 .input-field {
 
     max-width: 100%;
-    padding: 1em 0.5em;
     color: $text-color-dark;
-    font-size: fs-rs(400);
     font-family: $font-family-primary;
     background-color: clr-neutral(100);
     border: none;
@@ -32,6 +30,8 @@
 
 .text-input {
     display: inline-block;
+    padding: 1em 0.5em;
+    font-size: fs-rs(400);
 }
 
 fieldset {
