@@ -1,0 +1,97 @@
+{% extends "base-layout.njk" %}
+
+{% import "components/forms.njk" as forms %}
+
+{% block css %}
+    {{super()}}
+    <link rel="stylesheet" href="/css/pages/doc-request-form.css">
+{% endblock %}
+
+{% block scripts %}
+    {{super()}}
+    <script src="/scripts/dependant-dropdown.js"></script>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <h1>New Passport Request</h1>
+        <nav class="form-pagination">
+            <ul>
+                <li class="form-pagination__item form-pagination__item--current">
+                    <span class="form-pagination__number">1</span>
+                    <span class="form-pagination__name">Personal Information</span>
+                </li>
+                <li class="form-pagination__item form-pagination__item--next">
+                    <span class="form-pagination__number">2</span>
+                    <span class="form-pagination__name">Parents & Guardians</span>
+                </li>
+                <li class="form-pagination__item form-pagination__item--next">
+                    <span class="form-pagination__number">3</span>
+                    <span class="form-pagination__name">Photo Upload</span>
+                </li>
+                <li class="form-pagination__item form-pagination__item--next">
+                    <span class="form-pagination__number">4</span>
+                    <span class="form-pagination__name">Schedule an Appointement</span>
+                </li>
+            </ul>
+        </nav>
+        <p>Please fillout the form below</p>
+        <form action="">
+            <section>
+                <h2>General Information</h2>
+                <div class="fields-container">
+                    <div class="horizontal-container">
+                        {{forms.textfield('First Name',size=20,params='required')}}
+                        {{forms.textfield('First Name (Arabic)',size=20,params='required')}}
+                    </div>
+                    <div class="horizontal-container">
+                        {{forms.textfield('Last Name',size=20,params='required')}}
+                        {{forms.textfield('Last Name (Arabic)',size=20,params='required')}}
+                    </div>
+                    <fieldset>
+                        <legend>Gender</legend>
+                        <div class="radio-container-horizontal">
+                            {{forms.radioButton('Male','gender','male','male','input-field-container--horizontal',params='required')}}
+                            {{forms.radioButton('Female','gender','female','female','input-field-container--horizontal',params='required')}}
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Social Status</legend>
+                        {{forms.radioButton('Single','social-status','single','single','input-field-container--horizontal',params='required')}}
+                        {{forms.radioButton('Married','social-status','married','married','input-field-container--horizontal',params='required')}}
+                        {{forms.radioButton('Divorced','social-status','divorced','divorced','input-field-container--horizontal',params='required')}}
+                        {{forms.radioButton('Widowed','social-status','widowed','widowed','input-field-container--horizontal',params='required')}}
+                    </fieldset>
+                </div>
+                <section>
+                    <h2>Birth</h2>
+                    <div class="fields-container">
+                        {{forms.datePicker('Date of Birth','date-of-birth','date-of-birth','1949-01-01','2022-07-05',params='required')}}
+                        <div class="horizontal-container">
+                            {{forms.textfield('Birth Place',size=40,params='required')}}
+                            {{forms.textfield('Birth Place (Arabic)',size=40,params='required')}}
+                        </div>
+                        <div class="horizontal-container">
+                            <div class="input-field-container drop-down">
+                                <label for='birth-state'>Birth State</label>
+                                <select class='input-field text-input' name="birth-state" id="birth-state" required>
+                                    <option disabled selected hidden value>Select Option</option>
+                                    <option value='algiers'>Algiers</option>
+                                    <option value='oran'>Oran</option>
+                                    <option value='constantine'>Constantine</option>
+                                </select>
+                            </div>
+                            <div class="input-field-container drop-down">
+                                <label for='birth-municipality'>Birth Municipality</label>
+                                <select class='input-field text-input' disabled name="birth-municipality" id="birth-municipality" data-dropdown-dependant-on="birth-state" required>
+                                    <option disabled selected hidden value>Select Option</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <input type='submit' class='btn-primary btn-large submit-btn' value='Procceed to next page'>
+        </form>
+    </main>
+{% endblock %}

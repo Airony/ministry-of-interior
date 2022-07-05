@@ -1,0 +1,128 @@
+@use '../main' as *;
+@use '../variables/all' as *;
+
+main {
+    padding: 0 var(--horizontal-padding) var(--section-spacing-large) var(--horizontal-padding);
+}
+
+.form-pagination {
+    background-color: clr-primary(200);
+    @include bypass-horizontal-padding;
+    padding-block: 5vw;
+    margin-block: 2em;
+
+    ul {
+        display: flex;
+        gap: 2em;
+        justify-content: space-between;
+        max-width: 1200px;
+        list-style: none;
+        margin-inline: auto;
+        padding-inline: 5%;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+        margin: 0;
+    }
+
+    &__number {
+        $size: 60px;
+        width: $size;
+        color: $text-color-light;
+        font-weight: bold;
+        font-size: fs(800);
+        font-family: $font-family-secondary;
+        line-height: $size;
+        text-align: center;
+        border-radius: 100vh;
+    }
+
+    &__name {
+        text-align: center;
+    }
+
+    &__item--current {
+
+        .form-pagination {
+
+            &__name {
+                color: $clr-secondary;
+                font-weight: bold;
+            }
+
+            &__number {
+                background-color: $clr-secondary;
+            }
+        }
+
+    }
+
+    &__item--next {
+
+        .form-pagination {
+
+            &__number {
+                background-color: clr-primary(700);
+                opacity: 0.6;
+            }
+        }
+
+    }
+}
+
+.fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.horizontal-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em 3em;
+}
+
+.radio-container-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+#birth-municipality {
+    width: 300px;
+}
+
+.submit-btn {
+    margin-top: 4em;
+}
+
+@media screen and (max-width: 800px) {
+
+    .form-pagination {
+
+        &__number {
+            $size: 50px;
+            width: $size;
+            font-size: fs(600);
+            line-height: $size;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .form-pagination {
+
+        ul {
+            flex-direction: column;
+        }
+
+        &__item {
+            flex-direction: row;
+        }
+    }
+}
