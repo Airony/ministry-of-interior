@@ -1,7 +1,6 @@
 @use '../variables/all' as *;
 
 .radio-button {
-    display: flex;
     align-items: center;
     margin-bottom: 1em;
 
@@ -40,8 +39,6 @@
     }
 
     label {
-        margin-bottom: 0;
-        margin-left: 0.75em;
         font-weight: normal;
         font-size: fs(400);
 

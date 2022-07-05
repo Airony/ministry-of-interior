@@ -101,7 +101,7 @@ permalink: '/'
         <h2 class='section-title newsletter__section-title'>Stay in Contact</h2>
         <p class='newsletter__body'>Subscribe to our newsletter to receive all latest news and updates.</p>
         <form class="form">
-            <input class="form__email text-input" type="email" placeholder='Enter your email'>
+            <input class="form__email input-field text-input" type="email" placeholder='Enter your email'>
             <input class='form__submit btn-primary btn-large' type="submit" value="Subscribe">
         </form>
     </section>
@@ -129,9 +129,9 @@ permalink: '/'
     <form action="" class="form">
         <div class="grid inputs">
 
-            {{forms.textfield("Name","","inputs__name-input textfield-grow textfield--vertical")}}
-            {{forms.textfield("Email","","inputs__email-input textfield-grow textfield--vertical")}}
-            {{forms.textarea("Message","","inputs__message-input textfield-grow textfield--vertical")}}
+            {{forms.textfield("Name","","inputs__name-input")}}
+            {{forms.textfield("Email","","inputs__email-input")}}
+            {{forms.textarea("Message","","inputs__message-input")}}
         </div>
         <input class='form__submit btn-primary btn-large' type="submit" value="Send Message">
 

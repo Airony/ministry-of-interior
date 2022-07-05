@@ -1,7 +1,19 @@
 @use '../variables/all' as *;
 
-.text-input {
-    display: inline-block;
+.input-field-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 100%;
+
+    &--horizontal {
+        flex-direction: row;
+    }
+}
+
+.input-field {
+
+    max-width: 100%;
     padding: 1em 0.5em;
     color: $text-color-dark;
     font-size: fs-rs(400);
@@ -18,9 +30,12 @@
     }
 }
 
+.text-input {
+    display: inline-block;
+}
+
 label,
 legend {
-    margin-bottom: 15px;
     color: $text-color-dark;
     font-weight: bold;
     font-size: fs(500);
@@ -32,4 +47,8 @@ legend {
     @media screen and (max-width: 300px) {
         font-size: fs(300);
     }
+}
+
+legend {
+    margin-bottom: 1em;
 }

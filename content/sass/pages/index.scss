@@ -296,6 +296,7 @@ section {
                 grid-column: 2 / 3;
 
                 .text-input {
+                    flex-grow: 1;
                     resize: vertical;
                 }
             }
