@@ -30,3 +30,17 @@
         <label for={{id}}>{{label}}</label>
     </div>
 {% endmacro %}
+
+{% macro datePicker(label, name, id, min = '', max = '', value = '', class = '') %}
+    <div class="input-field-container date-picker {{class}}">
+        <label for="{{id}}">{{label}}</label>
+        <input  type="date"
+                id="{{id}}" 
+                name="{{name}}"
+                min="{{min}}"
+                max="{{max}}"
+                value="{{value}}"
+                class="input-field text-input"
+        >
+    </div>
+{% endmacro %}
