@@ -31,7 +31,7 @@
     </div>
 {% endmacro %}
 
-{% macro datePicker(label, name, id, min = '', max = '', value = '', class = '') %}
+{% macro datePicker(label, name, id, min = '', max = '', value = '', class = '', params = '') %}
     <div class="input-field-container date-picker {{class}}">
         <label for="{{id}}">{{label}}</label>
         <input  type="date"
@@ -41,6 +41,7 @@
                 max="{{max}}"
                 value="{{value}}"
                 class="input-field text-input"
+                {{params}}
         >
     </div>
 {% endmacro %}
