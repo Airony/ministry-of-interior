@@ -8,9 +8,8 @@ const outputDir = process.env.OUTPUT_DIR || "build";
 
 module.exports = (config) => {
     config.addPassthroughCopy(`${inputDir}/assets`);
-    config.addPassthroughCopy(`${inputDir}/scripts`);
     config.setBrowserSyncConfig({
-        files: `./${outputDir}/css/**/*.css`,
+        files: [`${outputDir}/css/**/*.css`, `${outputDir}/scripts/**/*.js`],
         reloadDelay: 200,
     });
 

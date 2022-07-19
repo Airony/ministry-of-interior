@@ -38,6 +38,9 @@
     },
     "devDependencies": {
         "@11ty/eleventy": "^1.0.1",
+        "browserify": "^17.0.0",
+        "event-stream": "^4.0.1",
+        "glob": "^8.0.3",
         "gulp": "^4.0.2",
         "gulp-dependents": "^1.2.5",
         "gulp-filter": "^7.0.0",
@@ -52,6 +55,9 @@
         "stylelint-config-standard-scss": "^3.0.0",
         "stylelint-group-selectors": "^1.0.8",
         "stylelint-order": "^5.0.0",
-        "through2": "^4.0.2"
+        "through2": "^4.0.2",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0",
+        "watchify": "^4.0.0"
     }
 }

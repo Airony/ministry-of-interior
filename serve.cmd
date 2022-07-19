@@ -8,5 +8,5 @@ if exist "%~dp0build\" rmdir /s /q "%~dp0build\"
 
 if not exist "_cache" mkdir "%~dp0_cache"
 setlocal
-    set ELEVENTY_SERVE=true & CMD /C npm start
+    set ELEVENTY_SERVE=true& set NODE_ENV=dev& CMD /C npm start
 endlocal
