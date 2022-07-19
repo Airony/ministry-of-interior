@@ -1,3 +1,5 @@
+const { convertToSlug } = require("./_helper.js");
+
 const STATE_MUNICIPALITIES = {
     algiers: ["ALGER CENTRE", "EL MADANIA", "BAB EL OUED"],
     oran: ["GDYEL", "BIR EL DJIR", "ES SENIA"],
@@ -47,10 +49,4 @@ function addOption(input, option) {
     optionEle.value = convertToSlug(option);
     optionEle.textContent = option;
     input.append(optionEle);
-}
-
-function convertToSlug(Text) {
-    return Text.toLowerCase()
-        .replace(/[^\w ]+/g, "")
-        .replace(/ +/g, "-");
 }
