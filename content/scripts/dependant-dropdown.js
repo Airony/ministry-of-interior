@@ -1,11 +1,11 @@
-const { convertToSlug } = require("./_helper.js");
+const { dispatchEvent, convertToSlug } = require("./_helper");
 
 const STATE_MUNICIPALITIES = {
     algiers: ["ALGER CENTRE", "EL MADANIA", "BAB EL OUED"],
     oran: ["GDYEL", "BIR EL DJIR", "ES SENIA"],
     constantine: ["HAMMA BOUZIANE", "DIDOUCHE MOURAD", "ZIGHOUD YOUCEF"],
 }; // This is just an example, should probably use a json file to handle this.
-//
+
 window.addEventListener("load", (event) => {
     const dependantInputs = document.querySelectorAll(
         "[data-dropdown-dependant-on]"
@@ -31,11 +31,12 @@ function updateOptions(input, newOptions) {
     const currentOptions = Array.from(input.children).filter((child) => {
         return child.nodeName === "OPTION";
     });
-    currentOptions.forEach((option, index) => {
-        if (!option.hasAttribute("hidden")) {
+    currentOptions.forEach((option) => {
+        if (!option.hasAttribute("placeholder")) {
+            input.selectedIndex = 0;
+            dispatchEvent(input, "change");
+
             option.remove();
-        } else {
-            option.selected = true;
         }
     });
 
