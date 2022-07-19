@@ -1,7 +1,4 @@
 {%- from 'components/pagination-menu.macro.njk' import paginationMenu %}
-<style>
-    {% include "../../../build/css/layout/posts-pagination.css" %}
-</style>
 <div class="pagination-container">
     {{ paginationMenu(pagination, page, 10, 6) }}
 </div>
