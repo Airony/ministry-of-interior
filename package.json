@@ -45,6 +45,7 @@
         "gulp-dependents": "^1.2.5",
         "gulp-filter": "^7.0.0",
         "gulp-sass": "^5.1.0",
+        "gulp-uglify": "^3.0.2",
         "node-fetch": "^2.6.7",
         "prettier-plugin-nunjucks": "git+https://github.com/justrhysism/prettier-plugin-nunjucks.git",
         "stylelint": "^14.8.5",

@@ -12,6 +12,7 @@ const es = require("event-stream");
 const buffer = require("vinyl-buffer");
 const watchify = require("watchify");
 const browserify = require("browserify");
+const uglify = require("gulp-uglify");
 
 const nodeEnv = process.env["NODE_ENV"] || "build";
 
@@ -78,6 +79,10 @@ function compileJS(cb) {
                     .pipe(source(entry))
                     .pipe(setBase(`${inputPath}/scripts`))
                     .pipe(buffer());
+
+                if (nodeEnv === "build") {
+                    stream = stream.pipe(uglify());
+                }
 
                 return stream
                     .pipe(dest(`${buildPath}/scripts`))
