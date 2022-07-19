@@ -10,6 +10,7 @@
 {% block scripts %}
     {{super()}}
     <script src="/scripts/dependant-dropdown.js"></script>
+    <script src="/scripts/custom-dropdown.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -35,6 +36,7 @@
                 </li>
             </ul>
         </nav>
+
         <p>Please fillout the form below</p>
         <form action="">
             <section>
@@ -74,17 +76,22 @@
                         <div class="horizontal-container">
                             <div class="input-field-container drop-down">
                                 <label for='birth-state'>Birth State</label>
-                                <select class='input-field text-input' name="birth-state" id="birth-state" required>
+                                <select class='input-field text-input' name="birth-state" id="birth-state" required data-custom-dropdown data-custom-dropdown-search >
                                     <option disabled selected hidden value>Select Option</option>
                                     <option value='algiers'>Algiers</option>
-                                    <option value='oran'>Oran</option>
+                                    <option value='oran' disabled>Oran</option>
+                                    <option value='oran'>dupe</option>
+                                    <option value='oran'>anoth</option>
+                                    <option value='oran'>dsad</option>
                                     <option value='constantine'>Constantine</option>
                                 </select>
                             </div>
-                            <div class="input-field-container drop-down">
+                            <div class="input-field-container drop-down" >
                                 <label for='birth-municipality'>Birth Municipality</label>
-                                <select class='input-field text-input' disabled name="birth-municipality" id="birth-municipality" data-dropdown-dependant-on="birth-state" required>
-                                    <option disabled selected hidden value>Select Option</option>
+                                <select class='input-field text-input' name="birth-municipality" id="birth-municipality"  
+                                data-dropdown-dependant-on="birth-state" disabled required  data-custom-dropdown data-custom-dropdown-search
+                                >
+                                    <option  value hidden selected disabled placeholder>Select Option</option>
                                 </select>
                             </div>
                         </div>

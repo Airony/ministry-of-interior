@@ -20,7 +20,38 @@ function convertToSlug(Text) {
         .replace(/ +/g, "-");
 }
 
+function scrollToElementIfNotVisibile(element) {
+    const parent = element.parentNode;
+
+    const parentHeight = parent.offsetHeight;
+    const parentScroll = parent.scrollTop;
+    const elementoffsetTop = element.offsetTop;
+    const elementoffsetBottom = element.offsetTop + element.offsetHeight;
+
+    if (parentScroll > elementoffsetTop) {
+        parent.scrollTop = element.offsetTop;
+    } else if (elementoffsetBottom > parentHeight + parentScroll) {
+        parent.scrollTop = elementoffsetBottom - parentHeight;
+    }
+}
+
+function hasAttributeNotFalse(element, attributeName) {
+    return (
+        element.hasAttribute(attributeName) &&
+        element.getAttribute(attributeName) !== false
+    );
+}
+
+function createElementWithClass(tagName, className) {
+    const element = document.createElement(tagName);
+    element.className = className;
+    return element;
+}
+
 module.exports = {
     dispatchEvent,
     convertToSlug,
+    scrollToElementIfNotVisibile,
+    hasAttributeNotFalse,
+    createElementWithClass,
 };

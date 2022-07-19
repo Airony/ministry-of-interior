@@ -1,0 +1,125 @@
+@use '../variables/all' as *;
+
+.custom-dropdown {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 300px;
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid clr-neutral(600);
+
+        &[disabled] {
+            opacity: 0.5;
+        }
+    }
+
+    &__arrow-icon {
+        width: 30px;
+        font-size: 0; //?
+        transition: transform 200ms ease-in-out;
+        aspect-ratio: 1;
+    }
+
+    &__search-field {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1em;
+        padding-right: 1em;
+
+        // background-color: clr-neutral(200);
+        border: 1px solid clr-neutral(500);
+
+        input {
+            flex-grow: 1;
+            background: none;
+            padding-block: 0.75em;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &:focus-within {
+            outline: 2px solid clr-primary(1000);
+        }
+    }
+
+    &__search-icon {
+        width: 30px;
+        font-size: 0;
+        vertical-align: middle;
+        opacity: 0.5;
+        aspect-ratio: 1;
+    }
+
+    &__search-clear-btn {
+        box-sizing: content-box;
+        height: 20px;
+        padding: 4px;
+        color: $text-color-dark;
+        background-color: clr-neutral(200);
+        border-radius: 100vh;
+        aspect-ratio: 1;
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        max-height: 0;
+        background-color: clr-neutral(100);
+        transform: translateY(100%);
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+        max-height: 200px;
+        overflow-y: auto;
+        list-style: none;
+    }
+
+    &__option {
+        margin: 0;
+        padding: 0.75em 1em .75em 1em;
+        cursor: pointer;
+
+        :is(&:hover,
+            &[aria-selected]):not([disabled]) {
+            color: $text-color-light;
+            background-color: $clr-secondary;
+        }
+
+        &[disabled] {
+            background-color: clr-neutral(300);
+            cursor: not-allowed;
+            opacity: 0.5;
+            pointer-events: all;
+        }
+    }
+}
+
+.custom-dropdown[open] {
+
+    .custom-dropdown {
+
+        &__arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        &__content {
+            z-index: 2;
+            max-height: none;
+            visibility: visible;
+            pointer-events: all;
+            @include shadow-400;
+        }
+    }
+}
