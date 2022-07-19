@@ -3,13 +3,18 @@ const createPaginationItems = require("./custom filters/createPaginationItems");
 const createTOCList = require("./custom filters/createTOCList");
 const formatDate = require("./custom filters/formatDate");
 
+const inputDir = process.env.INPUT_DIR || "content";
+const outputDir = process.env.OUTPUT_DIR || "build";
+
 module.exports = (config) => {
-    //   config.addWatchTarget("./content/assets/");
+    config.addPassthroughCopy(`${inputDir}/assets`);
+    config.addPassthroughCopy(`${inputDir}/scripts`);
     config.setBrowserSyncConfig({
-        files: "./build/css/**/*.css",
+        files: `./${outputDir}/css/**/*.css`,
+        reloadDelay: 200,
     });
-    config.addPassthroughCopy("content/assets");
-    config.addPassthroughCopy("content/scripts");
+
+    config.setUseGitIgnore(false);
 
     config.addFilter("createTOCList", (content) => {
         return createTOCList(content);
@@ -33,8 +38,8 @@ module.exports = (config) => {
 
     return {
         dir: {
-            input: "content",
-            output: `build`,
+            input: inputDir,
+            output: outputDir,
         },
     };
 };

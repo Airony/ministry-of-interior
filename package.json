@@ -4,12 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "watch:sass": "sass  --no-source-map --watch content/sass:build/css",
         "watch:eleventy": "eleventy --serve --quiet --incremental",
-        "build:sass": "sass  --no-source-map content/sass:build/css --quiet",
         "build:eleventy": "eleventy",
-        "start": "npm-run-all build:sass --parallel watch:*",
-        "build": "npm-run-all build:sass build:eleventy"
+        "watch:gulp": " gulp dev",
+        "build:gulp": " gulp build",
+        "start": "npm-run-all --parallel watch:gulp  watch:eleventy",
+        "build": "npm-run-all build:gulp build:eleventy"
     },
     "repository": {
         "type": "git",
@@ -25,6 +25,7 @@
         "autoprefixer": "^10.4.2",
         "axios": "^0.26.1",
         "browser-sync": "^2.27.7",
+        "chalk": "^4.1.2",
         "copyfiles": "^2.4.1",
         "cross-env": "^7.0.3",
         "cssnano": "^5.0.17",
@@ -37,6 +38,10 @@
     },
     "devDependencies": {
         "@11ty/eleventy": "^1.0.1",
+        "gulp": "^4.0.2",
+        "gulp-dependents": "^1.2.5",
+        "gulp-filter": "^7.0.0",
+        "gulp-sass": "^5.1.0",
         "node-fetch": "^2.6.7",
         "prettier-plugin-nunjucks": "git+https://github.com/justrhysism/prettier-plugin-nunjucks.git",
         "stylelint": "^14.8.5",
@@ -46,6 +51,7 @@
         "stylelint-config-recommended-scss": "^6.0.0",
         "stylelint-config-standard-scss": "^3.0.0",
         "stylelint-group-selectors": "^1.0.8",
-        "stylelint-order": "^5.0.0"
+        "stylelint-order": "^5.0.0",
+        "through2": "^4.0.2"
     }
 }
