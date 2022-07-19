@@ -1,6 +1,5 @@
 function dispatchEvent(element, eventName) {
     let event;
-    console.log("dispatching event");
     if (document.createEvent) {
         event = document.createEvent("HTMLEvents");
         event.initEvent(eventName, true, true);

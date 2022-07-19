@@ -278,7 +278,6 @@ class CustomDropDown {
     }
 
     observeSelect() {
-        console.log("wtf");
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (
