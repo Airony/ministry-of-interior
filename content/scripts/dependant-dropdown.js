@@ -3,7 +3,7 @@ const STATE_MUNICIPALITIES = {
     oran: ["GDYEL", "BIR EL DJIR", "ES SENIA"],
     constantine: ["HAMMA BOUZIANE", "DIDOUCHE MOURAD", "ZIGHOUD YOUCEF"],
 }; // This is just an example, should probably use a json file to handle this.
-
+//
 window.addEventListener("load", (event) => {
     const dependantInputs = document.querySelectorAll(
         "[data-dropdown-dependant-on]"
@@ -27,7 +27,7 @@ window.addEventListener("load", (event) => {
 
 function updateOptions(input, newOptions) {
     const currentOptions = Array.from(input.children).filter((child) => {
-        child.nodeType === "OPTION";
+        return child.nodeName === "OPTION";
     });
     currentOptions.forEach((option, index) => {
         if (!option.hasAttribute("hidden")) {
