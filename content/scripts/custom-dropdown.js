@@ -1,9 +1,9 @@
-const {
+import {
     dispatchEvent,
     scrollToElementIfNotVisibile,
     hasAttributeNotFalse,
     createElementWithClass,
-} = require("./_helper");
+} from "./_helper";
 
 // Create a custom drop down to wrap a select element
 // Inorder to enable, add attribute 'data-custom-dropdown' to select element.

@@ -1,4 +1,4 @@
-const { dispatchEvent, convertToSlug } = require("./_helper");
+import { dispatchEvent, convertToSlug } from "./_helper";
 
 const STATE_MUNICIPALITIES = {
     algiers: ["ALGER CENTRE", "EL MADANIA", "BAB EL OUED"],

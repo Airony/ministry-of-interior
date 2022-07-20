@@ -47,7 +47,7 @@ function createElementWithClass(tagName, className) {
     return element;
 }
 
-module.exports = {
+export default {
     dispatchEvent,
     convertToSlug,
     scrollToElementIfNotVisibile,
