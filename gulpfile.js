@@ -13,6 +13,7 @@ const buffer = require("vinyl-buffer");
 const watchify = require("watchify");
 const browserify = require("browserify");
 const uglify = require("gulp-uglify");
+const sourcemaps = require("gulp-sourcemaps");
 
 const nodeEnv = process.env["NODE_ENV"] || "build";
 
@@ -66,6 +67,7 @@ function compileJS(cb) {
 
             const rebundle = () => {
                 let stream = b
+                    .transform("babelify", { presets: ["@babel/env"] })
                     .bundle()
                     .on("error", function (err) {
                         console.log(
@@ -78,13 +80,15 @@ function compileJS(cb) {
                     })
                     .pipe(source(entry))
                     .pipe(setBase(`${inputPath}/scripts`))
-                    .pipe(buffer());
+                    .pipe(buffer())
+                    .pipe(sourcemaps.init({ loadMaps: true }));
 
                 if (nodeEnv === "build") {
                     stream = stream.pipe(uglify());
                 }
 
                 return stream
+                    .pipe(sourcemaps.write("./"))
                     .pipe(dest(`${buildPath}/scripts`))
                     .pipe(printSuccess("JS"));
             };

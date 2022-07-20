@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "browserslist": "> 0.25%, not dead",
     "scripts": {
         "watch:eleventy": "eleventy --serve --quiet --incremental",
         "build:eleventy": "eleventy",
@@ -38,6 +39,9 @@
     },
     "devDependencies": {
         "@11ty/eleventy": "^1.0.1",
+        "@babel/core": "^7.18.9",
+        "@babel/preset-env": "^7.18.9",
+        "babelify": "^10.0.0",
         "browserify": "^17.0.0",
         "event-stream": "^4.0.1",
         "glob": "^8.0.3",
@@ -45,6 +49,7 @@
         "gulp-dependents": "^1.2.5",
         "gulp-filter": "^7.0.0",
         "gulp-sass": "^5.1.0",
+        "gulp-sourcemaps": "^3.0.0",
         "gulp-uglify": "^3.0.2",
         "node-fetch": "^2.6.7",
         "prettier-plugin-nunjucks": "git+https://github.com/justrhysism/prettier-plugin-nunjucks.git",
