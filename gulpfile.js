@@ -14,6 +14,8 @@ const watchify = require("watchify");
 const browserify = require("browserify");
 const uglify = require("gulp-uglify");
 const sourcemaps = require("gulp-sourcemaps");
+const autoprefixer = require("gulp-autoprefixer");
+const cleanCss = require("gulp-clean-css");
 
 const nodeEnv = process.env["NODE_ENV"] || "build";
 
@@ -29,7 +31,7 @@ const globs = {
 function compileSass() {
     const basePath = `${inputPath}/sass`;
 
-    return src(globs.sass, {
+    let stream = src(globs.sass, {
         since: lastRun(compileSass),
         base: basePath,
     })
@@ -44,9 +46,17 @@ function compileSass() {
                 );
                 sass.logError.call(this, err);
             })
-        )
-        .pipe(dest(`./${buildPath}/css`))
-        .pipe(printSuccess("SASS"));
+        );
+
+    if (nodeEnv === "build") {
+        stream = stream
+            .pipe(sourcemaps.init())
+            .pipe(autoprefixer())
+            .pipe(cleanCss())
+            .pipe(sourcemaps.write(`./`));
+    }
+
+    return stream.pipe(dest(`./${buildPath}/css`)).pipe(printSuccess("SASS"));
 }
 
 function watchSass() {
