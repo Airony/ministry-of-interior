@@ -1,5 +1,6 @@
-{% macro searchBar(placeholder = 'Search', class = '') %}
-    <div class="search-bar {{class}}" id='search-bar'>
+{% macro searchBar(placeholder = 'Search', class = '', id = '') %}
+    <div class="search-bar {{class}}"
+    {{"id=" + id if id }}>
         <input
           type="text"
           name="Search Term"
