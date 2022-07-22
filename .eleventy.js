@@ -2,6 +2,9 @@ require("dotenv").config();
 const createPaginationItems = require("./custom filters/createPaginationItems");
 const createTOCList = require("./custom filters/createTOCList");
 const formatDate = require("./custom filters/formatDate");
+const htmlmin = require("html-minifier");
+
+const nodeEnv = process.env["NODE_ENV"] || "build";
 
 const inputDir = process.env.INPUT_DIR || "content";
 const outputDir = process.env.OUTPUT_DIR || "build";
@@ -34,6 +37,20 @@ module.exports = (config) => {
             return item.categories.includes("News");
         });
     });
+
+    if (nodeEnv === "build") {
+        config.addTransform("htmlmin", function (content, outputPath) {
+            if (outputPath && outputPath.endsWith(".html")) {
+                let minified = htmlmin.minify(content, {
+                    useShortDoctype: true,
+                    removeComments: true,
+                    collapseWhitespace: true,
+                });
+                return minified;
+            }
+            return content;
+        });
+    }
 
     return {
         dir: {
