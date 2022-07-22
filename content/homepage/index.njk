@@ -16,50 +16,52 @@ permalink: '/'
 {% endblock %}
 
 {% block content %}
-    <body>
-        <section class='hero'>
-            <h1 class='hero__title'>Welcome to the Algerien Ministry of Interior</h1>
-            <img src="./assets/img/hero-img-320.png" alt="" class="hero__img" srcset="./assets/img/hero-img-320.png 400w,
+    <section class='hero'>
+        <h1 class='hero__title'>Welcome to the Algerien Ministry of Interior</h1>
+        <img src="./assets/img/hero-img-320.png" alt="" class="hero__img" srcset="./assets/img/hero-img-320.png 400w,
             ./assets/img/hero-img-1000.png 1000w,
                     ./assets/img/hero-img-1440.png 1440w,
                     ./assets/img/hero-img-1920.png 1920w">
 
-        </section>
-        <section class="actions">
-            <h2 class='section-title actions__section-title'>Common Resources</h2>
-            <div class="grid actions-grid">
-                {%- for action in homepage.actions %}
-                    <a class='card action' href={{action.link}}>
-                        <svg class='icon action__icon'>
-                            <use href="./assets/icons/sprite.svg#{{action.icon}}"></use>
-                        </svg>
-                        <h3 class="card-title action__title">{{action.title}}</h3>
-                    </a>
-                {% endfor -%}
-            </div>
-        </section>
-        <section class="articles">
-            <h2 class='section-title articles__section-title'>Latest News</h2>
-            <div class="grid articles-grid">
-                {%- for newsArticle in collections.news.slice(0,4) %}
+    </section>
 
-                    {% set title = newsArticle.title %}
-                    {% set date = newsArticle.date | formatDate("DD/MM/YY") %}
-                    {% set img = newsArticle.featured_img_url %}
-                    {% set body = newsArticle.preview %}
-                    {{ article(title, img, date, body , class = ('article--main' if loop.first else 'article'))}}
+    <section class="actions">
+        <h2 class='section-title actions__section-title'>Common Resources</h2>
+        <div class="grid actions-grid">
+            {%- for action in homepage.actions %}
+                <a class='card action' href="#">
+                    <svg class='icon action__icon'>
+                        <use href="./assets/icons/sprite.svg#{{action.icon}}"></use>
+                    </svg>
+                    <h3 class="card-title action__title">{{action.title}}</h3>
+                </a>
+            {% endfor -%}
+        </div>
+    </section>
 
-                {% endfor -%}
-            </div>
-            <a href="#" class="btn-primary btn-large more-btn">More News</a>
+    <section class="articles">
+        <h2 class='section-title articles__section-title'>Latest News</h2>
+        <div class="grid articles-grid">
+            {%- for newsArticle in collections.news.slice(0,4) %}
 
-        </section>
-        <div class="guides-bg">
-            <section class="guides">
-                <h2 class='section-title guides__section-title'>Useful Guides</h2>
-                <div class="guides-list">
-                    {%- for guide in featuredGuides %}
-                        <a href="/{{guide.link}}" class="card guide"></span>
+                {% set title = newsArticle.title %}
+                {% set date = newsArticle.date | formatDate("DD/MM/YY") %}
+                {% set img = newsArticle.featured_img_url %}
+                {% set body = newsArticle.preview %}
+                {{ article(title, img, date, body , class = ('article--main' if loop.first else 'article'))}}
+
+            {% endfor -%}
+        </div>
+        <a href="#" class="btn-primary btn-large more-btn">More News</a>
+    </section>
+
+    <div class="guides-bg">
+        <section class="guides">
+            <h2 class='section-title guides__section-title'>Useful Guides</h2>
+            <div class="guides-list">
+
+                {%- for guide in featuredGuides %}
+                    <a href="/{{guide.link}}" class="card guide">
                         <img class='guide__img' src='{{guide.featured_img_url}}' alt="" srcset="">
                         <div class="guide__img-overlay"></div>
                         <div class="guide__content">
@@ -71,71 +73,70 @@ permalink: '/'
                         </div>
                     </a>
                 {% endfor -%}
+
             </div>
             <a href="#" class="btn-primary btn-large more-btn">More Guides</a>
         </section>
     </div>
+
     <section class="ministry">
         <h2 class='section-title ministry__section-title'>The Ministry and It's Duties</h2>
         <div class="content">
-
             <div class="container">
                 <p class='container__body'>Why are you lin kthat in commodo ultrices euismod. Lobortis imperdiet diam,
-                    tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In
-                    euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor.
-                    Arcu, quam enim leo nascetur.</p>
+                tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In
+                euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor.
+                Arcu, quam enim leo nascetur.</p>
                 <img class='container__img' src="./assets/img/ministry-img.png" alt="">
             </div>
+
             <div class="container">
                 <p class='container__body'>Neque euismod nec fusce in commodo ultrices euismod. Lobortis imperdiet diam,
-                    tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In
-                    euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor.
-                    Arcu, quam enim leo nascetur.</p>
+                tortor adipiscing tortor vitae odio sit lacus. Viverra dui ultrices etiam lobortis molestie. In
+                euismod volutpat ornare tincidunt porttitor bibendum. Malesuada est ut suspendisse urna arcu tempor.
+                Arcu, quam enim leo nascetur.</p>
                 <img class='container__img' src="./assets/img/ministry-img.png" alt="" srcset="">
             </div>
         </div>
     </section>
-</div>
-<div class="newsletter-bg">
-    <section class="newsletter">
-        <h2 class='section-title newsletter__section-title'>Stay in Contact</h2>
-        <p class='newsletter__body'>Subscribe to our newsletter to receive all latest news and updates.</p>
-        <form class="form">
-            <input class="form__email input-field text-input" type="email" placeholder='Enter your email'>
-            <input class='form__submit btn-primary btn-large' type="submit" value="Subscribe">
-        </form>
-    </section>
-</div>
-<div class="files-bg">
-    <section class="files">
-        <h2 class='section-title files__section-title'>Files</h2>
-        <div class="grid files-grid">
 
-            {% for file in files.slice(0, 4) %}
-                <a class="card file" href={{file.link}}>
-                    <img class="file__img" src={{file.featured_img_url}} alt="">
-                    <div class="container">
-                        <h6 class="card-title file__title">{{file.title | truncate (90)}}</h6>
-                    </div>
-                </a>
-            {% endfor %}
+    <div class="newsletter-bg">
+        <section class="newsletter">
+            <h2 class='section-title newsletter__section-title'>Stay in Contact</h2>
+            <p class='newsletter__body'>Subscribe to our newsletter to receive all latest news and updates.</p>
+            <form class="form">
+                <input class="form__email input-field text-input" type="email" placeholder='Enter your email'>
+                <input class='form__submit btn-primary btn-large' type="submit" value="Subscribe">
+            </form>
+        </section>
+    </div>
 
-        </div>
-    </section>
-</div>
+    <div class="files-bg">
+        <section class="files">
+            <h2 class='section-title files__section-title'>Files</h2>
+            <div class="grid files-grid">
+                {% for file in files.slice(0, 4) %}
+                    <a class="card file" href={{file.link}}>
+                        <img class="file__img" src={{file.featured_img_url}} alt="">
+                        <div class="container">
+                            <h6 class="card-title file__title">{{file.title | truncate (90)}}</h6>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
 
-<section class="send-message">
-    <h2 class='section-title send-message__section-title'>Send Us a Message</h2>
-    <form action="" class="form">
-        <div class="grid inputs">
-
-            {{forms.textfield("Name","","inputs__name-input")}}
-            {{forms.textfield("Email","","inputs__email-input")}}
-            {{forms.textarea("Message","","inputs__message-input")}}
+    <section class="send-message">
+        <h2 class='section-title send-message__section-title'>Send Us a Message</h2>
+        <form action="" class="form">
+            <div class="grid inputs">
+                {{forms.textfield("Name","","inputs__name-input")}}
+                {{forms.textfield("Email","","inputs__email-input")}}
+                {{forms.textarea("Message","","inputs__message-input")}}
+            </div>
         </div>
         <input class='form__submit btn-primary btn-large' type="submit" value="Send Message">
-
     </form>
 </section>
-</body>
 {% endblock %}

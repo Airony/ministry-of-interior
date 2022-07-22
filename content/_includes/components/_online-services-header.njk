@@ -28,9 +28,9 @@
             <a href="#" class='btn-primary btn-small os-main-header__login-btn'>Account Login</a>
             {{searchBarToggle('os-main-header__search-bar-container')}}
             <button class="hamburger" aria-controls='os-main-nav' aria-expanded='false' data-modal-btn='true'>
-                <div class="icon hamburger__icon" >
+                <i class="icon hamburger__icon" >
                     {% include "../../assets/icons/hamburger.svg" %}
-                </div>
+                </i>
             </button>
 
             <div class="os-main-header__search-bar-container" id="os-main-header__search-bar-container">
@@ -40,9 +40,9 @@
     </div>
     <nav class="os-main-nav" data-modal='true' data-prevent-scroll='true' id='os-main-nav'>
         <button class="os-main-nav__close-btn" aria-controls='os-main-nav' aria-expanded='false' data-modal-btn='true'>
-            <div class="icon">
+            <i class="icon">
                 {% include "../../assets/icons/close.svg" %}
-            </div>
+            </i>
         </button>
         {% set menuCount = 1%}
         {%- for item in svnavigation %}
@@ -50,9 +50,9 @@
                 {% if item.expandable %}
                     <button class="os-main-nav__btn" aria-controls='nav-menu-{{menuCount}}' aria-expanded='false' data-expand-btn="true">
                         {{item.label}}
-                        <div class="icon icon-small os-main-nav__icon" >
+                        <i class="icon icon-small os-main-nav__icon" >
                             {% include "../../assets/icons/dropdown.svg" %}
-                        </div>
+                        </i>
 
                     </button>
 

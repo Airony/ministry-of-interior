@@ -33,9 +33,9 @@
     <nav class="main-nav" id='main-nav' data-modal='true' data-prevent-scroll='true'>
 
         <button class="main-nav__close-btn" aria-controls="main-nav" aria-expanded='false' data-modal-btn='true'>
-            <div class="icon icon-small">
+            <i class="icon icon-small">
                 {% include "../../assets/icons/close.svg" %}
-            </div>
+            </i>
         </button>
         {% set menuCount = 1%}
         {%- for item in navigation %}
@@ -43,9 +43,9 @@
                 {% if item.expandable %}
                     <button class="main-nav__btn" aria-controls='nav-menu-{{menuCount}}' aria-expanded='false' data-expand-btn="true">
                         {{item.label}}
-                        <div class="icon icon-small main-nav__icon" >
+                        <i class="icon icon-small main-nav__icon" >
                             {% include "../../assets/icons/dropdown.svg" %}
-                        </div>
+                        </i>
                     </button>
 
                     <div class="nav-link-menu" id="nav-menu-{{menuCount}}" data-collapse-outside='true'>
@@ -82,8 +82,8 @@
     </div>
     {{searchBarToggle('main-header__search-bar-container')}}
     <button class="hamburger" aria-controls='main-nav' aria-expanded='false' data-modal-btn='true'>
-        <div class="icon hamburger__icon" >
+        <i class="icon hamburger__icon" >
             {% include "../../assets/icons/hamburger.svg" %}
-        </div>
+        </i>
     </button>
 </header>
