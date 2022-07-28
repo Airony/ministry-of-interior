@@ -35,7 +35,7 @@ $_background-clr-trans-dur : 150ms;
         display: flex;
         flex-direction: column;
         gap: 0.75em;
-        justify-content: space-between;
+        justify-content: center;
         height: 100%;
         padding: 1.35em 1.25em 2em 1.25em;
     }
@@ -137,6 +137,10 @@ $_background-clr-trans-dur : 150ms;
 
 @mixin no-hover-style {
     aspect-ratio: unset;
+
+    &__content {
+        justify-content: space-between;
+    }
 
     &__number {
         display: initial;
