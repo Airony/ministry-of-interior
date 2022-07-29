@@ -1,7 +1,6 @@
 @use '../main.scss' as *;
 
 .procedures {
-    padding: var(--section-spacing-large) var(--horizontal-padding);
 
     &__no-result {
         display: none;
@@ -10,11 +9,9 @@
 }
 
 .filter {
-    margin-top: 4em;
-    margin-bottom: 4em;
-    padding: 2em 4em 2em 2em;
+    margin: space-rs(800) -2em;
+    padding: space-rs(600);
     background-color: clr-primary(200);
-    margin-inline: -2em;
 
     .text-input {
         width: clamp(min(300px, 100%), 40%, 700px);
@@ -23,15 +20,15 @@
 
 .procedures-list {
     @include grid-center;
-    @include grid-preferred-columns(3, 260px, 2.5em, 2.5em)
+    @include grid-preferred-columns(3, 260px, space-rs(600), space-rs(600))
 }
 
 .procedure-card {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: space(400);
     align-items: center;
-    padding: 1.25em 1em;
+    padding: space(500);
     font-size: fs(400);
     transition: transform 200ms ease-in;
 
@@ -42,7 +39,7 @@
     }
 
     &__title {
-        margin-bottom: .5em;
+        margin-block: 0 .5em;
         font-size: fs(500);
     }
 

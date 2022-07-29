@@ -22,21 +22,21 @@
 {% endblock %}
 
 {% block content %}
-    <div class="guide-info">
-        <div class="guide-info__container">
-            <h1 class="guide-info__title">
-                {{guide.title}}
-            </h1>
-            <span class="guide-info__date">{{guide.date | formatDate}}</span>
+    <div class="guide">
+        <div class="guide-info">
+            <div class="guide-info__container">
+                <h1 class="guide-info__title">
+                    {{guide.title}}
+                </h1>
+                <span class="guide-info__date">{{guide.date | formatDate}}</span>
+            </div>
+            <div class="guide-info__img-container">
+                <img src="{{ guide.featured_img_url }}" alt="" class="guide-info__img">
+                <div class="guide-info__img-overlay"></div>
+            </div>
         </div>
-        <div class="guide-info__img-container">
-            <img src="{{ guide.featured_img_url }}" alt="" class="guide-info__img">
-            <div class="guide-info__img-overlay"></div>
-        </div>
-    </div>
-    <section class="guide">
-        <main class="guide__content">
+        <main class="guide__content  page-content-container">
             {{guide.content_rendered | safe}}
         </main>
-    </section>
+    </div>
 {% endblock %}

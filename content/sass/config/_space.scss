@@ -1,0 +1,50 @@
+@use '../variables/all' as *;
+@use 'sass:map';
+
+:root {
+
+    @each $key,
+    $size in $space-sizes {
+        --space-responsive-#{$key}: #{$size};
+    }
+
+    --horizontal-padding: max(16px, 6vw);
+    --section-spacing: clamp(50px, 8vh, 100px);
+    --section-spacing-large: clamp(70px, 14vh, 140px);
+    --section-spacing-small: clamp(20px, 4vh, 40px);
+}
+
+@media screen and (max-width: 1100px) {
+
+    :root {
+        --section-spacing-large: clamp(70px, 10vh, 140px);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    :root {
+
+        @each $key,
+        $size in $space-sizes {
+            --space-responsive-#{$key}: #{map.get($space-sizes, $key - 100)};
+        }
+    }
+}
+
+$section-space-sizes : ('small':600, 'medium':700, 'large':900);
+
+@each $key,
+$size in $section-space-sizes {
+    .section-space-#{$key} {
+        padding-block: space-rs($size)
+    }
+
+    .section-space-top-#{$key} {
+        padding-top: space-rs($size)
+    }
+
+    .section-space-bottom-#{$key} {
+        padding-bottom: space-rs($size)
+    }
+}

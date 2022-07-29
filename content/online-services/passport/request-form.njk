@@ -18,8 +18,8 @@
 {% endblock %}
 
 {% block content %}
-    <main>
-        <h1>New Passport Request</h1>
+    <main class="page-content-container">
+        <h1 class='section-title'>New Passport Request</h1>
         <nav class="form-pagination">
             <ul>
                 <li class="form-pagination__item form-pagination__item--current">
@@ -43,16 +43,16 @@
 
         <p>Please fillout the form below</p>
         <form action="">
-            <section>
-                <h2>General Information</h2>
+            <section class='section-space-top-medium'>
+                <h2 class='section-title'>General Information</h2>
                 <div class="fields-container">
                     <div class="horizontal-container">
-                        {{forms.textfield('First Name',size=20,params='required')}}
-                        {{forms.textfield('First Name (Arabic)',size=20,params='required')}}
+                        {{forms.textfield('First Name',size=30,params='required')}}
+                        {{forms.textfield('First Name (Arabic)',size=30,params='required')}}
                     </div>
                     <div class="horizontal-container">
-                        {{forms.textfield('Last Name',size=20,params='required')}}
-                        {{forms.textfield('Last Name (Arabic)',size=20,params='required')}}
+                        {{forms.textfield('Last Name',size=30,params='required')}}
+                        {{forms.textfield('Last Name (Arabic)',size=30,params='required')}}
                     </div>
                     <fieldset>
                         <legend>Gender</legend>
@@ -69,8 +69,8 @@
                         {{forms.radioButton('Widowed','social-status','widowed','widowed','input-field-container--horizontal',params='required')}}
                     </fieldset>
                 </div>
-                <section>
-                    <h2>Birth</h2>
+                <section class='section-space-top-medium'>
+                    <h2 class='section-title'>Birth</h2>
                     <div class="fields-container">
                         {{forms.datePicker('Date of Birth','date-of-birth','date-of-birth','1949-01-01','2022-07-05',params='required')}}
                         <div class="horizontal-container">

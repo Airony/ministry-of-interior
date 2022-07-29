@@ -5,7 +5,7 @@
 @include remove-heading-top-margins;
 
 section {
-    padding: var(--section-spacing) var(--horizontal-padding);
+    padding-inline: var(--horizontal-padding);
 }
 
 // MARK: Hero
@@ -37,13 +37,9 @@ section {
     display: grid;
 }
 
-.actions {
-    padding-block: var(--section-spacing-large) var(--section-spacing);
-}
-
 .actions-grid {
     width: 100%;
-    @include grid-preferred-columns(5, 200px, $space-hori-xs, $space-hori-xs)
+    @include grid-preferred-columns(5, 200px, space-rs(600), space-rs(600))
 }
 
 .action {
@@ -52,13 +48,10 @@ section {
     align-items: center;
     padding: 1.25em 1em;
     color: clr-primary(800);
-
     font-size: fs(400);
 
     &__icon {
-        width: 3em;
-        min-width: 70px;
-        max-width: 120px;
+        width: 70px;
         color: inherit;
         aspect-ratio: 1;
     }
@@ -84,14 +77,9 @@ section {
 
 // MARK: Articles
 
-.articles {
-    padding-block: var(--section-spacing);
-}
-
 .articles-grid {
-    grid-template-columns: [main-start] repeat(3, minmax(1px, 1fr)) [main-end];
-    column-gap: $space-hori-s;
-    row-gap: $space-vert-s;
+    grid-template-columns: [main-start] repeat(3, 1fr) [main-end];
+    gap: space-rs(700)
 }
 
 .article {
@@ -109,7 +97,7 @@ section {
 .more-btn {
     display: block;
     width: fit-content;
-    margin-top: 2em;
+    margin-top: space-rs(600);
     margin-left: auto;
 }
 
@@ -120,7 +108,6 @@ section {
 }
 
 .guides {
-    padding: var(--section-spacing-large) var(--horizontal-padding);
 
     .section-title {
         margin-bottom: 1.5em;
@@ -143,12 +130,11 @@ section {
 // MARK: Ministry
 
 .ministry {
-    padding-bottom: var(--section-spacing-large);
 
     .content {
         display: flex;
         flex-direction: column;
-        row-gap: 60px;
+        row-gap: space-rs(900);
     }
 
     .container {
@@ -156,8 +142,8 @@ section {
 
         flex-wrap: wrap;
         width: 100%;
-        column-gap: $space-hori-xs;
-        row-gap: 1em;
+        column-gap: space-rs(400);
+        row-gap: space-rs(400);
 
         &:last-child {
             flex-direction: row-reverse;
@@ -198,7 +184,6 @@ section {
     flex-direction: column;
     align-items: center;
     color: $text-color-light;
-    padding-block: var(--section-spacing-large);
 
     &__section-title,
     &__body {
@@ -239,7 +224,7 @@ section {
 .files-grid {
     grid-template-columns: repeat(auto-fill,
             minmax(min(max(350px, 40%), 100%), 1fr));
-    gap: $space-hori-s;
+    gap: space-rs(600);
 }
 
 .file {
@@ -254,12 +239,9 @@ section {
         aspect-ratio: 4.5;
     }
 
-    .container {
-        padding: 1em 0.75em;
-    }
-
     &__title {
         margin: 0;
+        padding: 1em 0.75em;
         font-weight: bold;
         font-size: fs(400);
     }
@@ -282,14 +264,13 @@ section {
 // MARK: Message
 
 .send-message {
-    padding-block: var(--section-spacing-large);
 
     .form {
 
         .inputs {
             grid-template-rows: repeat(2, max-content);
             grid-template-columns: 2fr 3fr;
-            gap: $space-vert-s $space-hori-s;
+            gap: space-rs(700) space-rs(700);
 
             &__message-input {
                 grid-row: 1 / -1;
@@ -314,7 +295,7 @@ section {
         &__submit {
             display: block;
             width: fit-content;
-            margin-top: 2em;
+            margin-top: space-rs(700);
             margin-left: auto;
         }
     }
@@ -353,6 +334,7 @@ section {
 
     .articles-grid {
         grid-template-columns: [main-start] 1fr [main-end];
+        gap: space-vh(300)
     }
 
     .article--main {
@@ -395,7 +377,6 @@ section {
 
     .actions-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
 
     .action {

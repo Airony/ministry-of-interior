@@ -2,14 +2,15 @@
 
 .footer {
     $currentColor: $text-color-light;
-    padding: var(--section-spacing) var(--horizontal-padding);
+    margin-top: space-rs(1100);
+    padding: space-rs(800) var(--horizontal-padding);
     color: $currentColor;
     background: clr-primary(800);
 
     .logo {
         display: flex;
         align-items: center;
-        margin-bottom: 2em;
+        margin-bottom: space(700);
 
         &__img {
             width: clamp(70px, 12vw, 160px);
@@ -21,8 +22,7 @@
         }
 
         &__title {
-            margin-bottom: 0;
-            margin-left: 1em;
+            margin: 0 0 0 1em;
             color: inherit;
             font-weight: normal;
             font-size: fs(700);
@@ -34,22 +34,18 @@
 
     .content-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         font-size: fs(400);
     }
 
-    .info-container {
-        display: flex;
-        flex-direction: column;
+    .info {
+        min-width: min(100%, 300px);
     }
 
     &__address,
     &__phone {
         color: inherit;
-    }
-
-    &__address {
-        margin-bottom: 0.75em;
     }
 
     .links-container {
@@ -58,14 +54,13 @@
         flex-grow: 1;
         align-items: flex-end;
         justify-content: space-between;
-        margin-left: 30px;
     }
 
     &__nav-list {
         display: flex;
-        gap: 1em;
+        gap: space(400);
         align-items: flex-end;
-        margin-bottom: 1.5em;
+        margin-bottom: space(500);
     }
 
     &__nav-item {
@@ -75,7 +70,7 @@
 
     &__social-list {
         display: flex;
-        gap: 0.5em;
+        gap: space(400);
         justify-content: end;
     }
 
@@ -132,11 +127,6 @@
                 margin-left: 0;
                 font-size: fs(600);
             }
-        }
-
-        .content-container {
-            flex-direction: column;
-            gap: clamp(40px, 10vh, 70px);
         }
     }
 }

@@ -42,13 +42,12 @@
     align-items: baseline;
 
     &__item {
-        margin-right: .5em;
         white-space: nowrap;
     }
 
     &__item,
     .lang-select__btn {
-        padding: 0.5em;
+        padding: 12px;
 
         &:hover,
         &:focus {
@@ -72,7 +71,7 @@
     position: relative;
     z-index: 2;
     display: flex;
-    gap: 40px;
+    gap: space(600);
     align-items: baseline;
     width: 100%;
     color: $text-color-light;
@@ -96,10 +95,10 @@
     position: absolute;
     z-index: 2;
     display: none;
-    gap: 2.5em;
+    gap: space(600);
     width: max-content;
     min-width: 100%;
-    padding: 1em 3em 1em 1.25em;
+    padding: space(500) space(700) space(500) space(500);
     color: $text-color-dark;
     font-weight: 400;
     font-size: inherit;
@@ -108,7 +107,7 @@
     @include shadow-400;
 
     &__title {
-        margin-bottom: 0.3em;
+        margin-bottom: space(300);
         color: inherit;
         font-weight: bold;
         font-size: fs(300);
@@ -120,6 +119,7 @@
         color: inherit;
         word-wrap: normal;
         transition: color 200ms ease-in;
+        padding-block: 0.25em;
 
         &:hover {
             color: $clr-secondary;
@@ -129,7 +129,7 @@
     &__list {
         display: flex;
         flex-direction: column;
-        gap: 1em;
+        gap: .75em;
     }
 
     &.menu--expanded {
@@ -213,10 +213,9 @@
     .nav-link-menu {
         position: static;
         flex-wrap: wrap;
-        gap: 0;
+        gap: space(400);
         width: 100%;
-        padding: 0 0 1em 0;
-        padding-left: 1.5em;
+        padding: 0 0 space(500) clamp(16px, 7.5%, 28px);
         font-size: fs(400);
         background-color: unset;
         box-shadow: none;
@@ -226,12 +225,10 @@
         &__list {
             gap: 0;
             width: 100%;
-            padding-bottom: 1em;
         }
 
         &__link {
-            padding: 0.75em;
-            padding-left: 1em;
+            padding: space(400);
 
             @include not-last {
                 border-bottom: 1px solid $border-light-100;
@@ -244,8 +241,7 @@
         }
 
         &__title {
-            margin-bottom: 0;
-            margin-block: 1em;
+            margin-block: space(400);
         }
 
         @include menu-expanded {
@@ -280,11 +276,10 @@
             right: 0;
             bottom: 0;
             left: 0;
-            padding: 1em;
+            padding: space(400);
             background-color: $header-clr;
             border: 1px solid $border-dark-400;
             transform: translateY(100%);
-
             visibility: hidden;
             opacity: 0;
             transition: multiple-transitions($animation-dur, ease-in-out, opacity, visibility);
