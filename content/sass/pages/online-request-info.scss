@@ -24,6 +24,7 @@
 
 .steps {
     flex: 1 1 400px;
+    font-size: fs-rs(400);
 
     &__item {
         display: flex;
@@ -33,6 +34,7 @@
         padding: 1em 2em 1em 1em;
         color: $text-color-light;
         font-weight: bold;
+        font-size: inherit;
         background-color: clr-primary(700);
     }
 
@@ -79,6 +81,7 @@
 }
 
 .faq {
+    font-size: fs-rs(400);
 
     &__list {
         display: flex;
@@ -103,10 +106,9 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        padding: 1.25em .75em;
+        padding: 1.25em 0.5em 1.25em .75em;
         color: $text-color-dark;
         font-weight: bold;
-        font-size: fs-rs(400);
         list-style: none;
         background-color: clr-primary(300);
         border-top-left-radius: 2px;
@@ -117,15 +119,15 @@
             max-width: unset;
             margin: 0;
             color: inherit;
-            font-size: fs-rs(400);
+            font-size: inherit;
         }
     }
 
     &__icon {
         flex-shrink: 0;
-        width: 40px;
-        height: 40px;
-        margin-left: 10px;
+        width: 30px;
+        height: 30px;
+        margin-left: space(300);
         transition: transform 200ms ease-in-out;
     }
 
@@ -157,5 +159,16 @@
 
     .steps {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .steps {
+        font-size: fs(200);
+    }
+
+    .faq {
+        font-size: fs(200);
     }
 }

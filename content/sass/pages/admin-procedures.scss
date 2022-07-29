@@ -9,8 +9,9 @@
 }
 
 .filter {
-    margin: space-rs(800) -2em;
-    padding: space-rs(600);
+    margin-block: space-rs(800);
+    @include bypass-horizontal-padding;
+    padding: space-rs(600) space-rs(600) space-rs(600) var(--horizontal-padding);
     background-color: clr-primary(200);
 
     .text-input {
