@@ -74,3 +74,10 @@ a {
         color: $clr-btn-hover;
     }
 }
+
+@media screen and (max-width: 400px) {
+
+    .btn-large {
+        font-size: fs(300);
+    }
+}
