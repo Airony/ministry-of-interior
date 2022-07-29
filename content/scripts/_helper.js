@@ -1,4 +1,4 @@
-function dispatchEvent(element, eventName) {
+export function dispatchEvent(element, eventName) {
     let event;
     if (document.createEvent) {
         event = document.createEvent("HTMLEvents");
@@ -13,13 +13,13 @@ function dispatchEvent(element, eventName) {
     }
 }
 
-function convertToSlug(Text) {
+export function convertToSlug(Text) {
     return Text.toLowerCase()
         .replace(/[^\w ]+/g, "")
         .replace(/ +/g, "-");
 }
 
-function scrollToElementIfNotVisibile(element) {
+export function scrollToElementIfNotVisibile(element) {
     const parent = element.parentNode;
 
     const parentHeight = parent.offsetHeight;
@@ -34,23 +34,15 @@ function scrollToElementIfNotVisibile(element) {
     }
 }
 
-function hasAttributeNotFalse(element, attributeName) {
+export function hasAttributeNotFalse(element, attributeName) {
     return (
         element.hasAttribute(attributeName) &&
         element.getAttribute(attributeName) !== false
     );
 }
 
-function createElementWithClass(tagName, className) {
+export function createElementWithClass(tagName, className) {
     const element = document.createElement(tagName);
     element.className = className;
     return element;
 }
-
-export default {
-    dispatchEvent,
-    convertToSlug,
-    scrollToElementIfNotVisibile,
-    hasAttributeNotFalse,
-    createElementWithClass,
-};
