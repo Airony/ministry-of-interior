@@ -20,10 +20,6 @@ $post-gap: space-rs(700);
         width: 30%;
         aspect-ratio: 2;
     }
-
-    &__title {
-        font-size: fs(600);
-    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -38,20 +34,5 @@ $post-gap: space-rs(700);
     .post {
         @include post-card-img.horizontal-style--override;
         flex-grow: 1;
-
-        &__title {
-            font-size: fs(500);
-        }
-    }
-
-}
-
-@media screen and (max-width: 500px) {
-
-    .post {
-
-        &__title {
-            font-size: fs(400);
-        }
     }
 }
