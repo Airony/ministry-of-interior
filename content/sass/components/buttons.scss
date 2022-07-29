@@ -19,6 +19,7 @@ a {
 .btn-primary {
     color: white;
     font-family: $font-family-secondary;
+    word-wrap: normal;
     background-color: $clr-secondary;
     border: none;
     border-radius: $border-radius;
