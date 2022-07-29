@@ -37,6 +37,7 @@ function compileSass() {
     })
         .pipe(dependants())
         .pipe(filter(globs.sassPages))
+        .pipe(sourcemaps.init())
         .pipe(
             sass().on("error", function (err) {
                 console.log(
@@ -49,14 +50,13 @@ function compileSass() {
         );
 
     if (nodeEnv === "build") {
-        stream = stream
-            .pipe(sourcemaps.init())
-            .pipe(autoprefixer())
-            .pipe(cleanCss())
-            .pipe(sourcemaps.write(`./`));
+        stream = stream.pipe(autoprefixer()).pipe(cleanCss());
     }
 
-    return stream.pipe(dest(`./${buildPath}/css`)).pipe(printSuccess("SASS"));
+    return stream
+        .pipe(sourcemaps.write(`./`))
+        .pipe(dest(`./${buildPath}/css`))
+        .pipe(printSuccess("SASS"));
 }
 
 function watchSass() {
