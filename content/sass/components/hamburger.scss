@@ -1,7 +1,7 @@
 @use '../variables/all' as *;
 
 .hamburger {
-    padding: .6em;
+    padding: space(300);
 
     &:hover {
         background-color: clr-primary(600);

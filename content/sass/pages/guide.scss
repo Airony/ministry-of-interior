@@ -15,7 +15,7 @@
         justify-content: center;
         width: 100%;
         color: white;
-        padding-block: 4em;
+        padding-block: space-rs(800);
     }
 
     &__title {
@@ -56,7 +56,6 @@
 
 .guide__content {
     max-width: 120ch;
-    padding: var(--section-spacing-large) var(--horizontal-padding);
     margin-inline: auto;
 
     p {

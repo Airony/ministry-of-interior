@@ -1,13 +1,12 @@
 @use '../main.scss' as *;
 
 .online-service {
-    padding: var(--section-spacing-small) var(--horizontal-padding);
 
     .container {
         display: flex;
         align-items: stretch;
-        column-gap: 5%;
-        row-gap: $space-hori-xs;
+        column-gap: 5vw;
+        row-gap: space-rs(800);
     }
 
 }
@@ -60,7 +59,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 2.5rem;
+        gap: space-rs(600);
         list-style: none;
 
         &::before {
@@ -76,17 +75,15 @@
 }
 
 .bottom-begin-request-btn {
-    margin-top: 2.5em;
-
+    margin-top: space-rs(800);
 }
 
 .faq {
-    margin-block: var(--section-spacing-large) var(--section-spacing-large);
 
     &__list {
         display: flex;
         flex-direction: column;
-        gap: 4em;
+        gap: space-rs(600);
     }
 
     &__item {
@@ -106,9 +103,10 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        padding: 1.5em 1em;
+        padding: 1.25em .75em;
         color: $text-color-dark;
         font-weight: bold;
+        font-size: fs-rs(400);
         list-style: none;
         background-color: clr-primary(300);
         border-top-left-radius: 2px;

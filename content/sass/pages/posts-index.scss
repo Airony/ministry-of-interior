@@ -1,10 +1,9 @@
 @use '../main.scss' as *;
 @use '../components/post-card-img.modular.scss' as post-card-img;
 
-$post-gap: 4em;
+$post-gap: space-rs(700);
 
 .index-page {
-    padding: var(--section-spacing-large) var(--horizontal-padding);
 
     &__posts-list {
         display: grid;

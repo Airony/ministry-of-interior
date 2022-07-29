@@ -1,0 +1,53 @@
+@use 'sass:map';
+
+$space-sizes: (
+    100:2px,
+    200:4px,
+    300:8px,
+    400:16px,
+    500:24px,
+    600:32px,
+    700:48px,
+    800:64px,
+    900:96px,
+    1000:128px,
+    1100:192px,
+    1200:256px,
+    1300:516px
+);
+
+$space-vh: (
+    100: clamp(8px, 2vh, 16px),
+    200: clamp(16px, 3vh, 32px),
+    300: clamp(32px, 4vh, 48px),
+    400: clamp(48px, 6vh, 64px)
+);
+
+$space-vw: (
+    100: clamp(8px, 2vw, 16px),
+    200: clamp(16px, 3vw, 32px),
+    300: clamp(32px, 4vw, 48px),
+    400: clamp(48px, 6vw, 64px)
+);
+
+@function space($size) {
+    @return map.get($space-sizes, $size);
+}
+
+@function space-vh($size) {
+    @return map.get($space-vh, $size);
+}
+
+@function space-vw($size) {
+    @return map.get($space-vw, $size);
+}
+
+@function space-rs($size) {
+    @return var(--space-responsive-#{$size});
+}
+
+@mixin bypass-horizontal-padding {
+    width: calc(100% + var(--horizontal-padding) * 2);
+    max-width: none;
+    margin-left: calc(-1 * var(--horizontal-padding));
+}

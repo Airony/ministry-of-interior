@@ -5,7 +5,7 @@
     $pattern-clr-light: clr-primary(800);
 
     width: 100%;
-    padding: 4em;
+    padding: space-rs(1000) var(--horizontal-padding);
     text-align: center;
     background: clr-primary(300);
 
@@ -26,6 +26,7 @@
     background-size: 100px 100px;
 
     &__heading {
+        margin: 0;
         color: $text-color-light;
     }
 
@@ -41,13 +42,12 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    padding: var(--section-spacing-large) var(--horizontal-padding);
     column-gap: 5%;
 
     &__content {
         flex: 9 0 min-content;
         min-width: 0;
-        padding-top: 1em;
+        padding-top: space-rs(700);
 
         & > :first-child {
             margin-top: 0
@@ -80,7 +80,7 @@
     flex: 1 0 30%;
     flex-direction: column;
     min-height: 100vh;
-    padding: 1em 2em 2em 0;
+    padding: space-rs(700) space-rs(600) space-rs(600) 0;
     border-right: 1px solid clr-primary(300);
 
     &__title {
@@ -121,6 +121,8 @@
         flex-direction: column;
 
         &__content {
+            padding-top: 0;
+
             @for $i from 1 through 6 {
                 h#{$i} {
                     font-size: fs-rs(1100 - ($i - 1) * 100);
@@ -133,7 +135,7 @@
         position: static;
         min-width: min(100%, 400px);
         min-height: auto;
-        margin-bottom: clamp(40px, 10vh, 80px);
+        margin-bottom: space(700);
         padding: 2em 1em 4em 1em;
         background-color: clr-primary(200);
         border: none;

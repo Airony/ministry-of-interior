@@ -1,14 +1,9 @@
 @use '../main.scss' as *;
 
-.files {
-    padding: var(--section-spacing-large) var(--horizontal-padding);
-}
-
 .files-list {
     display: flex;
     flex-direction: column;
-    gap: 2em;
-
+    gap: space-rs(600);
 }
 
 .file {
@@ -16,7 +11,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: 5em;
+    min-height: 100px;
     font-size: fs(500);
 
     &__img {

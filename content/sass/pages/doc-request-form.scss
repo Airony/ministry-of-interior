@@ -1,30 +1,25 @@
 @use '../main' as *;
 @use '../variables/all' as *;
 
-main {
-    padding: 0 var(--horizontal-padding) var(--section-spacing-large) var(--horizontal-padding);
-}
-
 .form-pagination {
+    padding: clamp(24px, 5vh, 128px) max(var(--horizontal-padding), 5vw);
     background-color: clr-primary(200);
+    margin-block: space-rs(700);
     @include bypass-horizontal-padding;
-    padding-block: 5vw;
-    margin-block: 2em;
 
     ul {
         display: flex;
-        gap: 2em;
+        gap: space(500);
         justify-content: space-between;
         max-width: 1200px;
         list-style: none;
         margin-inline: auto;
-        padding-inline: 5%;
     }
 
     &__item {
         display: flex;
         flex-direction: column;
-        gap: 1em;
+        gap: space(400);
         align-items: center;
         margin: 0;
     }
@@ -77,19 +72,19 @@ main {
 .fields-container {
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: space-rs(700);
 }
 
 .horizontal-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2em 3em;
+    gap: space(400) space(700);
 }
 
 .radio-container-horizontal {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: space(300) space(400);
 }
 
 #birth-municipality {
@@ -97,7 +92,7 @@ main {
 }
 
 .submit-btn {
-    margin-top: 4em;
+    margin-top: space-rs(800);
 }
 
 @media screen and (max-width: 800px) {

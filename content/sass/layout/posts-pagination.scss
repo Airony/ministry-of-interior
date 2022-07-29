@@ -2,7 +2,7 @@
 @use '../components/pagination-menu.modular.scss' as pagination-menu;
 
 .pagination-container {
-    margin: 4em auto 0 auto;
+    margin: space-rs(900) auto 0 auto;
     font-size: fs(500);
 }
 
